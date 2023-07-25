@@ -4,7 +4,7 @@ Integrantes do grupo
  * Alexander Fábio da Silva - alexanderfabio903@gmai.com
  * João Lucas de Araújo Pereira - jldearujo1@gmail.com
  * Martha Lacerda Emidio da Silva - martinha.lacerda@gmail.com
- * Pedro Vitor Laranjeira Lima Tenório - pedrovlaranjeiragmail.com
+ * Pedro Vitor Laranjeira Lima Tenório - pedrovlaranjeira@gmail.com
 
 Descrição geral do projeto 
   Nosso projeto será de uma livraria Online, onde o usuário entrará visando comprar um livro. A partir da primeira compra, será recomendado livros para o usuário, baseado nos livros que ele comprou. Este programa será ideial para leitores que estão em busca de novos livros.
