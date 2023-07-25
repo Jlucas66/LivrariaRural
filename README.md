@@ -1,7 +1,7 @@
 Livraria Rural
 
 Integrantes do grupo 
- * Alexander Fábio da Silva - alexanderfabio903@gmai.com
+ * Alexander Fábio da Silva - alexanderfabio903@gmail.com
  * João Lucas de Araújo Pereira - jldearujo1@gmail.com
  * Martha Lacerda Emidio da Silva - martinha.lacerda@gmail.com
  * Pedro Vitor Laranjeira Lima Tenório - pedrovlaranjeira@gmail.com
