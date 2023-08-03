@@ -31,6 +31,6 @@ Cronograma de MVPs com seleção de requisitos
 * **MVP3 - Recomendação** - [REQ5]: Implementação do sistema de recomendação e métodos de busca.
 * **MVP4 - Busca** - [REQ8]: Implementação dos métodos de busca.
 * **MVP5 - Relatório e Consulta** - [REQ6, REQ7]:  Implementação do relatório de vendas para o adm, e consulta de histórico para o cliente.
-* **MPV5 - Avaliação** - [REQ9]: Implementação da forma de avaliação dos livros.
-* **MPV5 - Desconto** - [REQ10]: Implementação das regras de desconto da venda.
+* **MPV6 - Avaliação** - [REQ9]: Implementação da forma de avaliação dos livros.
+* **MPV7 - Desconto** - [REQ10]: Implementação das regras de desconto da venda.
 
