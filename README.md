@@ -26,8 +26,11 @@ Requisitos do projeto
 
 Cronograma de MVPs com seleção de requisitos
 
-* **MVP1 - Cadastros** - [REQ1, REQ2, REQ9]: Cadastro básico de todas as entidades.
+* **MVP1 - Cadastros** - [REQ1, REQ2]: Cadastro básico de todas as entidades.
 * **MVP2 - Regras de Venda e Estoque** - [REQ2, REQ3, REQ4]: Implementação das regras para venda dos livros e quantidade no estoque.
-* **MVP3 - Recomendação e Busca** - [REQ5, REQ8]: Implementação do sistema de recomendação e métodos de busca.
-* **MVP4 - Relatório e Consulta** - [REQ6, REQ7]:  Implementação do relatório de vendas para o adm, e consulta de histórico para o cliente.
-* **MPV5 - Avaliação e Desconto** - [REQ9, REQ10]: Implementação das regras de desconto da venda e avaliações dos livros.
+* **MVP3 - Recomendação** - [REQ5]: Implementação do sistema de recomendação e métodos de busca.
+* **MVP4 - Busca** - [REQ8]: Implementação dos métodos de busca.
+* **MVP5 - Relatório e Consulta** - [REQ6, REQ7]:  Implementação do relatório de vendas para o adm, e consulta de histórico para o cliente.
+* **MPV5 - Avaliação** - [REQ9]: Implementação da forma de avaliação dos livros.
+* **MPV5 - Desconto** - [REQ10]: Implementação das regras de desconto da venda.
+
