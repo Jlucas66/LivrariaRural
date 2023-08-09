@@ -45,23 +45,6 @@ public class Venda {
 
     // toString
 
-    private Double valorTotal1 = 0.0; // por que esse atributo?
-
-    private double calcularDesconto(){ // Tirei o static para conseguir usar o atributo da classe
-
-        float descontoPor100 = percentualDeDesconto / 100;
-        double desconto = getValorTotal1() * descontoPor100;
-
-        return desconto;
-    }
-    /*
-    public Double calcularTotal(){
-
-        double valorTotal = getValorTotal1() - calcularDesconto();
-
-        return valorTotal;
-    } */
-
     // Getters
     public Cliente getCliente() {
         return cliente;
@@ -75,16 +58,10 @@ public class Venda {
     public float getPercentualDeDesconto() {
         return percentualDeDesconto;
     }
-    public double getValorTotal1() {        // por que?
-        return valorTotal1;
-    }
 
     // Setters com ou sem validação
-    public void setValorTotal1(double valorTotal1) {        // pq?
-        this.valorTotal1 = valorTotal1;
-    }
     public void setPercentualDeDesconto(float percentualDeDesconto) {
-        if (percentualDeDesconto >= 0 || percentualDeDesconto <= 100) {
+        if (percentualDeDesconto >= 0 && percentualDeDesconto <= 100) {
             this.percentualDeDesconto = percentualDeDesconto;
         }
     }
