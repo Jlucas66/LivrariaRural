@@ -32,7 +32,7 @@ public abstract class Pessoa {
         if (this == o) return true;
         if (!(o instanceof Pessoa)) return false;
         Pessoa pessoa = (Pessoa) o;
-        return this.email.equals(pessoa.email) && this.telefone.equals(pessoa.telefone);
+        return this.email.equals(pessoa.email);
     }
 
     // toString

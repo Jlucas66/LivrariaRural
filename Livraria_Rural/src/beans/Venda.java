@@ -5,10 +5,12 @@ import beans.ItemVenda;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Venda {
 
     // Atributos
+    private long id;
     private Cliente cliente;
     private ArrayList<ItemVenda> itensDaVenda;
     private LocalDateTime data;
@@ -16,20 +18,24 @@ public class Venda {
     private String status;
 
     // Construtores (sem desconto e com desconto)
-    public Venda(Cliente cliente, ArrayList<ItemVenda> itensDaVenda, float percentualDeDesconto) {
-        this.cliente = cliente;
+    public Venda(long id, Cliente cliente, ArrayList<ItemVenda> itensDaVenda, float percentualDeDesconto) {
+        this.setId(id);
+        this.setCliente(cliente);
         this.setItensDaVenda(itensDaVenda);
         this.data = LocalDateTime.now();
         this.setPercentualDeDesconto(percentualDeDesconto);
         this.status = "status inicial";
     }
-    public Venda(Cliente cliente, ArrayList<ItemVenda> itensDaVenda) {
-        this.cliente = cliente;
+    /*
+    public Venda(long id, Cliente cliente, ArrayList<ItemVenda> itensDaVenda) {
+        this.setId(id);
+        this.setCliente(cliente);
         this.setItensDaVenda(itensDaVenda);
         this.data = LocalDateTime.now();
         this.percentualDeDesconto = 0;
         this.status = "status inicial";
     }
+    */
 
     // Metodos
     public double calcularTotal() {
@@ -42,10 +48,20 @@ public class Venda {
     }
 
     // equals
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Venda)) return false;
+        Venda venda = (Venda) o;
+        return id == venda.id;
+    }
 
     // toString
 
     // Getters
+    public long getId() {
+        return id;
+    }
     public Cliente getCliente() {
         return cliente;
     }
@@ -58,8 +74,16 @@ public class Venda {
     public float getPercentualDeDesconto() {
         return percentualDeDesconto;
     }
+    public String getStatus() {
+        return status;
+    }
 
     // Setters com ou sem validação
+    public void setId(long id) {
+        if (id > 0) {
+            this.id = id;
+        }
+    }
     public void setPercentualDeDesconto(float percentualDeDesconto) {
         if (percentualDeDesconto >= 0 && percentualDeDesconto <= 100) {
             this.percentualDeDesconto = percentualDeDesconto;
@@ -78,4 +102,10 @@ public class Venda {
             this.cliente = cliente;
         }
     }
+    public void setStatus(String status) {
+        if (status != null && !status.isEmpty()) {
+            this.status = status;
+        }
+    }
+
 }

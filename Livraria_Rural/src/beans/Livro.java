@@ -3,10 +3,12 @@ package beans;
 import beans.Avaliacao;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Livro {
 
     // Atributos
+    private long id;
     private String titulo;
     private String autor;
     private String genero;
@@ -18,8 +20,9 @@ public class Livro {
     private ArrayList<Avaliacao> avaliacoes;
 
     // Construtor
-    public Livro(String titulo, String autor, String genero, String sinopse,
+    public Livro(long id, String titulo, String autor, String genero, String sinopse,
                  String editora, String edicao, Double preco, Integer quantidadeNoEstoque) {
+        this.id = id;
         this.setTitulo(titulo);
         this.setAutor(autor);
         this.setGenero(genero);
@@ -46,14 +49,28 @@ public class Livro {
         if (this == o) return true;
         if (!(o instanceof Livro)) return false;
         Livro livro = (Livro) o;
+        return id == livro.id;
+    }
+
+    /*
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Livro)) return false;
+        Livro livro = (Livro) o;
         return this.titulo.equals(livro.titulo) && this.autor.equals(livro.autor)
                 && this.editora.equals(livro.editora) && this.edicao.equals(livro.edicao);
     }
+    */
+
 
     // toString
     // o que será impresso?
 
     // Getters
+    public long getId() {
+        return id;
+    }
     public String getTitulo() {
         return titulo;
     }
@@ -83,6 +100,9 @@ public class Livro {
     }
 
     // Setters com ou sem validação
+    public void setId(long id) {
+        this.id = id;
+    }
     public void setTitulo(String titulo) {
         if (titulo != null && !titulo.isEmpty()) {
             this.titulo = titulo;
