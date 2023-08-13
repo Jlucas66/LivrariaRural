@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="167.0" fitWidth="305.0" layoutX="148.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Downloads/output-onlinepngtools.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="209.0" layoutY="139.0" prefHeight="33.0" prefWidth="181.0" text="Bem-vindo, administrador!" textAlignment="CENTER">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Button layoutX="214.0" layoutY="187.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="170.0" text="Cadastrar livros" />
+            <Button layoutX="214.0" layoutY="233.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="170.0" text="Relatório de compras" />
+            <Button layoutX="214.0" layoutY="279.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="170.0" text="Lista de clientes" />
+            <Button layoutX="527.0" layoutY="349.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="50.0" text="Sair" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
