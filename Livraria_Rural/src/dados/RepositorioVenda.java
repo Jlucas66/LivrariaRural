@@ -1,6 +1,7 @@
 package dados;
 
 import beans.Livro;
+import beans.StatusVenda;
 import beans.Venda;
 
 import java.util.ArrayList;
@@ -52,8 +53,34 @@ public class RepositorioVenda implements IRepositorioVenda {
     }       // tratar para id inexistente
 
         // atualizarVenda
-    public void atualizarStatusDaVenda(Venda venda, String novoStatus) {
-        if (venda != null && novoStatus != null && !novoStatus.isEmpty()) {
+    public boolean atualizarVendaComMesmoId(Venda novaVenda) {
+        boolean atualizou = false;
+        boolean vendaExiste = false;
+        Venda vendaAtualizada = null;
+        for (Venda v : repositorioVenda) {
+            if (v.equals(novaVenda)) {
+                vendaExiste = true;
+                vendaAtualizada = v;
+                break;
+            }
+        }
+        if (vendaExiste) {
+            // atualizar
+            vendaAtualizada.setPessoa(novaVenda.getPessoa());
+            vendaAtualizada.setItensDaVenda(novaVenda.getItensDaVenda());
+            vendaAtualizada.setData(novaVenda.getData());
+            vendaAtualizada.setPromocao(novaVenda.getPromocao());
+            vendaAtualizada.setStatus(novaVenda.getStatus());
+
+            atualizou = true;
+        }
+        return atualizou;
+    }
+
+    // metodo atualizar atributo único - melhor no controlador, que vai mudar o status da venda baseado na data
+    /*
+    public void atualizarStatusDaVenda(Venda venda, StatusVenda novoStatus) {
+        if (venda != null) {
             boolean vendaExisteNoRepositorio = false;
             for (Venda v : repositorioVenda) {
                 if (v.equals(venda)) {
@@ -66,7 +93,7 @@ public class RepositorioVenda implements IRepositorioVenda {
             }
         }
     }
-
+    */
 
     // listarVendasPorPeriodo
     // listarVendasPorCliente

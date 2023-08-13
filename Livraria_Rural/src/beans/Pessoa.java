@@ -3,25 +3,27 @@ package beans;
 import java.time.LocalDate;
 import java.util.Objects;
 
-public abstract class Pessoa {
+public class Pessoa {
 
     // Atributos
-    protected String nome;
-    protected String email;
-    protected String senha;
-    protected String telefone;
-    protected String endereco;
-    protected LocalDate dataNascimento;
+    private String nome;
+    private String email;
+    private String senha;
+    private String telefone;
+    private String endereco;
+    private LocalDate dataNascimento;
+    private boolean administrador;
 
     // Construtor
 
-    public Pessoa(String nome, String email, String senha, String telefone, LocalDate dataNascimento) {
+    public Pessoa(String nome, String email, String senha, String telefone, LocalDate dataNascimento, boolean adm) {
         this.setNome(nome);
         this.setEmail(email);
         this.setSenha(senha);
         this.setTelefone(telefone);
         this.setDataNascimento(dataNascimento);
         this.endereco = null;
+        this.administrador = adm;
     }
 
     // Metodos
@@ -57,6 +59,9 @@ public abstract class Pessoa {
     public LocalDate getDataNascimento() {
         return dataNascimento;
     }
+    public boolean isAdministrador() {
+        return administrador;
+    }
 
     // Setters com ou sem validação
     public void setNome(String nome) {
@@ -87,5 +92,7 @@ public abstract class Pessoa {
             this.dataNascimento = dataNascimento;
         }
     }
-
+    public void setAdministrador(boolean administrador) {
+        this.administrador = administrador;
+    }
 }

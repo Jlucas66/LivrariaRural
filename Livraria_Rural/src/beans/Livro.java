@@ -52,18 +52,6 @@ public class Livro {
         return id == livro.id;
     }
 
-    /*
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Livro)) return false;
-        Livro livro = (Livro) o;
-        return this.titulo.equals(livro.titulo) && this.autor.equals(livro.autor)
-                && this.editora.equals(livro.editora) && this.edicao.equals(livro.edicao);
-    }
-    */
-
-
     // toString
     // o que será impresso?
 

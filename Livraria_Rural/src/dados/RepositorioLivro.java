@@ -62,6 +62,37 @@ public class RepositorioLivro implements IRepositorioLivro {
     }
 
         // atualizarLivro
+    public boolean atualizarLivroComMesmoId(Livro novoLivro) {
+        boolean atualizou = false;
+        boolean livroExiste = false;
+        Livro livroAtualizado = null;
+        for (Livro liv : repositorioLivro) {
+            if (liv.equals(novoLivro)) {
+                livroExiste = true;
+                livroAtualizado = liv;
+                break;
+            }
+        }
+        if (livroExiste) {
+            // atualizar
+            livroAtualizado.setTitulo(novoLivro.getTitulo());
+            livroAtualizado.setAutor(novoLivro.getAutor());
+            livroAtualizado.setGenero(novoLivro.getGenero());
+            livroAtualizado.setSinopse(novoLivro.getSinopse());
+            livroAtualizado.setEditora(novoLivro.getEditora());
+            livroAtualizado.setEdicao(novoLivro.getEdicao());
+            livroAtualizado.setPreco(novoLivro.getPreco());
+            livroAtualizado.setQuantidadeNoEstoque(novoLivro.getQuantidadeNoEstoque());
+            livroAtualizado.setAvaliacoes(novoLivro.getAvaliacoes());
+
+            atualizou = true;
+
+        }
+        return atualizou;
+    }
+
+    // metodos atualizar por cada atributo
+    /*
     public void atualizarTitulo(Livro livro, String novoTitulo) {
         if (livro != null && novoTitulo != null && !novoTitulo.isEmpty()) {
             boolean livroExisteNoRepositorio = false;
@@ -174,6 +205,8 @@ public class RepositorioLivro implements IRepositorioLivro {
             }
         }
     }
+    */
+
 
     // listarLivroPorTitulo
     // listarLivroPorGenero

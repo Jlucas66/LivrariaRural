@@ -3,28 +3,28 @@ package beans;
 public class Avaliacao {
 
     // Atributos
-    private Cliente cliente;
+    private Pessoa pessoa;
     private Livro livro;
     private int nota;
     private String comentario;
 
     // Construtores (com comentário e sem comentário)
-    public Avaliacao(Cliente cliente, Livro livro, int nota, String comentario) {
-        this.setCliente(cliente);
+    public Avaliacao(Pessoa pessoa, Livro livro, int nota, String comentario) {
+        this.setPessoa(pessoa);
         this.setLivro(livro);
         this.nota = nota;
         this.comentario = comentario;
     }
-    public Avaliacao(Cliente cliente, Livro livro, int nota) {
-        this.cliente = cliente;
+    public Avaliacao(Pessoa pessoa, Livro livro, int nota) {
+        this.pessoa = pessoa;
         this.livro = livro;
         this.nota = nota;
         this.comentario = null;
     }
 
     // Getters
-    public Cliente getCliente() {
-        return cliente;
+    public Pessoa getPessoa() {
+        return pessoa;
     }
     public Livro getLivro() {
         return livro;
@@ -37,9 +37,9 @@ public class Avaliacao {
     }
 
     // Setters com ou sem validação
-    public void setCliente(Cliente cliente) {
-        if (cliente != null) {
-            this.cliente = cliente;
+    public void setPessoa(Pessoa pessoa) {
+        if (pessoa != null) {
+            this.pessoa = pessoa;
         }
     }
     public void setLivro(Livro livro) {
@@ -48,9 +48,7 @@ public class Avaliacao {
         }
     }
     public void setNota(int nota) {
-        if (nota >= 1 && nota <= 5) {
-            this.nota = nota;
-        }
+        this.nota = nota;
     }
     public void setComentario(String comentario) {
         this.comentario = comentario;

@@ -56,6 +56,34 @@ public class RepositorioPessoa implements IRepositorioPessoa {
     }
 
         // atualizarPessoa
+    public boolean atualizarPessoaComMesmoEmail(Pessoa novaPessoa) {
+        boolean atualizou = false;
+        boolean pessoaExiste = false;
+        Pessoa pessoaAtualizada = null;
+        for (Pessoa p : repositorioPessoa) {
+            if(p.equals(novaPessoa)) {
+                pessoaExiste = true;
+                pessoaAtualizada = p;
+                break;
+            }
+        }
+        if (pessoaExiste) {
+            //atualizar
+            pessoaAtualizada.setNome(novaPessoa.getNome());
+            pessoaAtualizada.setEmail(novaPessoa.getEmail());
+            pessoaAtualizada.setSenha(novaPessoa.getSenha());
+            pessoaAtualizada.setTelefone(novaPessoa.getTelefone());
+            pessoaAtualizada.setDataNascimento(novaPessoa.getDataNascimento());
+            pessoaAtualizada.setEndereco(novaPessoa.getEndereco());
+            pessoaAtualizada.setAdministrador(novaPessoa.isAdministrador());
+
+            atualizou = true;
+        }
+        return atualizou;
+    }
+
+    // metodos atualizar por cada atributo
+    /*
     public void atualizarNome(Pessoa pessoa, String novoNome) {
         if (pessoa != null && novoNome != null && !novoNome.isEmpty()) {
             boolean pessoaExisteNoRepositorio = false;
@@ -143,6 +171,7 @@ public class RepositorioPessoa implements IRepositorioPessoa {
             }
         }
     }
+    */
 
     // listarClientes
     // listarAdministradores

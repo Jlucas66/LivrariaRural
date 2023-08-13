@@ -1,6 +1,9 @@
 package dados;
 
+import beans.StatusVenda;
 import beans.Venda;
+
+import java.util.ArrayList;
 
 public interface IRepositorioVenda {
 
@@ -16,6 +19,15 @@ public interface IRepositorioVenda {
     Venda buscarVendaPorId(long id);
 
     // atualizar
-    void atualizarStatusDaVenda(Venda venda, String novoStatus);
+    boolean atualizarVendaComMesmoId(Venda novaVenda);
+
+    // metodo atualizar atrubuto único
+    /*
+    void atualizarStatusDaVenda(Venda venda, StatusVenda novoStatus);
+    */
+
+
+
+    ArrayList<Venda> getRepositorioVenda();
 
 }

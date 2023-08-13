@@ -203,11 +203,30 @@ public class TestePrincipal {
         // atualizar venda
         System.out.println("\natualizando venda :");
         System.out.println(v1.getStatus());
-        repositorioVenda.atualizarStatusDaVenda(v1,"concluída");
+        //repositorioVenda.atualizarStatusDaVenda(v1,"concluída");
         System.out.println(v1.getStatus());
 
+        System.out.println();
 
+        System.out.println("\nconteúdo do repositório de pessoa:");
+        for (Pessoa p : repositorioPessoa.getRepositorioPessoa()) {
+            System.out.println(p.getEmail());
+        }
 
+        System.out.println();
+
+        System.out.println("\nconteúdo do repositório de livro:");
+        System.out.println();
+        for (Livro liv : repositorioLivro.getRepositorioLivro()) {
+            System.out.println(liv.getTitulo());
+        }
+
+        System.out.println();
+
+        System.out.println("\nconteúdo do repositório de venda:");
+        for (Venda v : repositorioVenda.getRepositorioVenda()) {
+            System.out.println(v.getCliente().getNome());
+        }
 
 
 

@@ -11,31 +11,21 @@ public class Venda {
 
     // Atributos
     private long id;
-    private Cliente cliente;
+    private Pessoa pessoa;
     private ArrayList<ItemVenda> itensDaVenda;
     private LocalDateTime data;
-    private float percentualDeDesconto;
-    private String status;
+    private Promocao promocao;
+    private StatusVenda status;
 
     // Construtores (sem desconto e com desconto)
-    public Venda(long id, Cliente cliente, ArrayList<ItemVenda> itensDaVenda, float percentualDeDesconto) {
+    public Venda(long id, Pessoa pessoa, ArrayList<ItemVenda> itensDaVenda, Promocao promocao) {
         this.setId(id);
-        this.setCliente(cliente);
+        this.setPessoa(pessoa);
         this.setItensDaVenda(itensDaVenda);
         this.data = LocalDateTime.now();
-        this.setPercentualDeDesconto(percentualDeDesconto);
-        this.status = "status inicial";
+        this.promocao = promocao;
+        this.status = StatusVenda.EM_ABERTO;
     }
-    /*
-    public Venda(long id, Cliente cliente, ArrayList<ItemVenda> itensDaVenda) {
-        this.setId(id);
-        this.setCliente(cliente);
-        this.setItensDaVenda(itensDaVenda);
-        this.data = LocalDateTime.now();
-        this.percentualDeDesconto = 0;
-        this.status = "status inicial";
-    }
-    */
 
     // Metodos
     public double calcularTotal() {
@@ -43,8 +33,16 @@ public class Venda {
         for (ItemVenda i : itensDaVenda) {
             soma += i.calcularTotal();
         }
-        double resultado = soma - soma * this.percentualDeDesconto/100;
+        double resultado = soma - soma * this.getPromocao().getPercentualDesconto()/100;
         return resultado;
+    }
+    // listar livros da venda - pra usar na promocao
+    public ArrayList<Livro> livrosDaVenda() {
+        ArrayList<Livro> lista = new ArrayList<>();
+        for(ItemVenda i : this.itensDaVenda) {
+            livrosDaVenda().add(i.getLivro());
+        }
+        return lista;
     }
 
     // equals
@@ -62,8 +60,8 @@ public class Venda {
     public long getId() {
         return id;
     }
-    public Cliente getCliente() {
-        return cliente;
+    public Pessoa getPessoa() {
+        return pessoa;
     }
     public ArrayList<ItemVenda> getItensDaVenda() {
         return itensDaVenda;
@@ -71,22 +69,17 @@ public class Venda {
     public LocalDateTime getData() {
         return data;
     }
-    public float getPercentualDeDesconto() {
-        return percentualDeDesconto;
-    }
-    public String getStatus() {
+    public StatusVenda getStatus() {
         return status;
+    }
+    public Promocao getPromocao() {
+        return promocao;
     }
 
     // Setters com ou sem validação
     public void setId(long id) {
         if (id > 0) {
             this.id = id;
-        }
-    }
-    public void setPercentualDeDesconto(float percentualDeDesconto) {
-        if (percentualDeDesconto >= 0 && percentualDeDesconto <= 100) {
-            this.percentualDeDesconto = percentualDeDesconto;
         }
     }
     public void setData(LocalDateTime data) {       // nem precisa, se for data now.
@@ -97,15 +90,17 @@ public class Venda {
             this.itensDaVenda = itensDaVenda;
         }
     }
-    public void setCliente(Cliente cliente) {
-        if (cliente != null) {
-            this.cliente = cliente;
-        }
-    }
-    public void setStatus(String status) {
-        if (status != null && !status.isEmpty()) {
-            this.status = status;
+    public void setPessoa(Pessoa pessoa) {
+        if (pessoa != null) {
+            this.pessoa = pessoa;
         }
     }
 
+    public void setStatus(StatusVenda status) {
+        this.status = status;
+    }
+
+    public void setPromocao(Promocao promocao) {
+        this.promocao = promocao;
+    }
 }
