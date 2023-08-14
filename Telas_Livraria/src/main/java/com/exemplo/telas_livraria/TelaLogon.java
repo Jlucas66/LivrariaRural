@@ -11,8 +11,8 @@ import java.util.Scanner;
 public class TelaLogon extends Application {
 
     public void start(Stage logon1) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(TelaLogon.class.getResource("tela_logon.fxml"));
-        Scene cena1 = new Scene(fxmlLoader.load(), 720,480);
+        FXMLLoader fxmlLoader = new FXMLLoader(TelaLogon.class.getResource("tela_cadastro.fxml"));
+        Scene cena1 = new Scene(fxmlLoader.load(), 600,400);
         logon1.setTitle("Login");
         logon1.setResizable(false);
         logon1.setScene(cena1);
