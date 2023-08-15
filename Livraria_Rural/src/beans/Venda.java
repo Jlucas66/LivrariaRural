@@ -1,11 +1,7 @@
 package beans;
 
-import beans.Cliente;
-import beans.ItemVenda;
-
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Objects;
 
 public class Venda {
 
@@ -18,12 +14,12 @@ public class Venda {
     private StatusVenda status;
 
     // Construtores (sem desconto e com desconto)
-    public Venda(long id, Pessoa pessoa, ArrayList<ItemVenda> itensDaVenda, Promocao promocao) {
+    public Venda(long id, Pessoa pessoa, ArrayList<ItemVenda> itensDaVenda) {
         this.setId(id);
         this.setPessoa(pessoa);
         this.setItensDaVenda(itensDaVenda);
         this.data = LocalDateTime.now();
-        this.promocao = promocao;
+        this.promocao = null;
         this.status = StatusVenda.EM_ABERTO;
     }
 
@@ -33,16 +29,22 @@ public class Venda {
         for (ItemVenda i : itensDaVenda) {
             soma += i.calcularTotal();
         }
-        double resultado = soma - soma * this.getPromocao().getPercentualDesconto()/100;
+        double resultado = 0;
+        if (promocao != null) {
+            resultado = soma - soma * this.getPromocao().getPercentualDesconto()/100;
+        } else {
+            resultado = soma;
+        }
         return resultado;
     }
-    // listar livros da venda - pra usar na promocao
-    public ArrayList<Livro> livrosDaVenda() {
-        ArrayList<Livro> lista = new ArrayList<>();
+
+    // listar quantidade de livros da venda - pra usar na promocao
+    public int qtdLivrosDaVenda() {
+        int quantidade = 0;
         for(ItemVenda i : this.itensDaVenda) {
-            livrosDaVenda().add(i.getLivro());
+            quantidade += i.getQuantidade();
         }
-        return lista;
+        return quantidade;
     }
 
     // equals

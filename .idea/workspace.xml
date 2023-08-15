@@ -2,13 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1a59055a-c50e-401f-94e1-d93e22295473" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Livraria_Rural/src/ControladorLivro.java" beforeDir="false" afterPath="$PROJECT_DIR$/Livraria_Rural/src/ControladorLivro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Livraria_Rural/src/ControladorAvaliacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/Livraria_Rural/src/ControladorAvaliacao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Livraria_Rural/src/ControladorPessoa.java" beforeDir="false" afterPath="$PROJECT_DIR$/Livraria_Rural/src/ControladorPessoa.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Livraria_Rural/src/ControladorVenda.java" beforeDir="false" afterPath="$PROJECT_DIR$/Livraria_Rural/src/ControladorVenda.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Livraria_Rural/src/ControladorPromocao.java" beforeDir="false" afterPath="$PROJECT_DIR$/Livraria_Rural/src/ControladorPromocao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Livraria_Rural/src/TestePrincipal.java" beforeDir="false" afterPath="$PROJECT_DIR$/Livraria_Rural/src/TestePrincipal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Livraria_Rural/src/beans/Avaliacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/Livraria_Rural/src/beans/Avaliacao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Livraria_Rural/src/beans/Livro.java" beforeDir="false" afterPath="$PROJECT_DIR$/Livraria_Rural/src/beans/Livro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Livraria_Rural/src/beans/Administrador.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Livraria_Rural/src/beans/Cliente.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Livraria_Rural/src/beans/Pessoa.java" beforeDir="false" afterPath="$PROJECT_DIR$/Livraria_Rural/src/beans/Pessoa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Livraria_Rural/src/beans/Promocao.java" beforeDir="false" afterPath="$PROJECT_DIR$/Livraria_Rural/src/beans/Promocao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Livraria_Rural/src/beans/TipoPromocao.java" beforeDir="false" afterPath="$PROJECT_DIR$/Livraria_Rural/src/beans/TipoPromocao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Livraria_Rural/src/beans/Venda.java" beforeDir="false" afterPath="$PROJECT_DIR$/Livraria_Rural/src/beans/Venda.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Livraria_Rural/src/dados/IRepositorioLivro.java" beforeDir="false" afterPath="$PROJECT_DIR$/Livraria_Rural/src/dados/IRepositorioLivro.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Livraria_Rural/src/dados/IRepositorioPessoa.java" beforeDir="false" afterPath="$PROJECT_DIR$/Livraria_Rural/src/dados/IRepositorioPessoa.java" afterDir="false" />
@@ -16,10 +19,24 @@
       <change beforePath="$PROJECT_DIR$/Livraria_Rural/src/dados/RepositorioLivro.java" beforeDir="false" afterPath="$PROJECT_DIR$/Livraria_Rural/src/dados/RepositorioLivro.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Livraria_Rural/src/dados/RepositorioPessoa.java" beforeDir="false" afterPath="$PROJECT_DIR$/Livraria_Rural/src/dados/RepositorioPessoa.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Livraria_Rural/src/dados/RepositorioVenda.java" beforeDir="false" afterPath="$PROJECT_DIR$/Livraria_Rural/src/dados/RepositorioVenda.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Livraria_Rural/src/toDoList" beforeDir="false" afterPath="$PROJECT_DIR$/Livraria_Rural/src/toDoList" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/LivrariaRural/ControladorLivro.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LivrariaRural/ControladorLivro.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/LivrariaRural/ControladorPessoa.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LivrariaRural/ControladorPessoa.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/LivrariaRural/ControladorVenda.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LivrariaRural/ControladorVenda.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/LivrariaRural/TestePrincipal.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LivrariaRural/TestePrincipal.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/LivrariaRural/beans/Administrador.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/LivrariaRural/beans/Avaliacao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LivrariaRural/beans/Avaliacao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/LivrariaRural/beans/Cliente.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/LivrariaRural/beans/Livro.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LivrariaRural/beans/Livro.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/LivrariaRural/beans/Pessoa.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LivrariaRural/beans/Pessoa.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/LivrariaRural/beans/Venda.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LivrariaRural/beans/Venda.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/LivrariaRural/dados/IRepositorioLivro.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LivrariaRural/dados/IRepositorioLivro.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/LivrariaRural/dados/IRepositorioPessoa.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LivrariaRural/dados/IRepositorioPessoa.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/LivrariaRural/dados/IRepositorioVenda.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LivrariaRural/dados/IRepositorioVenda.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/LivrariaRural/dados/RepositorioLivro.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LivrariaRural/dados/RepositorioLivro.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/LivrariaRural/dados/RepositorioPessoa.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LivrariaRural/dados/RepositorioPessoa.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/LivrariaRural/dados/RepositorioVenda.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LivrariaRural/dados/RepositorioVenda.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/LivrariaRural/toDoList" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LivrariaRural/toDoList" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,8 +47,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -61,9 +78,17 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../livraria_rural" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Teste">
+    <configuration name="Teste" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Teste" />
+      <module name="LivrariaRural" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="TestePrincipal" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="TestePrincipal" />
       <module name="LivrariaRural" />
@@ -73,6 +98,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Teste" />
         <item itemvalue="Application.TestePrincipal" />
       </list>
     </recent_temporary>
@@ -93,10 +119,32 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="controladores" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="2" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

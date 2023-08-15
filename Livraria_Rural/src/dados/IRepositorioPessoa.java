@@ -10,10 +10,10 @@ public interface IRepositorioPessoa {
     // Metodos CRUD
 
         // inserir
-    void inserirPessoa(Pessoa pessoa);
+    boolean inserirPessoa(Pessoa pessoa);
 
         // remover
-    void removerPessoaPorEmail(String email);
+    boolean removerPessoaPorEmail(String email);
 
         // buscar
     Pessoa buscarPessoaPorEmail(String email);

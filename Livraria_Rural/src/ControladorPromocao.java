@@ -1,11 +1,11 @@
 import beans.Promocao;
+import beans.TipoPromocao;
 import beans.Venda;
 import dados.IRepositorioVenda;
 
 public class ControladorPromocao {
 
     // Atributos
-    private IRepositorioVenda repositorioVenda;
     private static ControladorPromocao instance;
 
     // Construtor
@@ -18,53 +18,59 @@ public class ControladorPromocao {
     }
 
     // Metodos
+    /**
+     * Método que define a promoção da venda.
+     * Cria uma promoção inicial com desconto 0. Verifica se pode ter outro desconto. Atualiza o tipo de desconto.
+     * Coloca a promoção da venda dentro da Venda.
+     * @param venda - não pode ser nula.
+     * @return true se a aplicação foi bem sucedida.
+     */
+    public boolean aplicarPromocaoNaVenda(Venda venda) {
+        boolean aplicouPromocao = false;
+        // criar promoção
+        if (venda != null) {
+            Promocao promocao = new Promocao(venda); // nenhuma promoção e desconto = 0
 
-    // a venda vai ser criada, e após a criação o desconto vai ser calculado. - controlador de vendas
+            // calcular percentual de desconto e atualizar o tipo da promocao
+            int mesDaVenda = venda.getData().getMonthValue();
+            int mesDeAniversario = venda.getPessoa().getDataNascimento().getMonthValue();
 
-    public boolean aplicarDescontoDaVenda(Venda venda) {
-        boolean resultado = false;
-
-        if (repositorioVenda.buscarVendaPorId(venda.getId()) != null) {
-            // venda foi criada e está no repositorio de vendas
-            //analisar itens da venda e calcular desconto.
-
-            double desconto = 0;
-            boolean descontoDataComemorativa = false;
-            boolean descontoAniversario = false;
-            boolean descontoVariosLivros = false;
-
-            // datas comemorativas - natal, dia dos pais, dia das mães, dia dos namorados, mes de aniversario 10%
-            if (venda.getData().getMonthValue() == 12
-                || venda.getData().getMonthValue() == 6
-                || venda.getData().getMonthValue() == 5
-                || venda.getData().getMonthValue() == 8) {
-                descontoDataComemorativa = true;
+            // varios livros > aniversario > datas comemorativas
+            if (venda.qtdLivrosDaVenda() >= 5) {
+                promocao.setTipoPromocao(TipoPromocao.CINCO_OU_MAIS_LIVROS);
+                promocao.setPercentualDesconto(20);
+            } else if (mesDaVenda == mesDeAniversario) {
+                promocao.setTipoPromocao(TipoPromocao.ANIVERSARIO);
+                promocao.setPercentualDesconto(10);
+            } else {
+                switch (mesDaVenda) {
+                    case 5 -> {
+                        promocao.setTipoPromocao(TipoPromocao.DIA_DAS_MAES);
+                        promocao.setPercentualDesconto(5);
+                    }
+                    case 6 -> {
+                        promocao.setTipoPromocao(TipoPromocao.DIA_DOS_NAMORADOS);
+                        promocao.setPercentualDesconto(5);
+                    }
+                    case 8 -> {
+                        promocao.setTipoPromocao(TipoPromocao.DIA_DOS_PAIS);
+                        promocao.setPercentualDesconto(5);
+                    }
+                    case 12 -> {
+                        promocao.setTipoPromocao(TipoPromocao.NATAL);
+                        promocao.setPercentualDesconto(10);
+                    }
+                }
             }
-            // se for mes de aniversario - 15%
-            if (venda.getData().getMonthValue() == venda.getPessoa().getDataNascimento().getMonthValue()) {
-                descontoAniversario = true;
-            }
-            // se tiver 5 ou mais livros 20%
-            if (venda.livrosDaVenda().size() >= 5) {
-                descontoVariosLivros = true;
-            }
 
-            // desconto não cumulativos. Vale o maior.
-            if (descontoVariosLivros) {
-                desconto = 20;
-            } else if (descontoAniversario) {
-                desconto = 15;
-            } else if (descontoDataComemorativa) {
-                desconto = 10;
-            }
-
+            // colocar a promoção dentro da venda
+            venda.setPromocao(promocao);
+            aplicouPromocao = true;
         }
-
-        return resultado;
+        return aplicouPromocao;
     }
 
-// controlador venda criará a venda
-// controlador promocao vai aplicar desconto naquela venda.
+
 
 
 }

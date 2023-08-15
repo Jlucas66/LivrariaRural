@@ -9,11 +9,11 @@ public interface IRepositorioLivro {
     // Metodos CRUD
 
         // inserir
-    void inserirLivro(Livro livro);
+    boolean inserirLivro(Livro livro);
 
         // remover
-    void removerLivro(Livro livro);
-    void removerLivroPorId(long id);
+    boolean removerLivro(Livro livro);
+    boolean removerLivroPorId(long id);
 
         // buscar
     Livro buscarLivroPorId(long id);

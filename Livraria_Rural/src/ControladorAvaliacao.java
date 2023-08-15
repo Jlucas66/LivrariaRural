@@ -22,6 +22,14 @@ public class ControladorAvaliacao {
     }
 
     // Metodos
+
+    /**
+     * avaliarLivro - cria a avaliação, e coloca a avaliação dentro do arrayList de avaliações do livro.
+     * @param livro - tem que existir no repositorio de livro
+     * @param pessoa - tem que existir no repositorio de pessoa
+     * @param nota - deve ser de 1 a 5
+     * @return true se conseguiu realizar a operação.
+     */
     public boolean avaliarLivro(Livro livro, Pessoa pessoa, int nota) {
         boolean avaliou = false;
         if (repositorioLivro.buscarLivroPorId(livro.getId()) != null

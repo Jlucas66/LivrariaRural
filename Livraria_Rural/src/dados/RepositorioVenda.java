@@ -19,7 +19,8 @@ public class RepositorioVenda implements IRepositorioVenda {
     // Metodos CRUD
 
         // inserirVenda
-    public void inserirVenda(Venda venda) {
+    public boolean inserirVenda(Venda venda) {
+        boolean inseriu = false;
         if (venda != null) {
             boolean existeVendaIgual = false;
             for (Venda v : repositorioVenda) {         // equals de Venda compara id
@@ -30,13 +31,23 @@ public class RepositorioVenda implements IRepositorioVenda {
             }
             if (!existeVendaIgual) {
                 repositorioVenda.add(venda);
+                inseriu = true;
             }
         }
+        return inseriu;
     }
 
         // removerVenda
-    public void removerVendaPorId(long id) {
-        repositorioVenda.removeIf(v -> v.getId() == id);
+    public boolean removerVendaPorId(long id) {         // tratar para id inexistente
+        boolean removeu = false;
+        //repositorioVenda.removeIf(v -> v.getId() == id);
+        for (Venda v : repositorioVenda) {
+            if (v.getId() == id) {
+                repositorioVenda.remove(v);
+                removeu = true;
+            }
+        }
+        return removeu;
     }
 
         // buscarVenda
@@ -77,26 +88,10 @@ public class RepositorioVenda implements IRepositorioVenda {
         return atualizou;
     }
 
-    // metodo atualizar atributo único - melhor no controlador, que vai mudar o status da venda baseado na data
-    /*
-    public void atualizarStatusDaVenda(Venda venda, StatusVenda novoStatus) {
-        if (venda != null) {
-            boolean vendaExisteNoRepositorio = false;
-            for (Venda v : repositorioVenda) {
-                if (v.equals(venda)) {
-                    vendaExisteNoRepositorio = true;
-                    break;
-                }
-            }
-            if (vendaExisteNoRepositorio) {
-                venda.setStatus(novoStatus);
-            }
-        }
-    }
-    */
 
     // listarVendasPorPeriodo
     // listarVendasPorCliente
+    // listarVendasPorClientePorPeriodo
     // listarVendasQueContemLivro
 
 

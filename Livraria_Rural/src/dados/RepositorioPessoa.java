@@ -18,27 +18,33 @@ public class RepositorioPessoa implements IRepositorioPessoa {
     // Metodos CRUD
 
         // inserirPessoa
-    public void inserirPessoa(Pessoa pessoa) {
-        if (pessoa != null) {
-            boolean mesmoEmail = false;
-            for (Pessoa p : repositorioPessoa) {
-                if (p.equals(pessoa)) {     // equals de Pessoa compara os emails
-                    mesmoEmail = true;
-                    break;
+        public boolean inserirPessoa(Pessoa pessoa) {
+            boolean inseriu = false;
+            if (pessoa != null) {
+                boolean mesmoEmail = false;
+                for (Pessoa p : repositorioPessoa) {
+                    if (p.equals(pessoa)) {     // equals de Pessoa compara os emails
+                        mesmoEmail = true;
+                        break;
+                    }
+                }
+                if (!mesmoEmail) {
+                    repositorioPessoa.add(pessoa);
+                    inseriu = true;
                 }
             }
-            if (!mesmoEmail) {
-                repositorioPessoa.add(pessoa);
-            }
+            return inseriu;
         }
-    }
 
         // removerPessoa
-    public void removerPessoaPorEmail(String email) {
-        if (email != null && !email.isEmpty()) {
-            repositorioPessoa.removeIf(p -> p.getEmail().equals(email));
+        public boolean removerPessoaPorEmail(String email) {
+            boolean removeu = false;
+            if (email != null && !email.isEmpty()) {
+                repositorioPessoa.removeIf(p -> p.getEmail().equals(email));
+                removeu = true;
+            }
+            return removeu;
         }
-    }
 
         // buscarPessoa
     public Pessoa buscarPessoaPorEmail(String email) {      // fazer tratamento de erro caso procure uma pessoa que não exista
@@ -82,103 +88,13 @@ public class RepositorioPessoa implements IRepositorioPessoa {
         return atualizou;
     }
 
-    // metodos atualizar por cada atributo
-    /*
-    public void atualizarNome(Pessoa pessoa, String novoNome) {
-        if (pessoa != null && novoNome != null && !novoNome.isEmpty()) {
-            boolean pessoaExisteNoRepositorio = false;
-            for (Pessoa p : repositorioPessoa) {
-                if (p.equals(pessoa)) {
-                    pessoaExisteNoRepositorio = true;
-                    break;
-                }
-            }
-            if (pessoaExisteNoRepositorio) {
-                pessoa.setNome(novoNome);
-            }
-        }
-    }
-    public void atualizarEmail(Pessoa pessoa, String novoEmail) {
-        if (pessoa != null && novoEmail != null && !novoEmail.isEmpty()) {
-            boolean pessoaExisteNoRepositorio = false;
-            boolean emailJaExiste = false;
-            for (Pessoa p : repositorioPessoa) {
-                if (p.equals(pessoa)) {
-                    pessoaExisteNoRepositorio = true;
-                }
-                if (p.getEmail().equals(novoEmail)) {
-                    emailJaExiste = true;
-                }
-            }
-            if (pessoaExisteNoRepositorio && !emailJaExiste) {
-                pessoa.setEmail(novoEmail);
-            }
-        }
-    }
-    public void atualizarSenha(Pessoa pessoa, String novaSenha) {
-        if (pessoa != null && novaSenha != null && !novaSenha.isEmpty()) {
-            boolean pessoaExisteNoRepositorio = false;
-            for (Pessoa p : repositorioPessoa) {
-                if (p.equals(pessoa)) {
-                    pessoaExisteNoRepositorio = true;
-                    break;
-                }
-            }
-            if (pessoaExisteNoRepositorio) {
-                pessoa.setSenha(novaSenha);
-            }
-        }
-    }
-    public void atualizarTelefone(Pessoa pessoa, String novoTelefone) {
-        if (pessoa != null && novoTelefone != null && !novoTelefone.isEmpty()) {
-            boolean pessoaExisteNoRepositorio = false;
-            for (Pessoa p : repositorioPessoa) {
-                if (p.equals(pessoa)) {
-                    pessoaExisteNoRepositorio = true;
-                    break;
-                }
-            }
-            if (pessoaExisteNoRepositorio) {
-                pessoa.setTelefone(novoTelefone);
-            }
-        }
-    }
-    public void atualizarEndereco(Pessoa pessoa, String novoEndereco) {
-        if (pessoa != null && novoEndereco != null && !novoEndereco.isEmpty()) {
-            boolean pessoaExisteNoRepositorio = false;
-            for (Pessoa p : repositorioPessoa) {
-                if (p.equals(pessoa)) {
-                    pessoaExisteNoRepositorio = true;
-                    break;
-                }
-            }
-            if (pessoaExisteNoRepositorio) {
-                pessoa.setEndereco(novoEndereco);
-            }
-        }
-    }
-    public void atualizarDataNascimento(Pessoa pessoa, LocalDate novaData) {
-        if (pessoa != null && novaData != null) {
-            boolean pessoaExisteNoRepositorio = false;
-            for (Pessoa p : repositorioPessoa) {
-                if (p.equals(pessoa)) {
-                    pessoaExisteNoRepositorio = true;
-                    break;
-                }
-            }
-            if (pessoaExisteNoRepositorio) {
-                pessoa.setDataNascimento(novaData);
-            }
-        }
-    }
-    */
 
-    // listarClientes
-    // listarAdministradores
-    // listarClientesPor?
+    // listarPessoasNaoAdministradores
+    // listarPessoasAdministradores
+    // listarPessoasNaoAdministradoresPor?
     // listarAdministradoresPor?
-    // listarHistoricoDeComprasDoClientePorPeriodo
-    // listarHistoricoDeComprasDoClienteTotal
+    // listarHistoricoDeComprasDoClientePorPeriodo - foi pra venda
+    // listarHistoricoDeComprasDoClienteTotal - foi pra venda
 
 
 

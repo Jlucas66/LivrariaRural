@@ -5,17 +5,20 @@ import java.util.ArrayList;
 public class Promocao {
 
     // Atributos
+    private TipoPromocao tipoPromocao;
     private double percentualDesconto;
     private Venda venda;
 
 
     // Construtor
     public Promocao(Venda venda) {
+        this.tipoPromocao = TipoPromocao.NENHUMA;
         this.percentualDesconto = 0;
         this.venda = venda;
     }
 
     // Metodos
+
 
     // equals
 
@@ -38,5 +41,7 @@ public class Promocao {
             this.venda = venda;
         }
     }
-
+    public void setTipoPromocao(TipoPromocao tipoPromocao) {
+        this.tipoPromocao = tipoPromocao;
+    }
 }

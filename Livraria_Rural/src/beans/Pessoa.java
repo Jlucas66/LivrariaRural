@@ -28,7 +28,7 @@ public class Pessoa {
 
     // Metodos
 
-    // equals - comparar email e telefone
+    // equals - comparar email
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

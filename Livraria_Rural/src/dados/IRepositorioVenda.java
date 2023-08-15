@@ -10,10 +10,10 @@ public interface IRepositorioVenda {
     // Metodos CRUD
 
     // inserir
-    void inserirVenda(Venda venda);
+    boolean inserirVenda(Venda venda);
 
     // remover
-    void removerVendaPorId(long id);
+    boolean removerVendaPorId(long id);
 
     // buscar
     Venda buscarVendaPorId(long id);
