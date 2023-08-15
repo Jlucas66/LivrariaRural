@@ -1,6 +1,4 @@
 package beans;
-
-import beans.Cliente;
 import beans.ItemVenda;
 
 import java.time.LocalDateTime;

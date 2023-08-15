@@ -1,8 +1,19 @@
-import beans.*;
-import dados.*;
-
 import java.time.LocalDate;
 import java.util.ArrayList;
+
+//import beans.Administrador;
+import beans.Avaliacao;
+//import beans.Cliente;
+import beans.ItemVenda;
+import beans.Livro;
+import beans.Pessoa;
+import beans.Venda;
+import dados.IRepositorioLivro;
+import dados.IRepositorioPessoa;
+import dados.IRepositorioVenda;
+import dados.RepositorioLivro;
+import dados.RepositorioPessoa;
+import dados.RepositorioVenda;
 
 public class TestePrincipal {
     public static void main(String[] args) {
@@ -13,7 +24,7 @@ public class TestePrincipal {
         IRepositorioVenda repositorioVenda = new RepositorioVenda();
 
         // criar Administradores
-        Administrador adm1 = new Administrador("Administrador1", "adm1@email.com", "senha1", "999991234", LocalDate.of(1989, 3, 25));
+        /* Administrador adm1 = new Administrador("Administrador1", "adm1@email.com", "senha1", "999991234", LocalDate.of(1989, 3, 25));
         Administrador adm2 = new Administrador("Administrador2", "adm2@email.com", "senha2", "999991235", LocalDate.of(1990, 4, 5));
         Administrador adm3 = new Administrador("Administrador3", "adm3@email.com", "senha3", "999991236", LocalDate.of(1991, 5, 2));
         Administrador adm4 = new Administrador("Administrador4", "adm4@email.com", "senha4", "999991237", LocalDate.of(1992, 6, 15));
@@ -22,10 +33,10 @@ public class TestePrincipal {
         repositorioPessoa.inserirPessoa(adm2);
         repositorioPessoa.inserirPessoa(adm3);
         repositorioPessoa.inserirPessoa(adm4);
-        repositorioPessoa.inserirPessoa(adm5);
+        repositorioPessoa.inserirPessoa(adm5);*/
 
         // criar Clientes
-        Cliente c1 = new Cliente("Cliente1", "cliente1@email.com", "s1", "988881234", LocalDate.of(1995, 8, 2));
+        /*Cliente c1 = new Cliente("Cliente1", "cliente1@email.com", "s1", "988881234", LocalDate.of(1995, 8, 2));
         Cliente c2 = new Cliente("Cliente2", "cliente2@email.com", "s2", "988881235", LocalDate.of(2000, 2, 3));
         Cliente c3 = new Cliente("Cliente3", "cliente3@email.com", "s3", "988881236", LocalDate.of(1998, 2, 4));
         Cliente c4 = new Cliente("Cliente4", "cliente4@email.com", "s4", "988881237", LocalDate.of(1975, 3, 21));
@@ -46,7 +57,7 @@ public class TestePrincipal {
         repositorioPessoa.inserirPessoa(c8);
         repositorioPessoa.inserirPessoa(c9);
         repositorioPessoa.inserirPessoa(c10);
-        repositorioPessoa.inserirPessoa(c11);   // cliente com email igual
+        repositorioPessoa.inserirPessoa(c11);   // cliente com email igual */
 
 
         // criar Livros
@@ -93,15 +104,15 @@ public class TestePrincipal {
 
         // avaliar Livros
         Avaliacao aval1 = new Avaliacao(c1, livro1, 4);
-        Avaliacao aval2 = new Avaliacao(c1, livro2, 3);
-        Avaliacao aval3 = new Avaliacao(c2, livro3, 4);
-        Avaliacao aval4 = new Avaliacao(c3, livro1, 5);
-        Avaliacao aval5 = new Avaliacao(c4, livro2, 5);
-        Avaliacao aval6 = new Avaliacao(c5, livro3, 2);
-        Avaliacao aval7 = new Avaliacao(c5, livro1, 2);
-        Avaliacao aval8 = new Avaliacao(c4, livro3, 3);
-        Avaliacao aval9 = new Avaliacao(c3, livro3, 3);
-        Avaliacao aval10 = new Avaliacao(c2, livro4, 2, "Deixou a desejar");
+        Avaliacao aval2 = new Avaliacao(c2, livro2, 3);
+        Avaliacao aval3 = new Avaliacao(c3, livro3, 4);
+        Avaliacao aval4 = new Avaliacao(c4, livro1, 5);
+        Avaliacao aval5 = new Avaliacao(c6, livro2, 5);
+        Avaliacao aval6 = new Avaliacao(c7, livro3, 2);
+        Avaliacao aval7 = new Avaliacao(c8, livro1, 2);
+        Avaliacao aval8 = new Avaliacao(c9, livro3, 3);
+        Avaliacao aval9 = new Avaliacao(c10, livro3, 3);
+        Avaliacao aval10 = new Avaliacao(c1, livro4, 2, "Deixou a desejar");
         Avaliacao aval11 = new Avaliacao(c2, livro2, 1, "Esperava bem mais!");
 
         // criar Venda / ItemVenda
@@ -130,12 +141,12 @@ public class TestePrincipal {
         itens4.add(iv8);
         itens5.add(iv9);
         itens5.add(iv10);
-        Venda v1 = new Venda(1, c1, itens1, 0);
-        Venda v2 = new Venda(2, c2, itens2, 10);
-        Venda v3 = new Venda(3, c3, itens3, 20);
-        Venda v4 = new Venda(4, c4, itens4, 0);
-        Venda v5 = new Venda(5, c5, itens5, 5);
-        Venda v6 = new Venda(6, c6, itens1, 0);
+        Venda v1 = new Venda(1, itens1, 0);
+        Venda v2 = new Venda(2, itens2, 10);
+        Venda v3 = new Venda(3, itens3, 20);
+        Venda v4 = new Venda(4, itens4, 0);
+        Venda v5 = new Venda(5, itens5, 5);
+        Venda v6 = new Venda(6, itens1, 0);
         repositorioVenda.inserirVenda(v1);
         repositorioVenda.inserirVenda(v2);
         repositorioVenda.inserirVenda(v3);
