@@ -8,7 +8,6 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.6" xmlns:fx="http://javafx.com/fxml/1">
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
@@ -18,15 +17,15 @@
                   <Image url="C:\Users\alexa\IdeaProjects\Telas_Livraria\src\main\resources\com\exemplo\telas_livraria\logo_livraria.png" />
                </image>
             </ImageView>
-            <Button layoutX="215.0" layoutY="187.0" mnemonicParsing="false" prefHeight="26.4" prefWidth="170.4" text="Cadastrar livros" />
+            <Button fx:id="botaoCadastrarLivros" layoutX="215.0" layoutY="187.0" mnemonicParsing="false" onAction="#btnADMCadastrarLivros" prefHeight="26.4" prefWidth="170.4" text="Cadastrar livros" />
             <Label layoutX="206.0" layoutY="141.0" text="Bem-vindo, administrador!">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Button layoutX="215.0" layoutY="237.0" mnemonicParsing="false" prefHeight="26.4" prefWidth="170.0" text="Relatório de compras" />
-            <Button layoutX="215.0" layoutY="287.0" mnemonicParsing="false" prefHeight="26.4" prefWidth="170.4" text="Lista de clientes" />
-            <Button layoutX="528.0" layoutY="351.0" mnemonicParsing="false" prefWidth="50.0" text="Sair" />
+            <Button fx:id="botaoRelatorioDeCompras" layoutX="215.0" layoutY="237.0" mnemonicParsing="false" onAction="#btnADMRelatorioDeCompras" prefHeight="26.4" prefWidth="170.0" text="Relatório de compras" />
+            <Button fx:id="botaoListaDeClientes" layoutX="215.0" layoutY="287.0" mnemonicParsing="false" onAction="#btnADMListaDeClientes" prefHeight="26.4" prefWidth="170.4" text="Lista de clientes" />
+            <Button fx:id="botaoSair" layoutX="528.0" layoutY="351.0" mnemonicParsing="false" onAction="#btnADMSair" prefWidth="50.0" text="Sair" />
          </children>
       </AnchorPane>
    </center>
