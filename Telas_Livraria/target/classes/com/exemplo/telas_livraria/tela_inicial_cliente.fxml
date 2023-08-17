@@ -115,5 +115,6 @@
       <Pane layoutX="242.0" layoutY="242.0" prefHeight="265.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF;" />
       <Pane layoutX="462.0" layoutY="242.0" prefHeight="265.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF;" />
       <Pane layoutX="682.0" layoutY="242.0" prefHeight="265.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF;" />
+      <Button fx:id="botaoSairDaConta" layoutX="797.0" layoutY="521.0" mnemonicParsing="false" onAction="#btnInicialClienteSairDaConta" text="Sair da conta" />
    </children>
 </Pane>

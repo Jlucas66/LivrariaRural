@@ -12,7 +12,7 @@
    <children>
       <ImageView fitHeight="91.0" fitWidth="216.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../../OneDrive/Área de Trabalho/logo_livraria.png" />
+            <Image url="C:\Users\alexa\IdeaProjects\Telas_Livraria\src\main\resources\com\exemplo\telas_livraria\logo_livraria.png" />
          </image>
       </ImageView>
       <TextField fx:id="buscarLivro" layoutX="257.0" layoutY="45.0" prefHeight="33.0" prefWidth="386.0" promptText="Busca aí!" />
