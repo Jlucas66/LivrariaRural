@@ -1,23 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="1a59055a-c50e-401f-94e1-d93e22295473" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Livraria_Rural/src/ControladorAvaliacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/Livraria_Rural/src/ControladorAvaliacao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Livraria_Rural/src/ControladorLivro.java" beforeDir="false" afterPath="$PROJECT_DIR$/Livraria_Rural/src/ControladorLivro.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Livraria_Rural/src/ControladorPessoa.java" beforeDir="false" afterPath="$PROJECT_DIR$/Livraria_Rural/src/ControladorPessoa.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Livraria_Rural/src/ControladorPromocao.java" beforeDir="false" afterPath="$PROJECT_DIR$/Livraria_Rural/src/ControladorPromocao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Livraria_Rural/src/ControladorVenda.java" beforeDir="false" afterPath="$PROJECT_DIR$/Livraria_Rural/src/ControladorVenda.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Livraria_Rural/src/Teste.java" beforeDir="false" afterPath="$PROJECT_DIR$/Livraria_Rural/src/Teste.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Livraria_Rural/src/dados/RepositorioPessoa.java" beforeDir="false" afterPath="$PROJECT_DIR$/Livraria_Rural/src/dados/RepositorioPessoa.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LivrariaRural/ControladorAvaliacao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LivrariaRural/ControladorAvaliacao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LivrariaRural/ControladorLivro.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LivrariaRural/ControladorLivro.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LivrariaRural/ControladorPessoa.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LivrariaRural/ControladorPessoa.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LivrariaRural/ControladorPromocao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LivrariaRural/ControladorPromocao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LivrariaRural/Teste.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LivrariaRural/Teste.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LivrariaRural/TestePrincipal.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LivrariaRural/toDoList" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LivrariaRural/toDoList" afterDir="false" />
-    </list>
+    <list default="true" id="1a59055a-c50e-401f-94e1-d93e22295473" name="Changes" comment="mudanças nos controladores" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -46,21 +33,19 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 3
+}]]></component>
   <component name="ProjectId" id="2TiPEczynR0fr3eEslMnJzMhJ5V" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="Downloaded.Files.Path.Enabled" value="false" />
-    <property name="Repository.Attach.Annotations" value="false" />
-    <property name="Repository.Attach.JavaDocs" value="false" />
-    <property name="Repository.Attach.Sources" value="false" />
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../livraria_rural" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "git-widget-placeholder": "controladores"
+  }
+}]]></component>
   <component name="RunManager" selected="Application.Teste">
     <configuration name="Teste" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Teste" />
@@ -92,6 +77,15 @@
       <option name="presentableId" value="Default" />
       <updated>1691522845341</updated>
     </task>
+    <task id="LOCAL-00001" summary="mudanças nos controladores">
+      <option name="closed" value="true" />
+      <created>1692232096766</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1692232096766</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -116,6 +110,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="mudanças nos controladores" />
+    <option name="LAST_COMMIT_MESSAGE" value="mudanças nos controladores" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
