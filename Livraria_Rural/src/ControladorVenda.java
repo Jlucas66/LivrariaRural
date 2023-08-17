@@ -1,4 +1,5 @@
 import beans.ItemVenda;
+import beans.Pessoa;
 import beans.Venda;
 import dados.RepositorioVenda;
 
@@ -77,9 +78,6 @@ public class ControladorVenda {
         return repo.atualizarVendaComMesmoId(novaVenda);
     }
     // delegate dos listar
-
-
-
 
     // Getters
     public ArrayList<Venda> getRepositorioVenda() {
