@@ -13,11 +13,11 @@ public class Venda {
     private Promocao promocao;
     private StatusVenda status;
 
-    // Construtores (sem desconto e com desconto)
-    public Venda(long id, Pessoa pessoa, ArrayList<ItemVenda> itensDaVenda) {
+    // Construtor
+    public Venda(long id, Pessoa pessoa) {
         this.setId(id);
         this.setPessoa(pessoa);
-        this.setItensDaVenda(itensDaVenda);
+        this.itensDaVenda = new ArrayList<>();
         this.data = LocalDateTime.now();
         this.promocao = null;
         this.status = StatusVenda.EM_ABERTO;
