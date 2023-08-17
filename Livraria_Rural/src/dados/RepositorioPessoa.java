@@ -17,34 +17,34 @@ public class RepositorioPessoa implements IRepositorioPessoa {
 
     // Metodos CRUD
 
-        // inserirPessoa
-        public boolean inserirPessoa(Pessoa pessoa) {
-            boolean inseriu = false;
-            if (pessoa != null) {
-                boolean mesmoEmail = false;
-                for (Pessoa p : repositorioPessoa) {
-                    if (p.equals(pessoa)) {     // equals de Pessoa compara os emails
-                        mesmoEmail = true;
-                        break;
-                    }
-                }
-                if (!mesmoEmail) {
-                    repositorioPessoa.add(pessoa);
-                    inseriu = true;
+        // inserirPessoa - verifica se existe pessoa com mesmo email
+    public boolean inserirPessoa(Pessoa pessoa) {
+        boolean inseriu = false;
+        if (pessoa != null) {
+            boolean mesmoEmail = false;
+            for (Pessoa p : repositorioPessoa) {
+                if (p.equals(pessoa)) {     // equals de Pessoa compara os emails
+                    mesmoEmail = true;
+                    break;
                 }
             }
-            return inseriu;
+            if (!mesmoEmail) {
+                repositorioPessoa.add(pessoa);
+                inseriu = true;
+            }
         }
+        return inseriu;
+    }
 
         // removerPessoa
-        public boolean removerPessoaPorEmail(String email) {
-            boolean removeu = false;
-            if (email != null && !email.isEmpty()) {
-                repositorioPessoa.removeIf(p -> p.getEmail().equals(email));
-                removeu = true;
-            }
-            return removeu;
+    public boolean removerPessoaPorEmail(String email) {
+        boolean removeu = false;
+        if (email != null && !email.isEmpty()) {
+            repositorioPessoa.removeIf(p -> p.getEmail().equals(email));
+            removeu = true;
         }
+        return removeu;
+    }
 
         // buscarPessoa
     public Pessoa buscarPessoaPorEmail(String email) {      // fazer tratamento de erro caso procure uma pessoa que não exista

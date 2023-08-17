@@ -1,7 +1,6 @@
 import beans.Promocao;
 import beans.TipoPromocao;
 import beans.Venda;
-import dados.IRepositorioVenda;
 
 public class ControladorPromocao {
 

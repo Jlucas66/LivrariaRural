@@ -12,9 +12,26 @@ Coisas a fazer no código:
 
 - definir metodos dos controladores:
 
-VENDA
+PESSOA:
+- criar pessoa e cadastrar na mesma função? ou separar:
+- criar - criar pessoa com validações de não nulo e não vazio
+- cadastrar - com valiação se já existe no repositório
+- remover - delegate - ver se será por email ou por pessoa
+- listar - serão delegates
+- atualizar - criar pessoa por fora, ou no parametro da função?
 
-    - vai criar o itemVenda (livro e quantidade), e colocar dentro do arraylist de itens de Venda.
+CONTROLADOR ITEMVENDA?
+- criar itens venda com validação de quantidade no estoque
+- colocar itens venda dentro da venda, que iniciará com lista de itens vazia
+
+VENDA
+- criar itensVenda com validação de quantidade no estoque
+- criar a venda com validação de atributos nulos ou não
+- cadastrar a venda com validações quantidade no estoque (decremento da quantidade dos livros)
+- remover venda - delegate? precisa remover?
+- atualizarStatus - regras de negócio de acordo com a data
+- atualizar quantidade de livro - puxar a função do controlador de livro? (acho que não, por conta do singleton) ou do IRepoLivro (provavelmente)?
+
 
     - vai adicionar a venda no arraylist de historico de cliente (Ou isso é no controlador pessoa??)
 
@@ -22,12 +39,11 @@ VENDA
 
     - vai diminuir a quantidade do estoque depois que a venda for finalizada.
 
-    - vai calcular o desconto baseado no arraylist de itens de Venda.
-    --- se for mês de aniversário do cliente, desconto de 15%
-    --- se na lista tiver dois livros de um mesmo autor, desconto de 5% no total da compra
-    --- será que dá pra aplicar desconto no preço dos livros, ao invés de no valor total?
-    --- se na lista tiver 5 livros ou mais, desconto de 15%
-    --- se mais de um desconto se aplica a lista, só valerá o maior deles.
+AVALIAÇÃO
+ok - cria a avaliação e coloca dentro do livro
+
+PROMOÇÃO
+ok - cria a promoção, calcula o percentual de desconto, atualiza o tipo da promoção e coloca dentro da venda
 
 LIVRO
 
@@ -38,30 +54,4 @@ LIVRO
     - avaliar o livro - adicionar no arraylist de livros uma avaliação nova dele
     - delegate de listagens com interface de impressão?
 
-PESSOA
 
-    - cadastrar
-    - remover
-    - atualizar
-    -
-
--
--
-
-OBSERVAÇÕES DO PROFESSOR::
-ok - não precisa de cliente e adm, é só colocar um atributo boolean para saber se é adm ou não.
-ok - não precisa ter um arraylist de histórico de vendas. Vendas já associa um cliente.. então a lista pode vir de la.
-ok - classe de promoçao/desconto. Daí venda tem um desconto, que pode ser null, inclusive.
-ok livro- atualizar não precisa de um método pra cada atributo (atualizar livro passando o objeto
-            inteiro, com tudo modificado mas mantendo o id igual)
-            passando o objeto livro modificado mas com o id igual.
-ok - atualizar pessoa - ajeitar igual a livro
-ok - atualizar venda - ajeitar igual a livro
-
-ok - status de venda é enumeração (pedido efetuado, pagamento confirmado, etc)
-
-ok - controladores singleton
-
-- banco de dados = jpa
-- imagens em pasta - arquivos e referencia ao arquivo - jpg em pasta padrão
--
