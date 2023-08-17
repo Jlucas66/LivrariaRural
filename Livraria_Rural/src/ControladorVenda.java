@@ -48,10 +48,6 @@ public class ControladorVenda {
 
     // delegate dos listar
 
-
-
-
-
     // Getters
     public ArrayList<Venda> getRepositorioVenda() {
         return repo.getRepositorioVenda();
