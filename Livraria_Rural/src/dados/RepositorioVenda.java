@@ -1,10 +1,14 @@
 package dados;
 
 import beans.Livro;
+import beans.Pessoa;
 import beans.StatusVenda;
 import beans.Venda;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.List;
 
 public class RepositorioVenda implements IRepositorioVenda {
 
@@ -88,7 +92,32 @@ public class RepositorioVenda implements IRepositorioVenda {
         return atualizou;
     }
 
+    public List<Venda> listarVendasPorPessoa(Pessoa pessoa){
+        List<Venda> listarVendasPorpessoa=new ArrayList<>();
+        if(pessoa !=null){
+            int indice=0;
+            for(Venda v:repositorioVenda) {
+                if (pessoa.equals(v.getPessoa())) {
+                    listarVendasPorpessoa.add(v);
+                }
+                indice++;
+            }
+        }
+        return listarVendasPorpessoa;
 
+    }
+
+    public List<Venda> listarVendasPorPeriodo(LocalDateTime inicio,LocalDateTime fim){
+        List<Venda> vendasPorPeriodo=new ArrayList<>();
+        if(inicio!=null && fim!=null){
+            for(Venda v:repositorioVenda){
+                if(v.getData().isAfter(inicio) && v.getData().isBefore(fim)){
+                    vendasPorPeriodo.add(v);
+                }
+            }
+        }
+        return vendasPorPeriodo;
+    }
     // listarVendasPorPeriodo
     // listarVendasPorCliente
     // listarVendasPorClientePorPeriodo

@@ -1,4 +1,5 @@
 import beans.ItemVenda;
+import beans.Pessoa;
 import beans.Venda;
 import dados.RepositorioVenda;
 
@@ -46,6 +47,7 @@ public class ControladorVenda {
     }
 
     // delegate dos listar
+
 
 
 
