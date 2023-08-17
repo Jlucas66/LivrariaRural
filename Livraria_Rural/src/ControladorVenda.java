@@ -3,7 +3,9 @@ import beans.Pessoa;
 import beans.Venda;
 import dados.RepositorioVenda;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.List;
 
 public class ControladorVenda {
 
@@ -77,7 +79,14 @@ public class ControladorVenda {
     public boolean atualizarVendaComMesmoId(Venda novaVenda) {
         return repo.atualizarVendaComMesmoId(novaVenda);
     }
+
     // delegate dos listar
+    public List<Venda> listarVendasPorPessoa(Pessoa pessoa) {
+        return repo.listarVendasPorPessoa(pessoa);
+    }
+    public List<Venda> listarVendasPorPeriodo(LocalDateTime inicio, LocalDateTime fim) {
+        return repo.listarVendasPorPeriodo(inicio, fim);
+    }
 
     // Getters
     public ArrayList<Venda> getRepositorioVenda() {

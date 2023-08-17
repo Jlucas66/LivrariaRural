@@ -7,8 +7,6 @@
     <list default="true" id="1a59055a-c50e-401f-94e1-d93e22295473" name="Changes" comment="mudanças nos controladores">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Livraria_Rural/src/ControladorVenda.java" beforeDir="false" afterPath="$PROJECT_DIR$/Livraria_Rural/src/ControladorVenda.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Livraria_Rural/src/Teste.java" beforeDir="false" afterPath="$PROJECT_DIR$/Livraria_Rural/src/Teste.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/LivrariaRural/Teste.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LivrariaRural/Teste.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
