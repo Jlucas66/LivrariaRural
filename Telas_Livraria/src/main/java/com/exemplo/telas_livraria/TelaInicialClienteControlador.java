@@ -94,7 +94,7 @@ public class TelaInicialClienteControlador {
     }
     @FXML
     public void btnInicialClienteCarrinho(ActionEvent event) throws IOException{
-
+irParaTelaCarrinho(event);
     }
     @FXML
     public void btnInicialClienteMaisDetalhes(ActionEvent event) throws IOException{
@@ -121,6 +121,15 @@ irParaTelaLivro(event);
         stage.setScene(scene);
         stage.show();
         stage.setTitle("Livro: Mais detalhes");
+        stage.setResizable(false);
+    }
+    public void irParaTelaCarrinho (ActionEvent event) throws IOException{
+        root = FXMLLoader.load(getClass().getResource("tela_carrinho.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root, 900, 560);
+        stage.setScene(scene);
+        stage.show();
+        stage.setTitle("Carrinho");
         stage.setResizable(false);
     }
 }
