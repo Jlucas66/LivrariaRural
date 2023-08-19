@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.6" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.TelaCompraControlador">
+   <children>
+      <ImageView fitHeight="131.0" fitWidth="322.0" layoutX="139.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+
+         </image>
+      </ImageView>
+      <Label layoutX="119.0" layoutY="162.0" text="Compra realizada com sucesso!">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Label>
+      <Label layoutX="148.0" layoutY="219.0" text="Prazo de entrega: de 3 a 5 dias úteis">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="144.0" layoutY="265.0" text="Status do pedido: pagamento aprovado">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button fx:id="botaoVoltarAoCatalogo" layoutX="231.0" layoutY="320.0" mnemonicParsing="false" onAction="#btnCompraVoltarAoCatalogo" prefHeight="38.0" prefWidth="137.0" text="Voltar ao catálogo" />
+   </children>
+</Pane>
