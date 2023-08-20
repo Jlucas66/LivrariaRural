@@ -94,9 +94,9 @@
                   <Image url="C:\Users\alexa\IdeaProjects\Telas_Livraria\src\main\resources\com\exemplo\telas_livraria\Imagens\exemplo_capa2.jpg" />
                </image>
             </ImageView>
-            <Label fx:id="tituloDoLivro1" layoutX="51.0" layoutY="171.0" text="Título do livro">
+            <Label fx:id="tituloDoLivro1" layoutX="27.0" layoutY="162.0" text="Entrarão na minha casa&#10;e roubarão meu cachorro" textAlignment="CENTER">
                <font>
-                  <Font size="16.0" />
+                  <Font size="13.0" />
                </font>
             </Label>
             <Label fx:id="precoDoLivro1" layoutX="40.0" layoutY="196.0" text="R$ Preço do livro">
@@ -119,9 +119,9 @@
                   <Image url="C:\Users\alexa\IdeaProjects\Telas_Livraria\src\main\resources\com\exemplo\telas_livraria\Imagens\exemplo_capa2.jpg" />
                </image>
             </ImageView>
-            <Label fx:id="tituloDoLivro2" layoutX="51.0" layoutY="171.0" text="Título do livro">
+            <Label fx:id="tituloDoLivro2" layoutX="60.0" layoutY="169.0" text="Título do livro&#10;2" textAlignment="CENTER">
                <font>
-                  <Font size="16.0" />
+                  <Font size="13.0" />
                </font>
             </Label>
             <Label fx:id="precoDoLivro2" layoutX="40.0" layoutY="196.0" text="R$ Preço do livro">
@@ -138,9 +138,9 @@
                   <Image url="C:\Users\alexa\IdeaProjects\Telas_Livraria\src\main\resources\com\exemplo\telas_livraria\Imagens\exemplo_capa2.jpg" />
                </image>
             </ImageView>
-            <Label fx:id="tituloDoLivro3" layoutX="51.0" layoutY="171.0" text="Título do livro">
+            <Label fx:id="tituloDoLivro3" layoutX="60.0" layoutY="169.0" text="Título do livro&#10;3" textAlignment="CENTER">
                <font>
-                  <Font size="16.0" />
+                  <Font size="13.0" />
                </font>
             </Label>
             <Label fx:id="precoDoLivro3" layoutX="40.0" layoutY="196.0" text="R$ Preço do livro">
@@ -157,9 +157,9 @@
                   <Image url="C:\Users\alexa\IdeaProjects\Telas_Livraria\src\main\resources\com\exemplo\telas_livraria\Imagens\exemplo_capa2.jpg" />
                </image>
             </ImageView>
-            <Label fx:id="tituloDoLivro4" layoutX="51.0" layoutY="171.0" text="Título do livro">
+            <Label fx:id="tituloDoLivro4" layoutX="60.0" layoutY="169.0" text="Título do livro&#10;4" textAlignment="CENTER">
                <font>
-                  <Font size="16.0" />
+                  <Font size="13.0" />
                </font>
             </Label>
             <Label fx:id="precoDoLivro4" layoutX="40.0" layoutY="196.0" text="R$ Preço do livro">
