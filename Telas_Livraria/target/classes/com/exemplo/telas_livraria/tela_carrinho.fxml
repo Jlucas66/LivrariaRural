@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
@@ -21,11 +22,7 @@
                   <Font size="25.0" />
                </font>
             </Label>
-            <Label fx:id="detalhesDoCarrinho" alignment="TOP_LEFT" centerShape="false" layoutX="14.0" layoutY="64.0" prefHeight="306.0" prefWidth="633.0" text="Exemplo: titulo do livro         quantidade       valor total">
-               <font>
-                  <Font size="26.0" />
-               </font>
-            </Label>
+            <TextArea fx:id="detalhesDoCarrinho" editable="false" layoutX="7.0" layoutY="64.0" prefHeight="312.0" prefWidth="645.0" text="Exemplo aqui" />
          </children>
       </Pane>
       <Label fx:id="resumoDoPedido" layoutX="687.0" layoutY="210.0" text="Resumo do pedido:">

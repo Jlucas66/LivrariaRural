@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
@@ -41,7 +42,7 @@ public class TelaLivroControlador {
     private Label noEstoqueLivro;
 
     @FXML
-    private Label descricaoDoLivroLivro;
+    private TextArea descricaoDoLivroLivro;
 
     @FXML
     private Button botaoLupa;
@@ -78,7 +79,7 @@ irParaTelaCarrinho(event);
     }
     @FXML
     public void btnLivroAdicionarAoCarrinho(ActionEvent event) throws IOException{
-
+irParaTelaCarrinho(event);
     }
 
     @FXML

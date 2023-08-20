@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -19,7 +20,7 @@ public class TelaCarrinhoControlador {
     private Parent root;
 
     @FXML
-    private Label detalhesDoCarrinho;
+    private TextArea detalhesDoCarrinho;
 
     @FXML
     private Label resumoDoPedido;
