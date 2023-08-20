@@ -89,22 +89,22 @@
       </HBox>
       <Pane layoutX="22.0" layoutY="242.0" prefHeight="265.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF;">
          <children>
-            <ImageView fitHeight="167.0" fitWidth="120.0" layoutX="40.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="capaDoLivro1" fitHeight="167.0" fitWidth="120.0" layoutX="40.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="C:\Users\alexa\IdeaProjects\Telas_Livraria\src\main\resources\com\exemplo\telas_livraria\Imagens\exemplo_capa2.jpg" />
                </image>
             </ImageView>
-            <Label layoutX="51.0" layoutY="171.0" text="Título do livro">
+            <Label fx:id="tituloDoLivro1" layoutX="51.0" layoutY="171.0" text="Título do livro">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label layoutX="40.0" layoutY="196.0" text="R$ Preço do livro">
+            <Label fx:id="precoDoLivro1" layoutX="40.0" layoutY="196.0" text="R$ Preço do livro">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Button fx:id="botaoMaisDetalhes" layoutX="56.0" layoutY="226.0" mnemonicParsing="false" onAction="#btnInicialClienteMaisDetalhes" text="Mais detalhes" />
+            <Button fx:id="botaoMaisDetalhes1" layoutX="56.0" layoutY="226.0" mnemonicParsing="false" onAction="#btnInicialClienteMaisDetalhes1" text="Mais detalhes" />
          </children>
       </Pane>
       <Label layoutX="28.0" layoutY="179.0" text="📚 Recomendamos a você:">
@@ -112,9 +112,63 @@
             <Font size="26.0" />
          </font>
       </Label>
-      <Pane layoutX="242.0" layoutY="242.0" prefHeight="265.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF;" />
-      <Pane layoutX="462.0" layoutY="242.0" prefHeight="265.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF;" />
-      <Pane layoutX="682.0" layoutY="242.0" prefHeight="265.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF;" />
+      <Pane layoutX="242.0" layoutY="242.0" prefHeight="265.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF;">
+         <children>
+            <ImageView fx:id="capaDoLivro2" fitHeight="167.0" fitWidth="120.0" layoutX="40.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="C:\Users\alexa\IdeaProjects\Telas_Livraria\src\main\resources\com\exemplo\telas_livraria\Imagens\exemplo_capa2.jpg" />
+               </image>
+            </ImageView>
+            <Label fx:id="tituloDoLivro2" layoutX="51.0" layoutY="171.0" text="Título do livro">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="precoDoLivro2" layoutX="40.0" layoutY="196.0" text="R$ Preço do livro">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Button fx:id="botaoMaisDetalhes2" layoutX="56.0" layoutY="226.0" mnemonicParsing="false" onAction="#btnInicialClienteMaisDetalhes2" text="Mais detalhes" />
+         </children></Pane>
+      <Pane layoutX="462.0" layoutY="242.0" prefHeight="265.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF;">
+         <children>
+            <ImageView fx:id="capaDoLivro3" fitHeight="167.0" fitWidth="120.0" layoutX="40.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="C:\Users\alexa\IdeaProjects\Telas_Livraria\src\main\resources\com\exemplo\telas_livraria\Imagens\exemplo_capa2.jpg" />
+               </image>
+            </ImageView>
+            <Label fx:id="tituloDoLivro3" layoutX="51.0" layoutY="171.0" text="Título do livro">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="precoDoLivro3" layoutX="40.0" layoutY="196.0" text="R$ Preço do livro">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Button fx:id="botaoMaisDetalhes3" layoutX="56.0" layoutY="226.0" mnemonicParsing="false" onAction="#btnInicialClienteMaisDetalhes3" text="Mais detalhes" />
+         </children></Pane>
+      <Pane layoutX="682.0" layoutY="242.0" prefHeight="265.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF;">
+         <children>
+            <ImageView fx:id="capaDoLivro4" fitHeight="167.0" fitWidth="120.0" layoutX="40.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="C:\Users\alexa\IdeaProjects\Telas_Livraria\src\main\resources\com\exemplo\telas_livraria\Imagens\exemplo_capa2.jpg" />
+               </image>
+            </ImageView>
+            <Label fx:id="tituloDoLivro4" layoutX="51.0" layoutY="171.0" text="Título do livro">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="precoDoLivro4" layoutX="40.0" layoutY="196.0" text="R$ Preço do livro">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Button fx:id="botaoMaisDetalhes4" layoutX="56.0" layoutY="226.0" mnemonicParsing="false" onAction="#btnInicialClienteMaisDetalhes4" text="Mais detalhes" />
+         </children></Pane>
       <Button fx:id="botaoSairDaConta" layoutX="797.0" layoutY="521.0" mnemonicParsing="false" onAction="#btnInicialClienteSairDaConta" text="Sair da conta" />
    </children>
 </Pane>

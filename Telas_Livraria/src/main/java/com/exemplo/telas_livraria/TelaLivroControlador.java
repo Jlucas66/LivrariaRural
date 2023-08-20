@@ -7,7 +7,9 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -19,6 +21,28 @@ public class TelaLivroControlador {
 
     @FXML
     private TextField buscarLivro;
+
+    @FXML
+    private TextField quantidadeLivrosLivro;
+
+    @FXML
+    private ImageView capaDoLivroLivro;
+
+    @FXML
+    private Label tituloDoLivroLivro;
+
+    @FXML
+    private Label notaDasAvaliacoesLivro;
+
+    @FXML
+    private Label precoDoLivroLivro;
+
+    @FXML
+    private Label noEstoqueLivro;
+
+    @FXML
+    private Label descricaoDoLivroLivro;
+
     @FXML
     private Button botaoLupa;
 
@@ -50,7 +74,7 @@ public class TelaLivroControlador {
     }
     @FXML
     public void btnLivroCarrinho(ActionEvent event) throws IOException{
-
+irParaTelaCarrinho(event);
     }
     @FXML
     public void btnLivroAdicionarAoCarrinho(ActionEvent event) throws IOException{
@@ -59,6 +83,11 @@ public class TelaLivroControlador {
 
     @FXML
     public void btnLivroAvaliarLivro (ActionEvent event) throws IOException{
+
+    }
+
+    @FXML
+    public void qtdLivrosLivro(ActionEvent event) throws IOException{
 
     }
 
@@ -74,6 +103,15 @@ irParaTelaInicialCliente(event);
         stage.setScene(scene);
         stage.show();
         stage.setTitle("Catálogo");
+        stage.setResizable(false);
+    }
+    public void irParaTelaCarrinho (ActionEvent event) throws IOException{
+        root = FXMLLoader.load(getClass().getResource("tela_carrinho.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root, 900, 560);
+        stage.setScene(scene);
+        stage.show();
+        stage.setTitle("Carrinho");
         stage.setResizable(false);
     }
 }

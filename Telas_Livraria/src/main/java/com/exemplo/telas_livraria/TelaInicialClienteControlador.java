@@ -7,7 +7,9 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -22,6 +24,42 @@ public class TelaInicialClienteControlador {
 
     @FXML
     private TextField buscarInicialCliente;
+
+    @FXML
+    private ImageView capaDoLivro1;
+
+    @FXML
+    private ImageView capaDoLivro2;
+
+    @FXML
+    private ImageView capaDoLivro3;
+
+    @FXML
+    private ImageView capaDoLivro4;
+
+    @FXML
+    private Label tituloDoLivro1;
+
+    @FXML
+    private Label tituloDoLivro2;
+
+    @FXML
+    private Label tituloDoLivro3;
+
+    @FXML
+    private Label tituloDoLivro4;
+
+    @FXML
+    private Label precoDoLivro1;
+
+    @FXML
+    private Label precoDoLivro2;
+
+    @FXML
+    private Label precoDoLivro3;
+
+    @FXML
+    private Label precoDoLivro4;
 
     @FXML
     private Button botaoTerror;
@@ -51,7 +89,16 @@ public class TelaInicialClienteControlador {
     private Button botaoCarrinho;
 
     @FXML
-    private Button botaoMaisDetalhes;
+    private Button botaoMaisDetalhes1;
+
+    @FXML
+    private Button botaoMaisDetalhes2;
+
+    @FXML
+    private Button botaoMaisDetalhes3;
+
+    @FXML
+    private Button botaoMaisDetalhes4;
 
     @FXML
     private Button botaoSairDaConta;
@@ -96,9 +143,25 @@ public class TelaInicialClienteControlador {
     public void btnInicialClienteCarrinho(ActionEvent event) throws IOException{
 irParaTelaCarrinho(event);
     }
+
     @FXML
-    public void btnInicialClienteMaisDetalhes(ActionEvent event) throws IOException{
+    public void btnInicialClienteMaisDetalhes1(ActionEvent event) throws IOException{
 irParaTelaLivro(event);
+    }
+
+    @FXML
+    public void btnInicialClienteMaisDetalhes2(ActionEvent event) throws IOException{
+        irParaTelaLivro(event);
+    }
+
+    @FXML
+    public void btnInicialClienteMaisDetalhes3(ActionEvent event) throws IOException{
+        irParaTelaLivro(event);
+    }
+
+    @FXML
+    public void btnInicialClienteMaisDetalhes4(ActionEvent event) throws IOException{
+        irParaTelaLivro(event);
     }
 
     @FXML
