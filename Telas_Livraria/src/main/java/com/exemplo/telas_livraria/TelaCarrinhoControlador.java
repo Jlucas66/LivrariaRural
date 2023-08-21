@@ -33,6 +33,13 @@ public class TelaCarrinhoControlador {
 
     @FXML
     private Button botaoContinuarComprando;
+
+    @FXML
+    private Button botaoZerarCarrinho;
+
+    @FXML
+    private Button botaoRemoverUltimoLivro;
+
     @FXML
     private Button botaoFinalizarCompra;
 
@@ -41,6 +48,14 @@ public class TelaCarrinhoControlador {
     }
     public void btnCarrinhoFinalizarCompra(ActionEvent event) throws IOException{
         irParaTelaCompra(event);
+    }
+
+    public void btnCarrinhoZerarCarrinho(ActionEvent event) throws IOException{
+
+    }
+
+    public void btnCarrinhoRemoverUltimoLivro(ActionEvent event) throws IOException{
+
     }
 
     public void irParaTelaInicialCliente (ActionEvent event) throws IOException{
