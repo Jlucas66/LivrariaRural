@@ -18,9 +18,9 @@ public void start(Stage stage) throws IOException {
 
         // carregar livros do arquivo CSV
         ControladorLivro controladorLivro = ControladorLivro.getInstance();
-        controladorLivro.carregarLivrosDoArquivo("livros.csv");
+        controladorLivro.carregarLivrosDoArquivo("Livraria_Rural/livros.csv");
         ControladorPessoa controladorPessoa = ControladorPessoa.getInstance();
-        controladorPessoa.carregarPessoasDoArquivo("pessoas.csv");
+        controladorPessoa.carregarPessoasDoArquivo("Livraria_Rural/pessoas.csv");
 
         Parent root = FXMLLoader.load(getClass().getResource("tela_logon.fxml"));
         Scene scene = new Scene(root);
