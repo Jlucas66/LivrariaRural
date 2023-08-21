@@ -9,7 +9,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import negocio.ControladorPessoa;
 
@@ -22,6 +25,11 @@ public class TelaCadastroControlador {
     private Scene scene;
     private Parent root;
 
+    public void initialize() {
+        logo.setImage(new Image(getClass().getResourceAsStream("logo_livraria.png")));
+
+    }
+
     @FXML
     private TextField nomeCadastro;
     @FXML
@@ -31,7 +39,9 @@ public class TelaCadastroControlador {
     @FXML
     private TextField enderecoCadastro;
     @FXML
-    private TextField dataDeNascimentoCadastro;
+    private DatePicker dataDeNascimentoCadastro;
+    @FXML
+    private ImageView logo;
 
     @FXML
     private Button botaoCadastrar;
@@ -43,15 +53,22 @@ public class TelaCadastroControlador {
         // se o email já não foi cadastrado
         // Criar nova pessoa e add ao repositório
         // se tudo bem, voltar para tela de logon
-        // obs: trocar o field de data por um date picker
         ControladorPessoa cPessoa = ControladorPessoa.getInstance();
 
-        if (cPessoa.criarECadastrarPessoa(nomeCadastro.getText(), emailCadastro.getText(), senhaCadastro.getText(), enderecoCadastro.getText(), LocalDate.of(1989, 3, 25))) {
+        if (cPessoa.criarECadastrarPessoa(nomeCadastro.getText(), emailCadastro.getText(), senhaCadastro.getText(), enderecoCadastro.getText(), dataDeNascimentoCadastro.getValue())) {
+            cPessoa.salvarPessoaNoArquivo(cPessoa.buscarPessoaPorEmail(emailCadastro.getText()), "pessoas.csv");
             irParaTelaLogon(event);
 
         } else {
 
             // aqui vem o alerta de que algum campo está vazio ou o email já existe
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Cadastrar");
+            alert.setHeaderText("Erro ao tentar cadastrar");
+            alert.setContentText("Email já existente ou campos não preenchidos!");
+
+            alert.showAndWait();
+            System.out.println("Pessoa não existe, ou a senha está errada .");
 
             System.out.println("algo está faltando ou o email já está cadastrado");
         }

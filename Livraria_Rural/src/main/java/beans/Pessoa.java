@@ -16,7 +16,8 @@ public class Pessoa {
 
     // Construtor
 
-    public Pessoa(String nome, String email, String senha, String endereco, LocalDate dataNascimento, boolean adm) {
+    public Pessoa(String nome, String email, String senha, String endereco,
+                  LocalDate dataNascimento, boolean adm) {
         this.setNome(nome);
         this.setEmail(email);
         this.setSenha(senha);

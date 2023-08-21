@@ -2,6 +2,7 @@ package dados;
 
 import beans.Pessoa;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public interface IRepositorioPessoa {
@@ -28,6 +29,10 @@ public interface IRepositorioPessoa {
     void atualizarEndereco(Pessoa pessoa, String novoEndereco);
     void atualizarDataNascimento(Pessoa pessoa, LocalDate novaData);
     */
+
+    void carregarPessoasDoArquivo(String nomeArquivo);
+    void salvarPessoaNoArquivo(Pessoa pessoa, String nomeArquivo) throws IOException;
     ArrayList<Pessoa> getRepositorioPessoa();
+
 
 }

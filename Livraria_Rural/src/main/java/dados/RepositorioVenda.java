@@ -1,5 +1,6 @@
 package dados;
 
+import beans.ItemVenda;
 import beans.Pessoa;
 import beans.Venda;
 
@@ -50,6 +51,11 @@ public class RepositorioVenda implements IRepositorioVenda {
         }
         return removeu;
     }
+    public boolean removerUltimaVendaDoRepo() {
+        boolean removeu = false;
+        repositorioVenda.remove(repositorioVenda.size()-1);
+        return removeu;
+    }
 
         // buscarVenda
     public Venda buscarVendaPorId(long id) {
@@ -63,6 +69,12 @@ public class RepositorioVenda implements IRepositorioVenda {
         }
         return vendaBuscada;
     }       // tratar para id inexistente
+
+    public Venda buscarUltimaVendaDoRepo() {
+        Venda vendaBuscada = null;
+        vendaBuscada = repositorioVenda.get(repositorioVenda.size()-1);
+        return vendaBuscada;
+    }
 
         // atualizarVenda
     public boolean atualizarVendaComMesmoId(Venda novaVenda) {
@@ -115,6 +127,24 @@ public class RepositorioVenda implements IRepositorioVenda {
         }
         return vendasPorPeriodo;
     }
+
+    // listar em String itens da venda para mostrar na tela do carrinho de compras
+    public String imprimirItensVenda(Venda venda) {
+        int numero = 1;
+        String lista = "";
+        lista += String.format("%s    %10s |  %4s  |   %10s           %S", "ITEM", "PREÇO", "QTD", "TOTAL", "TITULO\n");
+        for (ItemVenda i : venda.getItensDaVenda()) {
+            lista += String.format("( %2d )  R$ %10.2f |   %4d     | R$ %10.2f     - %s\n", numero, i.getLivro().getPreco(), i.getQuantidade(), i.calcularTotal(), i.getLivro().getTitulo());
+            numero++;
+        }
+
+        return lista;
+    }
+
+
+
+
+
     // listarVendasPorPeriodo
     // listarVendasPorCliente
     // listarVendasPorClientePorPeriodo

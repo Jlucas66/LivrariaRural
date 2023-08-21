@@ -4,6 +4,7 @@ import beans.Pessoa;
 import dados.IRepositorioPessoa;
 import dados.RepositorioPessoa;
 
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -30,7 +31,7 @@ public class ControladorPessoa {
     // metodo de remover com parametro de pessoa, ou de email?
     // metodo de atualizar com pessoa criada antes, ou criar dentro do parametro?
 
-    public boolean criarECadastrarPessoa(String nome, String email, String senha, String telefone, LocalDate dataNascimento) {
+    public boolean criarECadastrarPessoa(String nome, String email, String senha, String endereco, LocalDate dataNascimento) {
 
         boolean cadastradoComSucesso = false;
 
@@ -38,9 +39,9 @@ public class ControladorPessoa {
         if (nome != null && !nome.isEmpty()
                 && email != null && !email.isEmpty()
                 && senha != null && !senha.isEmpty()
-                && telefone != null && !telefone.isEmpty()
+                && endereco != null && !endereco.isEmpty()
                 && dataNascimento != null) {
-            Pessoa pessoa = new Pessoa(nome, email, senha, telefone, dataNascimento, false);
+            Pessoa pessoa = new Pessoa(nome, email, senha, endereco, dataNascimento, false);
 
             /*
             // verificar se o email já está cadastrado - não precisa, pois o repositório já faz essa validação
@@ -64,7 +65,7 @@ public class ControladorPessoa {
         return cadastradoComSucesso;
     }
 
-    public boolean criarECadastrarAdministrador(String nome, String email, String senha, String telefone, LocalDate dataNascimento) {
+    public boolean criarECadastrarAdministrador(String nome, String email, String senha, String endereco, LocalDate dataNascimento) {
 
         boolean cadastradoComSucesso = false;
 
@@ -72,25 +73,11 @@ public class ControladorPessoa {
         if (nome != null && !nome.isEmpty()
                 && email != null && !email.isEmpty()
                 && senha != null && !senha.isEmpty()
-                && telefone != null && !telefone.isEmpty()
+                && endereco != null && !endereco.isEmpty()
                 && dataNascimento != null) {
-            Pessoa pessoa = new Pessoa(nome, email, senha, telefone, dataNascimento, true);
+            Pessoa pessoa = new Pessoa(nome, email, senha, endereco, dataNascimento, true);
 
-            /*
-            // verificar se o email já está cadastrado
-            boolean existePessoaIgual = false;
-            for (Pessoa p : repo.getRepositorioPessoa()) {
-                if (p.equals(pessoa)) {
-                    existePessoaIgual = true;
-                    break;
-                }
-            }
 
-            // adicionar ao repositorio
-            if (!existePessoaIgual) {
-                repo.inserirPessoa(pessoa);
-            }
-            */
             // add pessoa criada ao repositório
             cadastradoComSucesso = repo.inserirPessoa(pessoa);
         }
@@ -133,6 +120,15 @@ public class ControladorPessoa {
 //    public IRepositorioPessoa getRepositorioPessoa() {
 //        return repo;
 //    }
+
+
+    public void carregarPessoasDoArquivo(String nomeArquivo) {
+        repo.carregarPessoasDoArquivo(nomeArquivo);
+    }
+    public void salvarPessoaNoArquivo(Pessoa pessoa, String nomeArquivo) throws IOException {
+        repo.salvarPessoaNoArquivo(pessoa, nomeArquivo);
+    }
+
     public ArrayList<Pessoa> getRepositorioPessoa() {
         return repo.getRepositorioPessoa();
     }

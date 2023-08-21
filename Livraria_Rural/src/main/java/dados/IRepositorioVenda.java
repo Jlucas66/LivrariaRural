@@ -1,8 +1,11 @@
 package dados;
 
+import beans.Pessoa;
 import beans.Venda;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.List;
 
 public interface IRepositorioVenda {
 
@@ -13,9 +16,15 @@ public interface IRepositorioVenda {
 
     // remover
     boolean removerVendaPorId(long id);
+    public boolean removerUltimaVendaDoRepo();
 
     // buscar
     Venda buscarVendaPorId(long id);
+    Venda buscarUltimaVendaDoRepo();
+
+    List<Venda> listarVendasPorPessoa(Pessoa pessoa);
+    List<Venda> listarVendasPorPeriodo(LocalDateTime inicio, LocalDateTime fim);
+    String imprimirItensVenda(Venda venda);
 
     // atualizar
     boolean atualizarVendaComMesmoId(Venda novaVenda);

@@ -19,13 +19,19 @@ public class ControladorItemVenda {
     // Metodos
 
     // livro vira do repositorio de livro, então já está validado.
-    public boolean criarItemVenda(Livro livro, int quantidade) {
-        boolean criadoComSucesso = false;
+    public ItemVenda criarItemVenda(Livro livro, int quantidade) {
+        //boolean criadoComSucesso = false;
+        ItemVenda item = null;
         if (livro != null && quantidade > 0 && quantidade <= livro.getQuantidadeNoEstoque()) {
             // atributos validados, o item venda pode ser criado
-            ItemVenda item = new ItemVenda(livro, quantidade);
-            criadoComSucesso = true;
+            item = new ItemVenda(livro, quantidade);
+
+            // adicionar no arrayList<> de vendas
+
+
+            //criadoComSucesso = true;
         }
-        return criadoComSucesso;
+        //return criadoComSucesso;
+        return item;
     }
 }

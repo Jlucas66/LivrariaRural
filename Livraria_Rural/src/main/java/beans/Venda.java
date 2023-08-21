@@ -6,6 +6,7 @@ import java.util.ArrayList;
 public class Venda {
 
     // Atributos
+    private static long indice = 0;
     private long id;
     private Pessoa pessoa;
     private ArrayList<ItemVenda> itensDaVenda;
@@ -14,13 +15,15 @@ public class Venda {
     private StatusVenda status;
 
     // Construtor
-    public Venda(long id, Pessoa pessoa) {
-        this.setId(id);
+    public Venda(Pessoa pessoa) {
+        indice++;
+        this.setId(indice);
         this.setPessoa(pessoa);
         this.itensDaVenda = new ArrayList<>();
         this.data = LocalDateTime.now();
         this.promocao = null;
         this.status = StatusVenda.EM_ABERTO;
+
     }
 
     // Metodos
@@ -76,6 +79,10 @@ public class Venda {
     }
     public Promocao getPromocao() {
         return promocao;
+    }
+
+    public static long getIndice() {
+        return indice;
     }
 
     // Setters com ou sem validação

@@ -3,6 +3,7 @@ package negocio;
 import beans.ItemVenda;
 import beans.Pessoa;
 import beans.Venda;
+import dados.IRepositorioVenda;
 import dados.RepositorioVenda;
 
 import java.time.LocalDateTime;
@@ -12,7 +13,7 @@ import java.util.List;
 public class ControladorVenda {
 
     // Atributos
-    private RepositorioVenda repo;
+    private IRepositorioVenda repo;
     private static ControladorVenda instance;
 
     // Construtor
@@ -53,10 +54,23 @@ public class ControladorVenda {
     // aplicar desconto - esse foi no controlador promocao
 
     // atualizar status - vai manter?
-    // diminuir qtd do livro - vai ser no controlador venda, ou no de livro?
+
     public void diminuirQtd(ItemVenda itemVendido) {
         if (itemVendido != null && itemVendido.getLivro() != null) {
             itemVendido.getLivro().setQuantidadeNoEstoque(itemVendido.getLivro().getQuantidadeNoEstoque() - itemVendido.getQuantidade());
+        }
+    }
+    public void aumentarQtdsDeVariosLivros(Venda venda) {
+        if (!venda.getItensDaVenda().isEmpty()) {
+            for (ItemVenda it : venda.getItensDaVenda()) {
+                it.getLivro().setQuantidadeNoEstoque(it.getLivro().getQuantidadeNoEstoque() + it.getQuantidade());
+            }
+        }
+    }
+    public void aumentarQtdDoUltimoLivro(Venda venda) {
+        if(!venda.getItensDaVenda().isEmpty()) {
+            ItemVenda ultimoItem = venda.getItensDaVenda().get(venda.getItensDaVenda().size()-1);
+            ultimoItem.getLivro().setQuantidadeNoEstoque(ultimoItem.getLivro().getQuantidadeNoEstoque() + ultimoItem.getQuantidade());
         }
     }
 
@@ -75,9 +89,15 @@ public class ControladorVenda {
     public boolean removerVendaPorId(long id) {
         return repo.removerVendaPorId(id);
     }
+
+    public boolean removerUltiaVendaDoRepo() {
+        return repo.removerUltimaVendaDoRepo();
+    }
+
     public Venda buscarVendaPorId(long id) {
         return repo.buscarVendaPorId(id);
     }
+
     public boolean atualizarVendaComMesmoId(Venda novaVenda) {
         return repo.atualizarVendaComMesmoId(novaVenda);
     }
@@ -90,9 +110,23 @@ public class ControladorVenda {
         return repo.listarVendasPorPeriodo(inicio, fim);
     }
 
+    public String imprimirItensVenda(Venda venda) {
+        return repo.imprimirItensVenda(venda);
+    }
+
+    public Venda buscarUltimaVendaDoRepo() {
+        return repo.buscarUltimaVendaDoRepo();
+    }
+
     // Getters
     public ArrayList<Venda> getRepositorioVenda() {
         return repo.getRepositorioVenda();
     }
+
+
+
+
+
+
 
 }

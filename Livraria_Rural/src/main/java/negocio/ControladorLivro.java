@@ -94,7 +94,9 @@ public class ControladorLivro {
 
     // delegate dos listar
 
-
+    public void carregarLivrosDoArquivo(String arquivo) {
+        repo.carregarLivrosDoArquivo(arquivo);
+    }
 
 
     // Getters

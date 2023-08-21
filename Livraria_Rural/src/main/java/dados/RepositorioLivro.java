@@ -2,6 +2,9 @@ package dados;
 
 import beans.Livro;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class RepositorioLivro implements IRepositorioLivro {
@@ -113,9 +116,26 @@ public class RepositorioLivro implements IRepositorioLivro {
     // listarLivroComMediaAvaliacaoIgualOuMaiorQue
 
 
+    public void carregarLivrosDoArquivo(String arquivo) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(arquivo))) {
+            String linha;
+            while ((linha = reader.readLine()) != null) {
+                String[] partes = linha.split(";");
+                if (partes.length >= 3) {
+                    Livro livro = new Livro(Long.parseLong(partes[0]), partes[1], partes[2], partes[3], partes[4], partes[5], partes[6], Double.parseDouble(partes[7]), Integer.parseInt(partes[8]));
+                    this.repositorioLivro.add(livro);
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     // Getters
     public ArrayList<Livro> getRepositorioLivro() {
         return repositorioLivro;
     }
+
+
 
 }

@@ -31,5 +31,6 @@ public interface IRepositorioLivro {
     void atualizarQuantidadeEstoque(Livro livro, int novaQuantidade);
     */
 
+    void carregarLivrosDoArquivo(String arquivo);
     ArrayList<Livro> getRepositorioLivro();
 }

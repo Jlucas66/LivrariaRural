@@ -37,10 +37,14 @@ public class Livro {
     // Metodos
     public double calcularMediaDeAvaliacoes(){
         double soma = 0;
-        for (Avaliacao a : this.avaliacoes) {
-            soma += a.getNota();
+        double media = 0;
+        if (this.avaliacoes.size() != 0) {
+            for (Avaliacao a : this.avaliacoes) {
+                soma += a.getNota();
+            }
+            media = soma/this.avaliacoes.size();
         }
-        return soma/this.avaliacoes.size();
+        return media;
     }
 
     // equals

@@ -2,6 +2,9 @@ package dados;
 
 import beans.Pessoa;
 
+import java.io.*;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class RepositorioPessoa implements IRepositorioPessoa {
@@ -96,6 +99,57 @@ public class RepositorioPessoa implements IRepositorioPessoa {
     // listarHistoricoDeComprasDoClienteTotal - foi pra venda
 
 
+
+    public void carregarPessoasDoArquivo(String nomeArquivo) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(nomeArquivo))) {
+            String linha;
+            while ((linha = reader.readLine()) != null) {
+                String[] partes = linha.split(";");
+
+                String nome = partes[0];
+                String email = partes[1];
+                String senha = partes[2];
+                String endereco = partes[3];
+                LocalDate dataNascimento = LocalDate.parse(partes[4], DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+                boolean adm = Boolean.parseBoolean(partes[5]);
+
+                Pessoa pessoa = new Pessoa(nome, email, senha, endereco, dataNascimento, adm);
+                this.repositorioPessoa.add(pessoa);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void salvarPessoaNoArquivo(Pessoa pessoa, String nomeArquivo) throws IOException {
+        String linha = String.format("%s;%s;%s;%s;%s;%b",
+                pessoa.getNome(), pessoa.getEmail(), pessoa.getSenha(), pessoa.getEndereco(),
+                pessoa.getDataNascimento().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")),
+                pessoa.isAdministrador());
+
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(nomeArquivo, true))) {
+            writer.write(linha);
+            writer.newLine();
+        } catch (IOException e) {
+            throw new IOException("Erro ao salvar pessoa no arquivo", e);
+        }
+
+        System.out.println("Pessoa salva com sucesso!");
+    }
+//    public void salvarPessoaNaoAdmNoArquivo(Pessoa pessoa, String nomeArquivo) {
+//        try (BufferedWriter writer = new BufferedWriter(new FileWriter(nomeArquivo, true))) {
+//            String linha = String.format("%s;%s;%s;%s;%s;%b",
+//                    pessoa.getNome(), pessoa.getEmail(), pessoa.getSenha(), pessoa.getEndereco(),
+//                    pessoa.getDataNascimento().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")),
+//                    pessoa.isAdministrador());
+//            writer.write(linha);
+//            writer.newLine();
+//
+//            System.out.println("Pessoa salva com sucesso!");
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
 
     // Getters
     public ArrayList<Pessoa> getRepositorioPessoa() {
