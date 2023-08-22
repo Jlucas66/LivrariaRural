@@ -18,6 +18,7 @@ import negocio.ControladorLivro;
 import negocio.ControladorVenda;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class TelaInicialClienteControlador {
@@ -50,10 +51,17 @@ public class TelaInicialClienteControlador {
         precoDoLivro2.setText(String.format("R$ %.2f", livros.get(1).getPreco()));
         precoDoLivro3.setText(String.format("R$ %.2f", livros.get(2).getPreco()));
         precoDoLivro4.setText(String.format("R$ %.2f", livros.get(3).getPreco()));
-        capaDoLivro1.setImage(new Image(getClass().getResourceAsStream("Imagens/capas_livros/1.jpg")));
-        capaDoLivro2.setImage(new Image(getClass().getResourceAsStream("Imagens/capas_livros/2.jpg")));
-        capaDoLivro3.setImage(new Image(getClass().getResourceAsStream("Imagens/capas_livros/3.jpg")));
-        capaDoLivro4.setImage(new Image(getClass().getResourceAsStream("Imagens/capas_livros/4.jpg")));
+        List<ImageView> capas = new ArrayList<>();
+        capas.add(capaDoLivro1);
+        capas.add(capaDoLivro2);
+        capas.add(capaDoLivro3);
+        capas.add(capaDoLivro4);
+
+
+        for (int i = 0; i < 4; i++) {
+            capas.get(i).setImage(new Image(getClass().getResourceAsStream(String.format("Imagens/capas_livros/%d.jpg", livros.get(i+1).getId()))));
+        }
+
 
 
     }
@@ -208,7 +216,7 @@ public class TelaInicialClienteControlador {
         ControladorVenda controladorVenda = ControladorVenda.getInstance();
         controladorVenda.aumentarQtdsDeVariosLivros(controladorVenda.buscarUltimaVendaDoRepo());
         //apagar a ultima venda
-        controladorVenda.removerUltiaVendaDoRepo();
+        controladorVenda.removerUltimaVendaDoRepo();
 
         irParaTelaLogon(event);
     }

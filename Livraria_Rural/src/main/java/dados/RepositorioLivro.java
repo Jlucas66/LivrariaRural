@@ -1,10 +1,9 @@
 package dados;
 
 import beans.Livro;
+import beans.Pessoa;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 
 public class RepositorioLivro implements IRepositorioLivro {
@@ -127,6 +126,24 @@ public class RepositorioLivro implements IRepositorioLivro {
                 }
             }
         } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void salvarLivrosEmArquivo(String nomeArquivo) {
+        try (ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream(nomeArquivo))) {
+            outputStream.writeObject(repositorioLivro);
+            System.out.println("Livros salvos com sucesso!");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void carregarLivrosDeArquivo(String nomeArquivo) {
+        try (ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream(nomeArquivo))) {
+            repositorioLivro = (ArrayList<Livro>) inputStream.readObject();
+            System.out.println("Livros carregados com sucesso!");
+        } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
     }

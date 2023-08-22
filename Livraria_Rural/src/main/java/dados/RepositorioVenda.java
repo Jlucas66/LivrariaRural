@@ -4,6 +4,7 @@ import beans.ItemVenda;
 import beans.Pessoa;
 import beans.Venda;
 
+import java.io.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -149,6 +150,25 @@ public class RepositorioVenda implements IRepositorioVenda {
     // listarVendasPorCliente
     // listarVendasPorClientePorPeriodo
     // listarVendasQueContemLivro
+
+
+    public void salvarVendasEmArquivo(String nomeArquivo) {
+        try (ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream(nomeArquivo))) {
+            outputStream.writeObject(repositorioVenda);
+            System.out.println("Vendas salvas com sucesso!");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void carregarVendasDeArquivo(String nomeArquivo) {
+        try (ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream(nomeArquivo))) {
+            repositorioVenda = (ArrayList<Venda>) inputStream.readObject();
+            System.out.println("Vendas carregadas com sucesso!");
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
 
 
     // Getters

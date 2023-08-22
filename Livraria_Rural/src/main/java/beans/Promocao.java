@@ -1,8 +1,9 @@
 package beans;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Promocao {
+public class Promocao implements Serializable {
 
     // Atributos
     private TipoPromocao tipoPromocao;

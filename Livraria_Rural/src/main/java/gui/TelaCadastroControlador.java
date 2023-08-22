@@ -57,6 +57,7 @@ public class TelaCadastroControlador {
 
         if (cPessoa.criarECadastrarPessoa(nomeCadastro.getText(), emailCadastro.getText(), senhaCadastro.getText(), enderecoCadastro.getText(), dataDeNascimentoCadastro.getValue())) {
             cPessoa.salvarPessoaNoArquivo(cPessoa.buscarPessoaPorEmail(emailCadastro.getText()), "Livraria_Rural/pessoas.csv");
+            cPessoa.salvarPessoasEmArquivo("Livraria_Rural/pessoas.ser");
             irParaTelaLogon(event);
 
         } else {

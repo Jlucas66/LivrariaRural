@@ -1,9 +1,10 @@
 package beans;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
-public class Venda {
+public class Venda implements Serializable {
 
     // Atributos
     private static long indice = 0;

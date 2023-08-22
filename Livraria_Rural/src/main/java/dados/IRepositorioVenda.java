@@ -3,6 +3,9 @@ package dados;
 import beans.Pessoa;
 import beans.Venda;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -34,6 +37,8 @@ public interface IRepositorioVenda {
     void atualizarStatusDaVenda(Venda venda, StatusVenda novoStatus);
     */
 
+    void salvarVendasEmArquivo(String nomeArquivo);
+    void carregarVendasDeArquivo(String nomeArquivo);
 
 
     ArrayList<Venda> getRepositorioVenda();

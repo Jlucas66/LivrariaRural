@@ -2,10 +2,11 @@ package beans;
 
 import beans.Avaliacao;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class Livro {
+public class Livro implements Serializable {
 
     // Atributos
     private long id;

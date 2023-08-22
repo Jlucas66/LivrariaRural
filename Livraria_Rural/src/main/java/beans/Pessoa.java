@@ -1,9 +1,10 @@
 package beans;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
 
-public class Pessoa {
+public class Pessoa implements Serializable {
 
     // Atributos
     private String nome;

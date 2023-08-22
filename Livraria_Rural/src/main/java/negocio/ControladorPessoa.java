@@ -129,6 +129,14 @@ public class ControladorPessoa {
         repo.salvarPessoaNoArquivo(pessoa, nomeArquivo);
     }
 
+    public void carregarPessoasDeArquivo(String nomeArquivo) {
+        repo.carregarPessoasDeArquivo(nomeArquivo);
+    }
+
+    public void salvarPessoasEmArquivo(String nomeArquivo) {
+        repo.salvarPessoasEmArquivo(nomeArquivo);
+    }
+
     public ArrayList<Pessoa> getRepositorioPessoa() {
         return repo.getRepositorioPessoa();
     }

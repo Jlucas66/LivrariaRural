@@ -6,6 +6,7 @@ import java.io.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.List;
 
 public class RepositorioPessoa implements IRepositorioPessoa {
 
@@ -136,20 +137,24 @@ public class RepositorioPessoa implements IRepositorioPessoa {
 
         System.out.println("Pessoa salva com sucesso!");
     }
-//    public void salvarPessoaNaoAdmNoArquivo(Pessoa pessoa, String nomeArquivo) {
-//        try (BufferedWriter writer = new BufferedWriter(new FileWriter(nomeArquivo, true))) {
-//            String linha = String.format("%s;%s;%s;%s;%s;%b",
-//                    pessoa.getNome(), pessoa.getEmail(), pessoa.getSenha(), pessoa.getEndereco(),
-//                    pessoa.getDataNascimento().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")),
-//                    pessoa.isAdministrador());
-//            writer.write(linha);
-//            writer.newLine();
-//
-//            System.out.println("Pessoa salva com sucesso!");
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
+
+    public void salvarPessoasEmArquivo(String nomeArquivo) {
+        try (ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream(nomeArquivo))) {
+            outputStream.writeObject(repositorioPessoa);
+            System.out.println("Pessoas salvas com sucesso!");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void carregarPessoasDeArquivo(String nomeArquivo) {
+        try (ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream(nomeArquivo))) {
+            repositorioPessoa = (ArrayList<Pessoa>) inputStream.readObject();
+            System.out.println("Pessoas carregadas com sucesso!");
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
 
     // Getters
     public ArrayList<Pessoa> getRepositorioPessoa() {

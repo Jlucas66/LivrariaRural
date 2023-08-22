@@ -97,6 +97,12 @@ public class ControladorLivro {
     public void carregarLivrosDoArquivo(String arquivo) {
         repo.carregarLivrosDoArquivo(arquivo);
     }
+    public void salvarLivrosEmArquivo(String nomeArquivo) {
+        repo.salvarLivrosEmArquivo(nomeArquivo);
+    }
+    public void carregarLivrosDeArquivo(String nomeArquivo) {
+        repo.carregarLivrosDeArquivo(nomeArquivo);
+    }
 
 
     // Getters

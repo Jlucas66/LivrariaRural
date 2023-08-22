@@ -32,5 +32,9 @@ public interface IRepositorioLivro {
     */
 
     void carregarLivrosDoArquivo(String arquivo);
+    void salvarLivrosEmArquivo(String nomeArquivo);
+    void carregarLivrosDeArquivo(String nomeArquivo);
+
+
     ArrayList<Livro> getRepositorioLivro();
 }

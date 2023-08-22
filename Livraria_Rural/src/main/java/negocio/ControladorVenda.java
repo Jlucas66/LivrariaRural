@@ -90,7 +90,7 @@ public class ControladorVenda {
         return repo.removerVendaPorId(id);
     }
 
-    public boolean removerUltiaVendaDoRepo() {
+    public boolean removerUltimaVendaDoRepo() {
         return repo.removerUltimaVendaDoRepo();
     }
 
@@ -116,6 +116,14 @@ public class ControladorVenda {
 
     public Venda buscarUltimaVendaDoRepo() {
         return repo.buscarUltimaVendaDoRepo();
+    }
+
+    public void salvarVendasEmArquivo(String nomeArquivo) {
+        repo.salvarVendasEmArquivo(nomeArquivo);
+    }
+
+    public void carregarVendasDeArquivo(String nomeArquivo) {
+        repo.carregarVendasDeArquivo(nomeArquivo);
     }
 
     // Getters

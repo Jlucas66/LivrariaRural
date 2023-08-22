@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import negocio.ControladorLivro;
 import negocio.ControladorPessoa;
+import negocio.ControladorVenda;
 
 import java.io.IOException;
 
@@ -15,12 +16,20 @@ public class Main extends Application {
 @Override
 public void start(Stage stage) throws IOException {
     try{
+        ControladorLivro controladorLivro = ControladorLivro.getInstance();
+        ControladorPessoa controladorPessoa = ControladorPessoa.getInstance();
+        ControladorVenda controladorVenda = ControladorVenda.getInstance();
 
         // carregar livros do arquivo CSV
-        ControladorLivro controladorLivro = ControladorLivro.getInstance();
-        controladorLivro.carregarLivrosDoArquivo("Livraria_Rural/livros.csv");
-        ControladorPessoa controladorPessoa = ControladorPessoa.getInstance();
-        controladorPessoa.carregarPessoasDoArquivo("Livraria_Rural/pessoas.csv");
+        //controladorLivro.carregarLivrosDoArquivo("Livraria_Rural/livros.csv");
+        //controladorPessoa.carregarPessoasDoArquivo("Livraria_Rural/pessoas.csv");
+
+        // carregar repositorios do arquivo serializabe
+        controladorLivro.carregarLivrosDeArquivo("Livraria_Rural/livros.ser");
+        controladorPessoa.carregarPessoasDeArquivo("Livraria_Rural/pessoas.ser");
+        controladorVenda.carregarVendasDeArquivo("Livraria_Rural/vendas.ser");
+
+
 
         Parent root = FXMLLoader.load(getClass().getResource("tela_logon.fxml"));
         Scene scene = new Scene(root);
