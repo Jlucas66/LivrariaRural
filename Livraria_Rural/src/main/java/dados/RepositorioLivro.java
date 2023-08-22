@@ -6,6 +6,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class RepositorioLivro implements IRepositorioLivro {
 
@@ -130,6 +131,48 @@ public class RepositorioLivro implements IRepositorioLivro {
             e.printStackTrace();
         }
     }
+
+
+    public List<Livro> listaLivroPorTitulo(String titulo){
+        List<Livro> livrosPorTitulo  =new ArrayList<>();
+        for(Livro livro:repositorioLivro){
+            if(livro.getTitulo().contains(titulo)){
+                livrosPorTitulo.add(livro);
+            }
+        }
+        return livrosPorTitulo;
+    }
+
+    public List<Livro> listarLivrosPorAutor(String autor){
+        List<Livro> livrosPorAutor  =new ArrayList<>();
+        for(Livro livro:repositorioLivro){
+            if(livro.getAutor().contains(autor)){
+                livrosPorAutor.add(livro);
+            }
+        }
+        return livrosPorAutor;
+    }
+
+    public List<Livro> listarLivrosComMediaMaiorQue(int nota){
+        List<Livro> livrosComMediaMaiorQue = new ArrayList<>();
+        for(Livro livro:repositorioLivro){
+            if(livro.calcularMediaDeAvaliacoes()>=nota){
+                livrosComMediaMaiorQue.add(livro);
+            }
+        }
+        return livrosComMediaMaiorQue;
+    }
+
+    public List<Livro> listarLivroPorGenero(String categoria){
+        List <Livro> livrosPorGenero=new ArrayList<>();
+        for(Livro livro:repositorioLivro){
+            if(livro.getGenero().equalsIgnoreCase(categoria)){
+                livrosPorGenero.add(livro);
+            }
+        }
+        return livrosPorGenero;
+    }
+
 
     // Getters
     public ArrayList<Livro> getRepositorioLivro() {
