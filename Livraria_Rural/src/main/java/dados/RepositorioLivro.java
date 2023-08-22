@@ -6,6 +6,7 @@ import beans.Pessoa;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class RepositorioLivro implements IRepositorioLivro {
 
@@ -151,9 +152,12 @@ public class RepositorioLivro implements IRepositorioLivro {
 
 
     public List<Livro> listaLivroPorTitulo(String titulo){
-        List<Livro> livrosPorTitulo = new ArrayList<>();
+        List<Livro> livrosPorTitulo  =new ArrayList<>();
+        titulo=titulo.toLowerCase(Locale.ROOT);
+
         for(Livro livro:repositorioLivro){
-            if(livro.getTitulo().contains(titulo)){
+            if(livro.getTitulo().toLowerCase(Locale.ROOT).contains(titulo)){//esse Locale.ROOT é para forçar colocar em
+                //letra minuscula
                 livrosPorTitulo.add(livro);
             }
         }
@@ -161,9 +165,12 @@ public class RepositorioLivro implements IRepositorioLivro {
     }
 
     public List<Livro> listarLivrosPorAutor(String autor){
-        List<Livro> livrosPorAutor = new ArrayList<>();
+        List<Livro> livrosPorAutor  =new ArrayList<>();
+
+        autor=autor.toLowerCase(Locale.ROOT);
         for(Livro livro:repositorioLivro){
-            if(livro.getAutor().contains(autor)){
+            if(livro.getAutor().toLowerCase(Locale.ROOT).contains(autor)){//esse Locale.ROOT é para forçar colocar em
+                //letra minuscula
                 livrosPorAutor.add(livro);
             }
         }
