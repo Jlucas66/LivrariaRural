@@ -143,6 +143,17 @@ public class RepositorioVenda implements IRepositorioVenda {
     }
 
 
+    public Venda buscarUltimaVendaDePessoa(Pessoa pessoa){
+        List<Venda> vendasDePessoa=new ArrayList<>();
+        int ultimo;
+        for(Venda venda:repositorioVenda){
+            if(venda.getPessoa().getNome().equalsIgnoreCase(pessoa.getNome())){
+                vendasDePessoa.add(venda);
+            }
+        }
+        ultimo=vendasDePessoa.size();
+        return vendasDePessoa.get(ultimo);
+    }
 
 
 

@@ -71,6 +71,12 @@ public class ControladorPromocao {
         return aplicouPromocao;
     }
 
+    public void cadastraNovaPromocao(Promocao promocao,TipoPromocao tipoPromocao){
+        if(promocao!=null){
+
+        }
+    }
+
 
 
 
