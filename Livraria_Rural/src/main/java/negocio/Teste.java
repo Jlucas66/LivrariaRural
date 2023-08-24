@@ -115,8 +115,8 @@ public class Teste {
                 controladorPromocao.cadastraNovaPromocao(d1Inicio,d1Fim,5,"Dia dos Pais");
 
 
-                controladorPromocao.salvarPessoasEmArquivo("Livraria_Rural/promocao.ser");
-                controladorPromocao.carregarPessoasDeArquivo("Livraria_Rural/promocao.ser");
+                //controladorPromocao.salvarPprEmArquivo("Livraria_Rural/promocao.ser");
+                //controladorPromocao.carregarPessoasDeArquivo("Livraria_Rural/promocao.ser");
 
 
 

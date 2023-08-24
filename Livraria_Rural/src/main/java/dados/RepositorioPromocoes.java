@@ -94,7 +94,7 @@ public class RepositorioPromocoes implements IRepositorioPromocoes{
 
     }
 
-    public void salvarPessoasEmArquivo(String nomeArquivo) {
+    public void salvarPromocaoEmArquivo(String nomeArquivo) {
         try (ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream(nomeArquivo))) {
             outputStream.writeObject(repoPromocoes);
             System.out.println("Promoçoes salvas com sucesso!");
@@ -103,7 +103,7 @@ public class RepositorioPromocoes implements IRepositorioPromocoes{
         }
     }
 
-    public void carregarPessoasDeArquivo(String nomeArquivo) {
+    public void carregarPromocaoDeArquivo(String nomeArquivo) {
         try (ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream(nomeArquivo))) {
             repoPromocoes = (ArrayList<Promocao>) inputStream.readObject();
             System.out.println("Promoções carregadas com sucesso!");

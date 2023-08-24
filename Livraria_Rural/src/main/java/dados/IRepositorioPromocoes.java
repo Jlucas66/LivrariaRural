@@ -12,6 +12,6 @@ public interface IRepositorioPromocoes {
     public Promocao buscarPromocaoPorNome(String nomePromocao);
     public boolean atualizarPromocao(Promocao promocao);
 
-    public void salvarPessoasEmArquivo(String nomeArquivo);
-    public void carregarPessoasDeArquivo(String nomeArquivo);
+    public void salvarPromocaoEmArquivo(String nomeArquivo);
+    public void carregarPromocaoDeArquivo(String nomeArquivo);
 }

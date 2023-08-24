@@ -114,11 +114,11 @@ public class ControladorPromocao {
 
     }
 
-    public void carregarPessoasDeArquivo(String nomeArquivo){
-        repPromocao.carregarPessoasDeArquivo(nomeArquivo);
+    public void carregarPromocaoDeArquivo(String nomeArquivo){
+        repPromocao.carregarPromocaoDeArquivo(nomeArquivo);
     }
-    public void salvarPessoasEmArquivo(String nomeArquivo){
-        repPromocao.salvarPessoasEmArquivo(nomeArquivo);
+    public void salvarPromocaoEmArquivo(String nomeArquivo){
+        repPromocao.salvarPromocaoEmArquivo(nomeArquivo);
     }
     public Promocao buscarPorNome(String nomePromocao){
             return repPromocao.buscarPromocaoPorNome(nomePromocao);
