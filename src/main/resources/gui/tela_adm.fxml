@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.6" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.TelaAdmControlador">
+   <children>
+      <ImageView fx:id="logo" fitHeight="128.0" fitWidth="290.0" layoutX="161.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@logo_livraria.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="bemVindoADM" layoutX="211.0" layoutY="132.0" text="Bem vindo, Administrador!">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Button fx:id="botaoCadastrarLivros" layoutX="215.0" layoutY="170.0" mnemonicParsing="false" onAction="#btnADMCadastrarLivros" prefWidth="191.0" text="Cadastrar livros">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="botaoCadastrarAdministradores" layoutX="215.0" layoutY="250.0" mnemonicParsing="false" onAction="#btnADMCadastrarAdministradores" prefWidth="191.0" text="Cadastrar administradores">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="botaoRelatorioDeCompras" layoutX="215.0" layoutY="290.0" mnemonicParsing="false" onAction="#btnADMRelatorioDeCompras" prefWidth="191.0" text="Relatório de Compras">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="botaoListaDeClientes" layoutX="215.0" layoutY="330.0" mnemonicParsing="false" onAction="#btnADMListaDeClientes" prefWidth="191.0" text="Lista de Clientes">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="botaoSair" layoutX="543.0" layoutY="356.0" mnemonicParsing="false" onAction="#btnADMSair" prefHeight="26.0" text="Sair">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="botaoCadastrarNovasPromocoes" layoutX="215.0" layoutY="210.0" mnemonicParsing="false" onAction="#btnADMCadastrarNovasPromocoes" prefWidth="191.0" text="Cadastrar novas promoções">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+   </children>
+</Pane>

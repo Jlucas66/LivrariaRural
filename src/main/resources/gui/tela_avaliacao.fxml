@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17.0.6" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.TelaAvaliacaoControlador">
+   <children>
+      <ImageView fx:id="logo" fitHeight="115.0" fitWidth="282.0" layoutX="309.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../OneDrive/Área de Trabalho/logo_livraria.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="capaDoLivro" fitHeight="321.0" fitWidth="251.0" layoutX="36.0" layoutY="205.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../OneDrive/Área de Trabalho/exemplo_capa2.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="36.0" layoutY="150.0" text="⭐Você está avaliando o livro:">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Label fx:id="tituloDoLivro" layoutX="323.0" layoutY="221.0" text="Título do livro">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="criticaDoLivro" layoutX="613.0" layoutY="235.0" maxHeight="291.0" maxWidth="216.0" prefHeight="291.0" prefWidth="216.0" promptText="Digite seu review" wrapText="true" />
+      <Label fx:id="autorDoLivro" layoutX="323.0" layoutY="274.0" text="Autor do livro">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
+      <Spinner fx:id="notaDoLivro" layoutX="323.0" layoutY="378.0" prefHeight="25.0" prefWidth="173.0" />
+      <Label layoutX="323.0" layoutY="349.0" text="Dê uma nota ao livro:">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="613.0" layoutY="197.0" text="Escreva uma crítica:">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <Button fx:id="botaoPublicar" layoutX="323.0" layoutY="433.0" mnemonicParsing="false" onAction="#btnAvaliacaoPublicar" text="Publicar" />
+      <Button fx:id="botaoCancelar" layoutX="434.0" layoutY="433.0" mnemonicParsing="false" onAction="#btnAvaliacaoCancelar" text="Cancelar" />
+   </children>
+</Pane>
