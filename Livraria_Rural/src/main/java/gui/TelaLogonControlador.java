@@ -31,10 +31,10 @@ public class TelaLogonControlador {
 
     public void initialize() {
         // Carregar a imagem
-        Image imagem = new Image(getClass().getResourceAsStream("logo_livraria.png"));
+        //Image imagem = new Image(getClass().getResourceAsStream("logo_livraria.png"));
 
         // Definir a imagem no ImageView
-        logo.setImage(imagem);
+        //logo.setImage(imagem);
     }
 
     @FXML
@@ -50,23 +50,35 @@ public class TelaLogonControlador {
 
     @FXML
     public void btnLogonEntrar(ActionEvent event) throws IOException{
-        // se o email existir no repositório
-        // se a senha for igual a da pessoa do repositorio
-        // aí pode ir pra tela do cliente
         ControladorPessoa cPessoa = ControladorPessoa.getInstance();
         ControladorVenda cVenda = ControladorVenda.getInstance();
+
+        // Verificar se email e senha são iguais ao registrado no repositorio
+        // E depois verificar se não é adm
+
 
         if (cPessoa.buscarPessoaPorEmail(emailLogon.getText()) != null
                 && cPessoa.buscarPessoaPorEmail(emailLogon.getText()).getSenha().equals(senhaLogon.getText())) {
             Pessoa pessoaLogada = cPessoa.buscarPessoaPorEmail(emailLogon.getText());
-            irParaTelaInicialCliente(event, pessoaLogada);
 
-            // aqui também vai criar uma venda , a pessoa que acessou o sistema, e a lista de itens vai estar vazia.
-            // talvez já tenha que inserir essa venda no repositorio - pra conseguir usar nas outras telas
-            if (cVenda.inserirVenda(new Venda(pessoaLogada))) {
-                System.out.println("Venda iniciada..:");
-                System.out.println(cVenda.buscarUltimaVendaDoRepo().getPessoa().getNome());
+            if (!pessoaLogada.isAdministrador()) {
+                irParaTelaInicialCliente(event);
+
+                // aqui também vai criar uma venda, a pessoa que acessou o sistema, e a lista de itens vai estar vazia.
+                if (cVenda.inserirVenda(new Venda(pessoaLogada))) {
+                    System.out.println("Venda iniciada..:");
+                    //System.out.println(cVenda.buscarUltimaVendaDoRepo().getPessoa().getNome());
+                }
+
+            } else {
+                // vai para a tela de adm
+                irParaTelaAdm(event);
+
+
             }
+
+
+
 
         } else {
 
@@ -97,19 +109,27 @@ public class TelaLogonControlador {
         stage.setTitle("Cadastre-se");
         stage.setResizable(false);
     }
-    public void irParaTelaInicialCliente (ActionEvent event, Pessoa pessoa) throws IOException{
+    public void irParaTelaInicialCliente (ActionEvent event) throws IOException{
         //root = FXMLLoader.load(getClass().getResource("tela_inicial_cliente.fxml"));
         FXMLLoader loader = new FXMLLoader(getClass().getResource("tela_inicial_cliente.fxml"));
         root = loader.load();
-
-        //TelaInicialClienteControlador telaInicialClienteControlador = loader.getController();
-        //telaInicialClienteControlador.receberPessoa(pessoa);
-
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root, 900, 560);
         stage.setScene(scene);
         stage.show();
         stage.setTitle("Catálogo");
+        stage.setResizable(false);
+    }
+
+    public void irParaTelaAdm (ActionEvent event) throws IOException{
+        //root = FXMLLoader.load(getClass().getResource("tela_inicial_cliente.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("tela_adm.fxml"));
+        root = loader.load();
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root, 900, 560);
+        stage.setScene(scene);
+        stage.show();
+        stage.setTitle("Administrador");
         stage.setResizable(false);
     }
 }

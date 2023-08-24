@@ -29,10 +29,10 @@ public class TelaLivroControlador {
 
     public void initialize() {
         //preencherLabels();
-        logo.setImage(new Image(getClass().getResourceAsStream("logo_livraria.png")));
-        carrinho.setImage(new Image(getClass().getResourceAsStream("Imagens/carrinho.png")));
-        historico.setImage(new Image(getClass().getResourceAsStream("Imagens/historico.png")));
-        lupa.setImage(new Image(getClass().getResourceAsStream("Imagens/lupinha.png")));
+        //logo.setImage(new Image(getClass().getResourceAsStream("logo_livraria.png")));
+        //carrinho.setImage(new Image(getClass().getResourceAsStream("Imagens/carrinho.png")));
+        //historico.setImage(new Image(getClass().getResourceAsStream("Imagens/historico.png")));
+        //lupa.setImage(new Image(getClass().getResourceAsStream("Imagens/lupinha.png")));
 
     }
 

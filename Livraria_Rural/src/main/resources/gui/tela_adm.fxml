@@ -4,29 +4,51 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.6" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.TelaAdmControlador">
-   <center>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-         <children>
-            <ImageView fitHeight="180.0" fitWidth="318.0" layoutX="141.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-               <image>
 
-               </image>
-            </ImageView>
-            <Button fx:id="botaoCadastrarLivros" layoutX="215.0" layoutY="187.0" mnemonicParsing="false" onAction="#btnADMCadastrarLivros" prefHeight="26.4" prefWidth="170.4" text="Cadastrar livros" />
-            <Label layoutX="206.0" layoutY="141.0" text="Bem-vindo, administrador!">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
-            <Button fx:id="botaoRelatorioDeCompras" layoutX="215.0" layoutY="237.0" mnemonicParsing="false" onAction="#btnADMRelatorioDeCompras" prefHeight="26.4" prefWidth="170.0" text="Relatório de compras" />
-            <Button fx:id="botaoListaDeClientes" layoutX="215.0" layoutY="287.0" mnemonicParsing="false" onAction="#btnADMListaDeClientes" prefHeight="26.4" prefWidth="170.4" text="Lista de clientes" />
-            <Button fx:id="botaoSair" layoutX="528.0" layoutY="351.0" mnemonicParsing="false" onAction="#btnADMSair" prefWidth="50.0" text="Sair" />
-         </children>
-      </AnchorPane>
-   </center>
-</BorderPane>
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.6" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.TelaAdmControlador">
+   <children>
+      <ImageView fx:id="logo" fitHeight="128.0" fitWidth="290.0" layoutX="161.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@logo_livraria.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="bemVindoADM" layoutX="211.0" layoutY="132.0" text="Bem vindo, Administrador!">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Button fx:id="botaoCadastrarLivros" layoutX="215.0" layoutY="170.0" mnemonicParsing="false" onAction="#btnADMCadastrarLivros" prefWidth="191.0" text="Cadastrar livros">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="botaoCadastrarAdministradores" layoutX="215.0" layoutY="250.0" mnemonicParsing="false" onAction="#btnADMCadastrarAdministradores" prefWidth="191.0" text="Cadastrar administradores">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="botaoRelatorioDeCompras" layoutX="215.0" layoutY="290.0" mnemonicParsing="false" onAction="#btnADMRelatorioDeCompras" prefWidth="191.0" text="Relatório de Compras">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="botaoListaDeClientes" layoutX="215.0" layoutY="330.0" mnemonicParsing="false" onAction="#btnADMListaDeClientes" prefWidth="191.0" text="Lista de Clientes">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="botaoSair" layoutX="543.0" layoutY="356.0" mnemonicParsing="false" onAction="#btnADMSair" prefHeight="26.0" text="Sair">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="botaoCadastrarNovasPromocoes" layoutX="215.0" layoutY="210.0" mnemonicParsing="false" onAction="#btnADMCadastrarNovasPromocoes" prefWidth="191.0" text="Cadastrar novas promoções">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+   </children>
+</Pane>

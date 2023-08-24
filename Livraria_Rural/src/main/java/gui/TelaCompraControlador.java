@@ -23,7 +23,7 @@ public class TelaCompraControlador {
     private Parent root;
 
     public void initialize() {
-        logo.setImage(new Image(getClass().getResourceAsStream("logo_livraria.png")));
+        //logo.setImage(new Image(getClass().getResourceAsStream("logo_livraria.png")));
     }
 
     @FXML

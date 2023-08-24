@@ -10,6 +10,7 @@ import negocio.ControladorPessoa;
 import negocio.ControladorVenda;
 
 import java.io.IOException;
+import java.time.LocalDate;
 
 public class Main extends Application {
 
@@ -20,6 +21,8 @@ public void start(Stage stage) throws IOException {
         ControladorPessoa controladorPessoa = ControladorPessoa.getInstance();
         ControladorVenda controladorVenda = ControladorVenda.getInstance();
 
+        //controladorPessoa.criarECadastrarAdministrador("Administrador", "adm@email.com", "1234", "Rua qualquer", LocalDate.of(1989,3,25));
+       // controladorPessoa.salvarPessoasEmArquivo("Livraria_Rural/pessoas.ser");
         // carregar livros do arquivo CSV
         //controladorLivro.carregarLivrosDoArquivo("Livraria_Rural/livros.csv");
         //controladorPessoa.carregarPessoasDoArquivo("Livraria_Rural/pessoas.csv");

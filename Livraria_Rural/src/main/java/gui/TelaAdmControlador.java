@@ -7,6 +7,8 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -20,7 +22,19 @@ public class TelaAdmControlador {
     //Fx: ID
 
     @FXML
+    private ImageView logo;
+
+    @FXML
+    private Label bemVindoADM;
+
+    @FXML
     private Button botaoCadastrarLivros;
+
+    @FXML
+    private Button botaoCadastrarAdministradores;
+
+    @FXML
+    private Button botaoCadastrarNovasPromocoes;
 
     @FXML
     private Button botaoRelatorioDeCompras;
@@ -37,6 +51,16 @@ public class TelaAdmControlador {
     public void btnADMCadastrarLivros (ActionEvent event) throws IOException {
 
     }
+    @FXML
+    public void btnADMCadastrarAdministradores (ActionEvent event) throws IOException{
+
+    }
+
+    @FXML
+    public void btnADMCadastrarNovasPromocoes (ActionEvent event) throws IOException{
+
+    }
+
     @FXML
     public void btnADMRelatorioDeCompras (ActionEvent event) throws IOException{
 

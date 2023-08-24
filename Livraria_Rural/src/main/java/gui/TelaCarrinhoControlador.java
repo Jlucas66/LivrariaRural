@@ -53,7 +53,7 @@ public class TelaCarrinhoControlador {
         detalhesDoCarrinho.setText(controladorVenda.imprimirItensVenda(venda));
 
         // set das imagens
-        logo.setImage(new Image(getClass().getResourceAsStream("logo_livraria.png")));
+        //logo.setImage(new Image(getClass().getResourceAsStream("logo_livraria.png")));
 
 
     }

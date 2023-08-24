@@ -111,7 +111,7 @@ public class RepositorioPromocao implements IRepositorioPromocoes{
         }
     }
 
-    List <Promocao> getRepositorioPromocao(){
+    public List <Promocao> getRepositorioPromocao(){
         return repositorioPromocao;
     }
 }
