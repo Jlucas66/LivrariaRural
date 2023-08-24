@@ -152,7 +152,7 @@ public class RepositorioVenda implements IRepositorioVenda {
             }
         }
         ultimo=vendasDePessoa.size();
-        return vendasDePessoa.get(ultimo);
+        return vendasDePessoa.get(ultimo-1);
     }
 
 

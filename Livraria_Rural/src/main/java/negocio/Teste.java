@@ -1,9 +1,6 @@
 package negocio;
 
-import beans.ItemVenda;
-import beans.Livro;
-import beans.Pessoa;
-import beans.Venda;
+import beans.*;
 
 import java.time.LocalDate;
 
@@ -21,7 +18,7 @@ public class Teste {
 
 
 
-                /*
+
                 controladorPessoa.criarECadastrarPessoa("vazio", "email", "senha", "telefone", LocalDate.of(1989,3,25));
 
 
@@ -71,6 +68,7 @@ public class Teste {
                 controladorLivro.cadastrarLivro(l4);
                 controladorLivro.cadastrarLivro(l5); // não cadastrou pq o id é igual
 
+                controladorLivro.salvarLivrosEmArquivo("Livraria_Rural/livros.ser");
 
                 for (Livro i : controladorLivro.getRepositorioLivro()) {
                         System.out.println(i.getQuantidadeNoEstoque());
@@ -86,11 +84,11 @@ public class Teste {
 
                 // VENDAS
                 System.out.println();
-                Venda v1 = new Venda(1, p1);
-                Venda v2 = new Venda(2, null);
-                Venda v3 = new Venda(3, p2);
-                Venda v4 = new Venda(4, p1);
-                Venda v5 = new Venda(1, p2);
+                Venda v1 = new Venda( p1);
+                Venda v2 = new Venda( null);
+                Venda v3 = new Venda( p2);
+                Venda v4 = new Venda( p1);
+                Venda v5 = new Venda( p2);
 
                 controladorVenda.inserirVenda(v1);
                 controladorVenda.inserirVenda(v2);
@@ -109,8 +107,16 @@ public class Teste {
 //                System.out.println(v1.getPromocao());
 //                System.out.println(v1.getStatus());
 
-                 */
+                LocalDate d1Inicio=LocalDate.of(2023,8,1);
+                LocalDate d1Fim=LocalDate.of(2023,8,30);
+                //Promocao pDiaDosPais=new Promocao(d1Inicio,d1Fim,5,"Dia dos Pais");
 
+                ControladorPromocao controladorPromocao= ControladorPromocao.getInstance();
+                controladorPromocao.cadastraNovaPromocao(d1Inicio,d1Fim,5,"Dia dos Pais");
+
+
+                controladorPromocao.salvarPessoasEmArquivo("Livraria_Rural/promocao.ser");
+                controladorPromocao.carregarPessoasDeArquivo("Livraria_Rural/promocao.ser");
 
 
 
