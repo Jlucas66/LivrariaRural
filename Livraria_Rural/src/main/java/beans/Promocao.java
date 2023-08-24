@@ -19,8 +19,8 @@ public class Promocao implements Serializable {
     public Promocao(LocalDate inicio,LocalDate fim,double percentualDesconto,String nomePromocao) {
         this.percentualDesconto = percentualDesconto;
         this.nomePromocao = nomePromocao;
-        this.inicio=inicio;
-        this.fim=fim;
+        this.inicio = inicio;
+        this.fim = fim;
     }
 
     // Metodos
@@ -44,10 +44,6 @@ public class Promocao implements Serializable {
         return nomePromocao;
     }
 
-    public void setNomePromocao(String nomePromocao) {
-        this.nomePromocao = nomePromocao;
-    }
-
     public double getPercentualDesconto() {
         return percentualDesconto;
     }
@@ -60,6 +56,10 @@ public class Promocao implements Serializable {
 
     public void setFim(LocalDate fim) {
         this.fim = fim;
+    }
+
+    public void setNomePromocao(String nomePromocao) {
+        this.nomePromocao = nomePromocao;
     }
 
     public void setPercentualDesconto(double percentualDesconto) {     // seria private?

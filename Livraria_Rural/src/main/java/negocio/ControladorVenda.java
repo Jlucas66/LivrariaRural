@@ -6,6 +6,7 @@ import beans.Venda;
 import dados.IRepositorioVenda;
 import dados.RepositorioVenda;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -106,7 +107,7 @@ public class ControladorVenda {
     public List<Venda> listarVendasPorPessoa(Pessoa pessoa) {
         return repo.listarVendasPorPessoa(pessoa);
     }
-    public List<Venda> listarVendasPorPeriodo(LocalDateTime inicio, LocalDateTime fim) {
+    public List<Venda> listarVendasPorPeriodo(LocalDate inicio, LocalDate fim) {
         return repo.listarVendasPorPeriodo(inicio, fim);
     }
 

@@ -5,6 +5,7 @@ import beans.Pessoa;
 import beans.Venda;
 
 import java.io.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -117,7 +118,7 @@ public class RepositorioVenda implements IRepositorioVenda {
 
     }
 
-    public List<Venda> listarVendasPorPeriodo(LocalDateTime inicio,LocalDateTime fim){
+    public List<Venda> listarVendasPorPeriodo(LocalDate inicio, LocalDate fim){
         List<Venda> vendasPorPeriodo=new ArrayList<>();
         if(inicio!=null && fim!=null){
             for(Venda v:repositorioVenda){

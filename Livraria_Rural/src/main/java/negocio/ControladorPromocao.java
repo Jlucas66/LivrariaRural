@@ -1,25 +1,22 @@
 package negocio;
 
 import beans.Promocao;
-import beans.TipoPromocao;
 import beans.Venda;
 import dados.IRepositorioPromocoes;
-import dados.RepositorioPromocoes;
+import dados.RepositorioPromocao;
 
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.InputMismatchException;
-import java.util.List;
+import java.time.LocalDateTime;
 
 public class ControladorPromocao {
 
     // Atributos
     private static ControladorPromocao instance;
-    private IRepositorioPromocoes repPromocao;
+    private IRepositorioPromocoes repo;
     // Construtor
     private ControladorPromocao() {
-        this.repPromocao =new RepositorioPromocoes();
+        this.repo =new RepositorioPromocao();
     }
     public static ControladorPromocao getInstance() {
         if (instance == null) {
@@ -38,6 +35,21 @@ public class ControladorPromocao {
      */
     public boolean aplicarPromocaoNaVenda(Venda venda) {
         boolean aplicouPromocao = false;
+
+        // verificar se a data da venda está entre alguma das datas das promoções do repositório
+        LocalDate dataVenda = venda.getData();
+
+        for (Promocao promo : repo.getRepositorioPromocao()) {
+            if (dataVenda.isAfter(promo.getInicio()) && dataVenda.isBefore(promo.getFim())
+                    || dataVenda.isEqual(promo.getInicio()) || dataVenda.isEqual(promo.getFim())) {
+                // a promoção se aplica para essa venda
+                // mas antes tem que checar se já tem uma promoção aplicada. Se sim, vai valer a que tiver maior desconto
+                if (venda.getPromocao() == null || venda.getPromocao().getPercentualDesconto() < promo.getPercentualDesconto()) {
+                    venda.setPromocao(promo);
+                }
+            }
+        }
+
         // criar promoção
         /*if (venda != null) {
             Promocao promocao = new Promocao(venda); // nenhuma promoção e desconto = 0
@@ -87,18 +99,18 @@ public class ControladorPromocao {
         Promocao promocao;
         if(nomePromocaoNova!=null && !nomePromocaoNova.isEmpty()&&
         inicio!=null && fim!=null ){
-                promocao= new Promocao(inicio,fim,porcentagemDesconto,nomePromocaoNova);
-                repPromocao.cadastrarPromocao(promocao);
+                promocao = new Promocao(inicio,fim,porcentagemDesconto,nomePromocaoNova);
+                repo.cadastrarPromocao(promocao);
 
         }
         return inseriu;
-        }
+    }
 
-    public boolean removerPromocaoPorNome(String nomePromocao){
+    public boolean removerPromocaoPorNome(String nomePromocao){     // só precisa de um delegate. Não precisa mais validar
         boolean removido = false;
         if(nomePromocao!=null && !nomePromocao.isEmpty()){
             removido =true;
-            repPromocao.removerPromocaoPorNome(nomePromocao);
+            repo.removerPromocaoPorNome(nomePromocao);
         }
         return removido;
     }
@@ -107,7 +119,7 @@ public class ControladorPromocao {
         boolean atualizou=false;
         if(nomePromocao!=null && !nomePromocao.isEmpty()&& inicio!=null && fim!=null){
             Promocao promocao=new Promocao(inicio,fim,percentualPromocao,nomePromocao);
-            repPromocao.atualizarPromocao(promocao);
+            repo.atualizarPromocao(promocao);
             atualizou=true;
         }
         return atualizou;
@@ -115,13 +127,13 @@ public class ControladorPromocao {
     }
 
     public void carregarPromocaoDeArquivo(String nomeArquivo){
-        repPromocao.carregarPromocaoDeArquivo(nomeArquivo);
+        repo.carregarPromocaoDeArquivo(nomeArquivo);
     }
     public void salvarPromocaoEmArquivo(String nomeArquivo){
-        repPromocao.salvarPromocaoEmArquivo(nomeArquivo);
+        repo.salvarPromocaoEmArquivo(nomeArquivo);
     }
     public Promocao buscarPorNome(String nomePromocao){
-            return repPromocao.buscarPromocaoPorNome(nomePromocao);
+            return repo.buscarPromocaoPorNome(nomePromocao);
 
     }
 }
