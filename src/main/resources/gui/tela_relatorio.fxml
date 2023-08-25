@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17.0.6" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.TelaRelatorioControlador">
+   <children>
+      <ImageView fitHeight="133.0" fitWidth="316.0" layoutX="292.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../OneDrive/Área de Trabalho/logo_livraria.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="digiteUmID" layoutX="137.0" layoutY="257.0" prefHeight="34.0" prefWidth="205.0" promptText="Digite um ID" />
+      <TextArea fx:id="outputRelatorio" layoutX="416.0" layoutY="177.0" maxHeight="358.0" maxWidth="452.0" prefHeight="358.0" prefWidth="452.0" promptText="O relatório irá aparecer aqui" wrapText="true" />
+      <Label layoutX="50.0" layoutY="177.0" text="📝 Gerar relatório de compras:">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <DatePicker fx:id="dataDeInicio" layoutX="137.0" layoutY="307.0" prefHeight="34.0" prefWidth="205.0" promptText="Selecione uma data" />
+      <DatePicker fx:id="dataDeFim" layoutX="137.0" layoutY="357.0" prefHeight="34.0" prefWidth="205.0" promptText="Selecione uma data" />
+      <Button fx:id="botaoGerarRelatorio" layoutX="157.0" layoutY="419.0" mnemonicParsing="false" onAction="#btnRelatorioGerarRelatorio" text="Gerar relatório" />
+      <Button fx:id="botaoSair" layoutX="21.0" layoutY="510.0" mnemonicParsing="false" onAction="#btnRelatorioSair" prefHeight="25.0" prefWidth="44.0" text="Sair" />
+      <Label layoutX="83.0" layoutY="266.0" text="ID" />
+      <Label layoutX="52.0" layoutY="316.0" text="Data de início" />
+      <Label layoutX="58.0" layoutY="366.0" text="Data de fim" />
+   </children>
+</Pane>

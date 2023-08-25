@@ -8,51 +8,45 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
-import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class TelaCadastroAdmControlador {
+public class TelaRelatorioControlador {
+
     private Stage stage;
     private Scene scene;
     private Parent root;
 
     @FXML
-    private ImageView logo;
+    private TextField digiteUmID;
 
     @FXML
-    private TextField nomeCadastroADM;
+    private DatePicker dataDeInicio;
 
     @FXML
-    private TextField emailCadastroADM;
+    private DatePicker dataDeFim;
 
     @FXML
-    private PasswordField senhaCadastroADM;
+    private TextArea outputRelatorio;
 
     @FXML
-    private TextField telefoneCadastroADM;
+    private Button botaoGerarRelatorio;
 
     @FXML
-    private DatePicker dataDeNascimentoCadastroADM;
+    private Button botaoSair;
 
     @FXML
-    private Button cadastrarCadastroADM;
-
-    @FXML
-    private Button voltarCadastroADM;
-
-    @FXML
-    public void btnCadastroADMCadastrar(ActionEvent event) throws IOException{
+    public void btnRelatorioGerarRelatorio(ActionEvent event) throws IOException{
 
     }
-
     @FXML
-    public void btnCadastroADMVoltar(ActionEvent event) throws IOException{
+    public void btnRelatorioSair(ActionEvent event) throws IOException{
 irParaTelaInicialADM(event);
     }
+
     public void irParaTelaInicialADM (ActionEvent event) throws IOException{
         root = FXMLLoader.load(getClass().getResource("tela_adm.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
