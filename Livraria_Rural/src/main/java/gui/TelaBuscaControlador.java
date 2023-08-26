@@ -30,9 +30,13 @@ public class TelaBuscaControlador{
     private Scene scene;
     private Parent root;
     private List<Livro> listaRecebida;
+    private String descricaoDaBusca;
 
     public void receberLista(List<Livro> lista) {
         this.listaRecebida = lista;
+    }
+    public void receberDescricaoDaBusca(String descricaoDaBusca) {
+        this.descricaoDaBusca = descricaoDaBusca;
     }
 
     @FXML
@@ -52,6 +56,8 @@ public class TelaBuscaControlador{
 
     //@Override
     public void initialize() {
+        resultadoBusca.setText(String.format("Mostrando resultados da busca por: %s", descricaoDaBusca));
+
         //livros = new ArrayList<>(livros());
         int coluna = 0;
         int linha = 1;
