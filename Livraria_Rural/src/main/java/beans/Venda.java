@@ -83,9 +83,9 @@ public class Venda implements Serializable {
         return promocao;
     }
 
-    public static long getIndice() {
-        return indice;
-    }
+//    public static long getIndice() {
+//        return indice;
+//    }
 
     // Setters com ou sem validação
     public void setId(long id) {

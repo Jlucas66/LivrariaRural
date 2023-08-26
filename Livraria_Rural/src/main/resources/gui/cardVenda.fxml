@@ -6,8 +6,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="42.0" prefWidth="440.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.CardVendaController">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="440.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.CardVendaController">
    <children>
       <Label fx:id="dataVenda" prefHeight="42.0" prefWidth="99.0" text="Data da venda">
          <padding>
@@ -17,12 +16,13 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Label fx:id="clienteVenda" prefHeight="42.0" prefWidth="198.0" text="Cliente da venda">
+      <Label fx:id="idVenda" prefHeight="24.0" prefWidth="63.0" text="Id: " />
+      <Label fx:id="clienteVenda" prefHeight="24.0" prefWidth="162.0" text="Cliente da venda">
          <padding>
             <Insets left="10.0" />
          </padding>
       </Label>
-      <Label fx:id="valorVenda" prefHeight="103.0" prefWidth="100.0" text="Valor da venda">
+      <Label fx:id="valorVenda" prefHeight="24.0" prefWidth="84.0" text="Valor da venda">
          <padding>
             <Insets left="10.0" />
          </padding>

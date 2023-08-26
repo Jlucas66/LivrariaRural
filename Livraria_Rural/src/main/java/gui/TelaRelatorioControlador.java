@@ -32,7 +32,7 @@ public class TelaRelatorioControlador {
     private Button botaoGerarRelatorio;
 
     @FXML
-    private Button botaoSair;
+    private Button botaoVoltar;
 
     @FXML
     private DatePicker dataDeFim;
@@ -54,6 +54,9 @@ public class TelaRelatorioControlador {
         // preenche a HBox que está dentro do scroll com as cardsVenda
         ControladorVenda controladorVenda = ControladorVenda.getInstance();
         //Venda venda = controladorVenda.buscarUltimaVendaDoRepo();
+
+        // definir o arraylist que sera mostrado
+        
 
         int coluna = 0;
         int linha = 1;
@@ -86,7 +89,7 @@ public class TelaRelatorioControlador {
     }
 
     @FXML
-    void btnRelatorioSair(ActionEvent event) throws IOException {
+    void btnRelatorioVoltar(ActionEvent event) throws IOException {
         // volta para a tela de adm
         irParaTelaInicialAdm(event);
     }

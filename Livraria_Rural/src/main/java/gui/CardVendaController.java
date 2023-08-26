@@ -23,6 +23,10 @@ public class CardVendaController {
     private Hyperlink visualizarVenda;
 
     @FXML
+    private Label idVenda;
+
+
+    @FXML
     void hyperVisualizar(ActionEvent event) {
         // vai para tela parecida com a do carrinho, pra ver os livros que tem na venda
 
@@ -31,9 +35,10 @@ public class CardVendaController {
     public void setData(Venda venda){
         //book = livro;
 
-        dataVenda.setText(String.format("%1$td/%1$tm?%1$ty", venda.getData()));
+        dataVenda.setText(String.format("%1$td/%1$tm/%1$ty", venda.getData()));
         clienteVenda.setText(venda.getPessoa().getNome());
         valorVenda.setText(String.format("R$ %.2f", venda.calcularTotal()));
+        idVenda.setText(String.format("[ %d ]", venda.getId()));
 
     }
 }
