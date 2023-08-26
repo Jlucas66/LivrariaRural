@@ -67,6 +67,14 @@ public class TelaAdmControlador {
 
     @FXML
     public void btnADMRelatorioDeCompras (ActionEvent event) throws IOException{
+        // vai pra tela relatorio
+        root = FXMLLoader.load(getClass().getResource("tela_relatorio.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root, 900, 560);
+        stage.setScene(scene);
+        stage.show();
+        stage.setTitle("Relatorio de vendas");
+        stage.setResizable(false);
 
     }
     @FXML

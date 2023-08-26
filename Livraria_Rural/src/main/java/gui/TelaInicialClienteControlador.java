@@ -172,35 +172,51 @@ public class TelaInicialClienteControlador {
     @FXML
     public void btnInicialClienteTerror(ActionEvent event) throws IOException{
 
+        // TESTE MOSTRANDO OS LIVROS DO REPOSITÓRIO NA TELA DE BUSCA
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("tela_busca.fxml"));
+        root = loader.load();
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root, 900, 560);
+        stage.setScene(scene);
+        stage.show();
+        stage.setTitle("Busca");
+        stage.setResizable(false);
     }
     @FXML
     public void btnInicialClienteRomance(ActionEvent event) throws IOException{
-
+        // vai para tela_busca com lista de romances
     }
     @FXML
     public void btnInicialClienteSuspense(ActionEvent event) throws IOException{
+        // vai para tela_busca com lista de suspenses
 
     }
     @FXML
     public void btnInicialClienteFantasia(ActionEvent event) throws IOException{
+        // vai para tela_busca com lista de fantasia
 
     }
 
     @FXML
     public void btnInicialClienteFiccaoCientifica(ActionEvent event) throws IOException{
+        // vai para tela_busca com lista de ficção cientifica
 
     }
 
     @FXML
     public void btnInicialClienteBiografia(ActionEvent event) throws IOException{
+        // vai para tela_busca com lista de biografia
 
     }
     @FXML
-    public void btnInicialClienteLupa(ActionEvent event) throws IOException{
+    public void btnInicialClienteLupa(ActionEvent event, String buscaDigitada) throws IOException{
+        // vai para tela_busca com lista baseado na String digitada pelo usuario
 
     }
     @FXML
     public void btnInicialClienteHistorico(ActionEvent event) throws IOException{
+        // vai para tela de histórico do cliente
 
     }
     @FXML
@@ -230,12 +246,10 @@ public class TelaInicialClienteControlador {
         stage.setResizable(false);
     }
     public void irParaTelaLivro (ActionEvent event, Livro livro) throws IOException{
-
-//        root = FXMLLoader.load(getClass().getResource("tela_livro.fxml"));
         FXMLLoader loader = new FXMLLoader(getClass().getResource("tela_livro.fxml"));
         root = loader.load();
 
-        // dizer qual o controlador da proxima tela (não funcionou com getInstance)
+        // dizer qual o controlador da proxima tela
         TelaLivroControlador telaLivroControlador = loader.getController();
         // usar o metodo da tela que vai receber o objeto
         telaLivroControlador.receberLivro(livro);
@@ -257,6 +271,23 @@ public class TelaInicialClienteControlador {
         stage.setScene(scene);
         stage.show();
         stage.setTitle("Livro: Mais detalhes");
+        stage.setResizable(false);
+
+    }
+    public void irParaTelaBusca (ActionEvent event, List<Livro> lista) throws IOException{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("tela_busca.fxml"));
+        root = loader.load();
+
+        // dizer qual o controlador da proxima tela (não funcionou com getInstance)
+        TelaBuscaControlador telaBuscaControlador = loader.getController();
+        // usar o metodo da tela que vai receber o objeto
+        telaBuscaControlador.receberLista(lista);
+
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root, 900, 560);
+        stage.setScene(scene);
+        stage.show();
+        stage.setTitle("Resultado da busca");
         stage.setResizable(false);
 
     }
@@ -289,6 +320,10 @@ public class TelaInicialClienteControlador {
 
     public void btnInicialClienteMaisDetalhes4(ActionEvent event) throws IOException {
         irParaTelaLivro(event, livros.get(3));
+
+    }
+
+    public void btnInicialClienteLupa(ActionEvent actionEvent) {
 
     }
 }

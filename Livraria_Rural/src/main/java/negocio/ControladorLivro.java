@@ -32,6 +32,9 @@ public class ControladorLivro {
             repo.buscarLivroPorId(itemVendido.getLivro().getId()).setQuantidadeNoEstoque(itemVendido.getLivro().getQuantidadeNoEstoque() - itemVendido.getQuantidade());
         }
     }
+    public void aumentarQtdDoLivro(ItemVenda itemRemovidoDaVenda) {
+        repo.buscarLivroPorId(itemRemovidoDaVenda.getLivro().getId()).setQuantidadeNoEstoque(itemRemovidoDaVenda.getLivro().getQuantidadeNoEstoque() + itemRemovidoDaVenda.getQuantidade());
+    }
 
     // alterarPrecoDoLivro - alteração só do preço de um livro existente
     public void mudarPrecoDoLivro(Livro livro, double novoPreco) {

@@ -1,6 +1,7 @@
 package negocio;
 
 import beans.ItemVenda;
+import beans.Livro;
 import beans.Pessoa;
 import beans.Venda;
 import dados.IRepositorioVenda;
@@ -52,9 +53,18 @@ public class ControladorVenda {
         return colocadoComSucesso;
     }
 
-    // aplicar desconto - esse foi no controlador promocao
+    // remover itens da venda - recebe livro e remove do arraylist de itensvenda, se existir
+    public boolean removerItensDaVenda(Venda venda, Livro livro) {
+        boolean removidoComSucesso = false;
+        for (int i = 0; i < venda.getItensDaVenda().size(); i++) {
+            if (venda.getItensDaVenda().get(i).getLivro().equals(livro)) {
+                venda.getItensDaVenda().remove(i);
+            }
+        }
 
-    // atualizar status - vai manter?
+        return removidoComSucesso;
+    }
+
 
     public void diminuirQtd(ItemVenda itemVendido) {
         if (itemVendido != null && itemVendido.getLivro() != null) {
@@ -74,6 +84,11 @@ public class ControladorVenda {
             ultimoItem.getLivro().setQuantidadeNoEstoque(ultimoItem.getLivro().getQuantidadeNoEstoque() + ultimoItem.getQuantidade());
         }
     }
+    public void aumentarQtdDeLivro(ItemVenda itemRemovido) {
+
+        itemRemovido.getLivro().setQuantidadeNoEstoque(itemRemovido.getLivro().getQuantidadeNoEstoque() + itemRemovido.getQuantidade());
+    }
+
 
     // atualizar venda (caso precise alterar alguma coisa)
     public boolean atualizarVenda(Venda novaVenda) {
