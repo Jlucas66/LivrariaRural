@@ -49,16 +49,20 @@ public class TelaAdmControlador {
 
     @FXML
     public void btnADMCadastrarLivros (ActionEvent event) throws IOException {
+        // vai para tela de cadastro de livro
+        irParaTelaCadastroLivro(event);
 
     }
     @FXML
     public void btnADMCadastrarAdministradores (ActionEvent event) throws IOException{
 
+        // vai para tela de cadastro de adm
+        irParaTelaCadastroAdm(event);
     }
 
     @FXML
     public void btnADMCadastrarNovasPromocoes (ActionEvent event) throws IOException{
-
+        irParaTelaCadastroPromocao(event);
     }
 
     @FXML
@@ -71,8 +75,9 @@ public class TelaAdmControlador {
     }
     @FXML
     public void btnADMSair (ActionEvent event) throws IOException{
-irParaTelaLogon(event);
+        irParaTelaLogon(event);
     }
+
     public void irParaTelaLogon (ActionEvent event) throws IOException{
         root = FXMLLoader.load(getClass().getResource("tela_logon.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -80,6 +85,33 @@ irParaTelaLogon(event);
         stage.setScene(scene);
         stage.show();
         stage.setTitle("Logon");
+        stage.setResizable(false);
+    }
+    public void irParaTelaCadastroAdm (ActionEvent event) throws IOException{
+        root = FXMLLoader.load(getClass().getResource("tela_cadastro_adm.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root, 600, 400);
+        stage.setScene(scene);
+        stage.show();
+        stage.setTitle("Cadastro de Administrador");
+        stage.setResizable(false);
+    }
+    public void irParaTelaCadastroLivro (ActionEvent event) throws IOException{
+        root = FXMLLoader.load(getClass().getResource("tela_cadastro_livro.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root, 900, 560);
+        stage.setScene(scene);
+        stage.show();
+        stage.setTitle("Cadastro de Livro");
+        stage.setResizable(false);
+    }
+    public void irParaTelaCadastroPromocao (ActionEvent event) throws IOException{
+        root = FXMLLoader.load(getClass().getResource("tela_cadastro_promocao.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root, 600, 400);
+        stage.setScene(scene);
+        stage.show();
+        stage.setTitle("Cadastro de Promocao");
         stage.setResizable(false);
     }
 }

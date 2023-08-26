@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
+<?import javafx.scene.image.Image?>
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.TelaCarrinhoControlador">
    <children>
       <ImageView fx:id="logo" fitHeight="174.0" fitWidth="331.0" layoutX="285.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
@@ -23,12 +22,7 @@
                   <Font size="25.0" />
                </font>
             </Label>
-            <VBox fx:id="containerVBox" fillWidth="false" layoutX="30.0" layoutY="66.0" prefHeight="302.0" prefWidth="608.0" spacing="5.0">
-               <children>
-                  <ImageView fx:id="capaLivro" fitHeight="77.0" fitWidth="107.0" pickOnBounds="true" preserveRatio="true" />
-                  <Hyperlink fx:id="linkLivro" prefHeight="23.0" prefWidth="285.0" text="Hyperlink" />
-               </children>
-            </VBox>
+            <TextArea fx:id="detalhesDoCarrinho" editable="false" layoutX="7.0" layoutY="64.0" prefHeight="312.0" prefWidth="645.0" text="Exemplo aqui" />
          </children>
       </Pane>
       <Label fx:id="resumoDoPedido" layoutX="687.0" layoutY="210.0" text="Resumo do pedido:">

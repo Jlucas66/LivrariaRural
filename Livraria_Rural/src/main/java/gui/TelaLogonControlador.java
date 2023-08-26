@@ -126,10 +126,12 @@ public class TelaLogonControlador {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("tela_adm.fxml"));
         root = loader.load();
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root, 900, 560);
+        scene = new Scene(root, 600, 400);
         stage.setScene(scene);
         stage.show();
         stage.setTitle("Administrador");
         stage.setResizable(false);
     }
+
+
 }

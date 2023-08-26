@@ -17,7 +17,7 @@ public class Pessoa implements Serializable {
 
     // Construtor
 
-    public Pessoa(String nome, String email, String senha, String endereco,
+    public Pessoa(String nome, String email, String senha, String enderco,
                   LocalDate dataNascimento, boolean adm) {
         this.setNome(nome);
         this.setEmail(email);

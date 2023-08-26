@@ -1,27 +1,34 @@
 package gui;
 
 import beans.ItemVenda;
+import beans.Livro;
 import beans.StatusVenda;
 import beans.Venda;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.TilePane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import negocio.ControladorVenda;
 
 import java.io.IOException;
+import java.util.List;
 
 public class TelaCarrinhoControlador {
 
     private Stage stage;
     private Scene scene;
     private Parent root;
+    private List<Livro> livrosTeste;
 
     @FXML
     private TextArea detalhesDoCarrinho;
@@ -42,7 +49,8 @@ public class TelaCarrinhoControlador {
     private Button botaoFinalizarCompra;
 
     @FXML
-    private ImageView logo;
+    private TilePane tilePane;
+    //private VBox containerVBox;
 
     public void initialize() {
     // set das informações
@@ -50,13 +58,46 @@ public class TelaCarrinhoControlador {
         Venda venda = controladorVenda.buscarUltimaVendaDoRepo();
         quantidadeDeItens.setText(String.format("Total de itens: %d", venda.qtdLivrosDaVenda()));
         valorTotal.setText(String.format("Total: R$ %.2f", venda.calcularTotal()));
-        detalhesDoCarrinho.setText(controladorVenda.imprimirItensVenda(venda));
+        //detalhesDoCarrinho.setText(controladorVenda.imprimirItensVenda(venda));
 
-        // set das imagens
-        //logo.setImage(new Image(getClass().getResourceAsStream("logo_livraria.png")));
+        VBox vbox = new VBox(10);
+        for (ItemVenda i : venda.getItensDaVenda()) {
 
+            ImageView imageView = new ImageView();
+            Image imagem = new Image(getClass().getResourceAsStream(String.format("Imagens/capas_livros/%d.jpg", i.getLivro().getId())));
+            imageView.setImage(imagem);
+            imageView.setFitWidth(150); // Defina a largura desejada
+            imageView.setPreserveRatio(true);
 
+            Hyperlink hyperlink = new Hyperlink(i.getLivro().getTitulo());
+            hyperlink.setOnAction(event -> {
+                // Lógica para abrir a página do livro
+            });
+
+            VBox vBox = new VBox(imageView, hyperlink);
+            vBox.setAlignment(Pos.CENTER);
+            vBox.setSpacing(10); // Espaçamento entre imagem e hyperlink
+
+            tilePane.getChildren().add(vBox);
+
+            // set das imagens
+            //logo.setImage(new Image(getClass().getResourceAsStream("logo_livraria.png")));
+
+        }
     }
+//    private void populateDynamicLayout() {
+//        for (YourDataClass data : dataList) {
+//            HBox hbox = new HBox(10); // Espaçamento entre os elementos
+//            ImageView imageView = new ImageView(new Image(data.getImagePath()));
+//            Hyperlink hyperlink = new Hyperlink(data.getTitle());
+//
+//            // Adicione o evento de clique no hiperlink, se necessário
+//            // hyperlink.setOnAction(event -> handleHyperlinkClick(data.getLink()));
+//
+//            hbox.getChildren().addAll(imageView, hyperlink);
+//            containerVBox.getChildren().add(hbox);
+//        }
+//    }
 
     public void btnCarrinhoContinuarComprando(ActionEvent event) throws IOException{
         irParaTelaInicialCliente(event);
