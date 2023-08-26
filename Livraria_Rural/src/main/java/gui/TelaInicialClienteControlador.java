@@ -58,6 +58,7 @@ public class TelaInicialClienteControlador {
         capas.add(capaDoLivro4);
 
 
+
         for (int i = 0; i < 4; i++) {
             capas.get(i).setImage(new Image(getClass().getResourceAsStream(String.format("Imagens/capas_livros/%d.jpg", livros.get(i+1).getId()))));
         }
