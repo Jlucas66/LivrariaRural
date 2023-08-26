@@ -12,6 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import negocio.ControladorLivro;
 
 import java.io.IOException;
 
@@ -58,6 +59,8 @@ public class TelaCadastroLivroControlador {
 
     @FXML
     public void btnCadastroLivroCadastrar(ActionEvent event) throws IOException{
+        ControladorLivro cLivro=ControladorLivro.getInstance();
+
 
         // se tudo no livro estiver ok (campos preenchidos, e quantidade sendo um número inteiro maior ou igual a zero)
 
