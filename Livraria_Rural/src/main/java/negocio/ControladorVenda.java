@@ -47,7 +47,19 @@ public class ControladorVenda {
     public boolean colocarItensNaVenda(Venda venda, ItemVenda itemVendido) {
         boolean colocadoComSucesso = false;
         if (itemVendido != null) {
-            venda.getItensDaVenda().add(itemVendido);
+
+            // se ja existir o livro em algum item venda, atualizar a qtd desse item venda
+            boolean livroJaEstaNoCarrinho = false;
+            for (ItemVenda i : venda.getItensDaVenda()) {
+                if (i.getLivro().equals(itemVendido.getLivro())) {
+                    livroJaEstaNoCarrinho = true;
+                    i.setQuantidade(i.getQuantidade() + itemVendido.getQuantidade());
+                    break;
+                }
+            }
+            if (!livroJaEstaNoCarrinho) {
+                venda.getItensDaVenda().add(itemVendido);
+            }
             colocadoComSucesso = true;
         }
         return colocadoComSucesso;

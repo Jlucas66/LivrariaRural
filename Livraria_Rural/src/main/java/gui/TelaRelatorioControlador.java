@@ -56,7 +56,7 @@ public class TelaRelatorioControlador {
         //Venda venda = controladorVenda.buscarUltimaVendaDoRepo();
 
         // definir o arraylist que sera mostrado
-        
+
 
         int coluna = 0;
         int linha = 1;

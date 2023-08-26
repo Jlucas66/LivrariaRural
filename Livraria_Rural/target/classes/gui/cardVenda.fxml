@@ -16,13 +16,13 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Label fx:id="idVenda" prefHeight="42.0" prefWidth="87.0" text="Id: " />
-      <Label fx:id="clienteVenda" prefHeight="42.0" prefWidth="198.0" text="Cliente da venda">
+      <Label fx:id="idVenda" prefHeight="24.0" prefWidth="63.0" text="Id: " />
+      <Label fx:id="clienteVenda" prefHeight="24.0" prefWidth="162.0" text="Cliente da venda">
          <padding>
             <Insets left="10.0" />
          </padding>
       </Label>
-      <Label fx:id="valorVenda" prefHeight="103.0" prefWidth="100.0" text="Valor da venda">
+      <Label fx:id="valorVenda" prefHeight="24.0" prefWidth="84.0" text="Valor da venda">
          <padding>
             <Insets left="10.0" />
          </padding>

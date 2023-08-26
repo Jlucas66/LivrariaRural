@@ -79,6 +79,9 @@ public class TelaCarrinhoControlador {
         if (!venda.getItensDaVenda().isEmpty()) {
             irParaTelaCompra(event);
             venda.setStatus(StatusVenda.PEDIDO_EFETUADO);
+
+            // salvar venda no arquivo.ser
+            controladorVenda.salvarVendasEmArquivo("Livraria_Rural/vendas.ser");
         } else {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Carrinho vazio");
@@ -147,7 +150,7 @@ public class TelaCarrinhoControlador {
             valorTotal.setText(String.format("Total: R$ %.2f", venda.calcularTotal()));
             //detalhesDoCarrinho.setText(controladorVenda.imprimirItensVenda(venda));
 
-            atualizarCarrinho();
+            //atualizarCarrinho();
         }
 
 

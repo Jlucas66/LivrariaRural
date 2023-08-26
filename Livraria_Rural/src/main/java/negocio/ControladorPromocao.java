@@ -98,7 +98,7 @@ public class ControladorPromocao {
         boolean existeData=false;
         Promocao promocao;
         if(nomePromocaoNova!=null && !nomePromocaoNova.isEmpty()&&
-        inicio!=null && fim!=null ){
+        inicio!=null && fim!=null){
                 promocao = new Promocao(inicio,fim,porcentagemDesconto,nomePromocaoNova);
                 repo.cadastrarPromocao(promocao);
 
