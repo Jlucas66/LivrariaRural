@@ -169,7 +169,11 @@ public class TelaInicialClienteControlador {
 
         // Passar livro para proxima tela
         TelaLivroControlador telaLivroControlador = loader.getController();
+        ControladorVenda controladorVenda = ControladorVenda.getInstance();
+        telaLivroControlador.receberPessoa(controladorVenda.buscarUltimaVendaDoRepo().getPessoa());
+        //passando pesso ah pessoa da tela clinte para a tela do livro
         telaLivroControlador.receberLivro(livro);
+
 
     }
     public void irParaTelaBusca (ActionEvent event) throws IOException{

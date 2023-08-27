@@ -35,6 +35,7 @@ public class ControladorAvaliacao {
 
             for (Avaliacao avaliacaoJaCadastrada : livro.getAvaliacoes()) {
                 if (avaliacaoJaCadastrada.getPessoa().equals(pessoa) && avaliacaoJaCadastrada.getLivro().equals(livro)) {
+                    //equals está comparando os emails
                     // aqui a pessoa está tentando avaliar um livro que já avaliou
                     // então a nota e comentario vão ser alterados
                     avaliacaoJaCadastrada.setNota(nota);

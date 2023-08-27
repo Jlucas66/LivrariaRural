@@ -2,6 +2,7 @@ package gui;
 
 import beans.ItemVenda;
 import beans.Livro;
+import beans.Pessoa;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -24,6 +25,7 @@ public class TelaLivroControlador {
     private Scene scene;
     private Parent root;
     private Livro livroRecebido;        // atributo que virá da tela do cliente
+    private Pessoa pessoaRecebida;
 
     public void initialize() {
         // setar itens no choicebox
@@ -31,10 +33,15 @@ public class TelaLivroControlador {
         for (Livro livro : controladorLivro.getRepositorioLivro()) {
             generos.getItems().add(livro.getGenero());
         }
+        preencherLabels();
     }
     public void receberLivro(Livro livro) {
         this.livroRecebido = livro;
         preencherLabels();
+    }
+
+    public void receberPessoa(Pessoa pessoa){
+        this.pessoaRecebida=pessoa;
     }
 
     @FXML
@@ -68,6 +75,7 @@ public class TelaLivroControlador {
     @FXML
     public void btnLivroAvaliarLivro (ActionEvent event) throws IOException{
         // vai para tela de avaliação
+        irParaTelaAvaliacao(event);
 
     }
     @FXML
@@ -195,6 +203,19 @@ public class TelaLivroControlador {
         // mandar string do textfield pra tela de busca
         TelaBuscaControlador telaBuscaControlador = loader.getController();
         telaBuscaControlador.receberBusca(buscarLivro.getText(), generos.getSelectionModel().getSelectedItem());
+    }
+    public void irParaTelaAvaliacao (ActionEvent event) throws IOException{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("tela_avaliacao.fxml"));
+        root = loader.load();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root, 900, 560);
+        stage.setScene(scene);
+        stage.show();
+        stage.setTitle("Livro: Mais detalhes");
+        stage.setResizable(false);
+
+        TelaAvaliacaoControlador telaAvaliacaoControlador= loader.getController();
+        telaAvaliacaoControlador.receberLivroEPoessoa(livroRecebido,pessoaRecebida);
     }
 
 
