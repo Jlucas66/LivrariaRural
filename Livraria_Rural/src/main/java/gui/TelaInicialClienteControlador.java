@@ -38,7 +38,7 @@ public class TelaInicialClienteControlador {
         for (Livro livro : controladorLivro.getRepositorioLivro()) {
             generos.getItems().add(livro.getGenero());
         }
-        ola.setText(controladorVenda.buscarUltimaVendaDoRepo().getPessoa().getNome());
+        ola.setText(String.format("Olá, %s!", controladorVenda.buscarUltimaVendaDoRepo().getPessoa().getNome()));
 
 
 
@@ -124,18 +124,16 @@ public class TelaInicialClienteControlador {
     @FXML
     public void btnInicialClienteLupa(ActionEvent event) throws IOException{
         // vai para tela_busca com lista baseado na String digitada pelo usuario
-
         irParaTelaBusca(event);
-
     }
     @FXML
     public void btnInicialClienteHistorico(ActionEvent event) throws IOException{
         // vai para tela de histórico do cliente
-
+        irParaTelaHistorico(event);
     }
     @FXML
     public void btnInicialClienteCarrinho(ActionEvent event) throws IOException{
-
+        // vai para tela de carrinho
         irParaTelaCarrinho(event);
     }
 
@@ -206,6 +204,15 @@ public class TelaInicialClienteControlador {
     public void irParaTelaCarrinho (ActionEvent event) throws IOException{
         root = FXMLLoader.load(getClass().getResource("tela_carrinho.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root, 900, 560);
+        stage.setScene(scene);
+        stage.show();
+        stage.setTitle("Carrinho");
+        stage.setResizable(false);
+    }
+    public void irParaTelaHistorico (ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("tela_historico.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root, 900, 560);
         stage.setScene(scene);
         stage.show();

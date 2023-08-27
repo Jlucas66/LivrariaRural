@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.CardVendaDoHistoricoController">
+   <children>
+      <Label fx:id="dataVenda" prefHeight="42.0" prefWidth="99.0" text="Data da venda">
+         <padding>
+            <Insets left="10.0" />
+         </padding>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="idVenda" alignment="CENTER" prefHeight="24.0" prefWidth="48.0" text="Id: " />
+      <Label fx:id="quantidadeItensVenda" alignment="CENTER" prefHeight="24.0" prefWidth="111.0" text="Quantidade itens">
+         <padding>
+            <Insets left="10.0" />
+         </padding>
+      </Label>
+      <Label fx:id="valorVenda" prefHeight="24.0" prefWidth="84.0" text="Valor da venda">
+         <padding>
+            <Insets left="10.0" />
+         </padding>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Hyperlink fx:id="visualizarVenda" alignment="CENTER" onAction="#hyperVisualizar" prefHeight="96.0" prefWidth="86.0" text="Visualizar" />
+   </children>
+</HBox>

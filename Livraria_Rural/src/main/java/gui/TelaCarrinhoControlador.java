@@ -34,25 +34,18 @@ public class TelaCarrinhoControlador {
 
     @FXML
     private Label resumoDoPedido;
-
     @FXML
     private Label quantidadeDeItens;
-
     @FXML
     private Label valorTotal;
-
     @FXML
     private Button botaoContinuarComprando;
-
     @FXML
     private Button botaoZerarCarrinho;
-
     @FXML
     private Button botaoRemoverUltimoLivro;
-
     @FXML
     private Button botaoFinalizarCompra;
-
     @FXML
     private GridPane livroVendaContainer;
     //private VBox containerVBox;

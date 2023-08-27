@@ -70,6 +70,9 @@ public class CardLivroVendaController {
         quantidade.setText(String.format("Quantidade: %d", itemVenda.getQuantidade()));
         valorTotal.setText(String.format("R$ %.2f", itemVenda.calcularTotal()));
     }
+    public void ocultarHyperlink() {
+        remover.setVisible(false);
+    }
 
     public void irParaTelaCarrinho (ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("tela_carrinho.fxml"));

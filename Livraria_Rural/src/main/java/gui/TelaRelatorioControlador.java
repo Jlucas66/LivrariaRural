@@ -1,6 +1,5 @@
 package gui;
 
-import beans.ItemVenda;
 import beans.Venda;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -9,24 +8,22 @@ import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
+import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import negocio.ControladorVenda;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class TelaRelatorioControlador {
 
     private Stage stage;
     private Scene scene;
     private Parent root;
+    private List<Venda> listaRecebida;
 
     @FXML
     private Button botaoGerarRelatorio;
@@ -51,23 +48,48 @@ public class TelaRelatorioControlador {
 
     @FXML
     void btnRelatorioGerarRelatorio(ActionEvent event) {
+        System.out.println(dataDeInicio.getValue());
+        System.out.println(dataDeFim.getValue());
+        // gerar a lista
+        List<Venda> lista = new ArrayList<>();
+
+        ControladorVenda controladorVenda = ControladorVenda.getInstance();
+        lista = controladorVenda.listarVendasPorPeriodo(dataDeInicio.getValue(), dataDeFim.getValue());
+
+        if (lista.isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Entrada");
+            alert.setHeaderText("Não foram feitas vendas nesse período");
+            alert.setContentText("Selecione outras datas de inicio e fim");
+
+            alert.showAndWait();
+            System.out.println("Alerta de não seleção de datas");
+        }
+        atualizarRelatorio(lista);
+    }
+
+    @FXML
+    void btnRelatorioVoltar(ActionEvent event) throws IOException {
+        // volta para a tela de adm
+        irParaTelaInicialAdm(event);
+    }
+    public void atualizarRelatorio(List<Venda> listaDeVendas) {
         // preenche a HBox que está dentro do scroll com as cardsVenda
         ControladorVenda controladorVenda = ControladorVenda.getInstance();
         //Venda venda = controladorVenda.buscarUltimaVendaDoRepo();
-
-        // definir o arraylist que sera mostrado
 
 
         int coluna = 0;
         int linha = 1;
 
         try {
-            for(Venda venda : controladorVenda.getRepositorioVenda() ){
+            for(Venda venda : listaDeVendas){
                 FXMLLoader fxmlLoader = new FXMLLoader();
-                fxmlLoader.setLocation(getClass().getResource("cardVenda.fxml"));
+                fxmlLoader.setLocation(getClass().getResource("cardVendaDoRelatorio.fxml"));
                 HBox cardBox = fxmlLoader.load();
-                CardVendaController cardVendaController = fxmlLoader.getController();
-                cardVendaController.setData(venda);
+                CardVendaDoRelatorioController cardVendaDoRelatorioController = fxmlLoader.getController();
+                cardVendaDoRelatorioController.setData(venda);
+                cardVendaDoRelatorioController.setListaDoRelatorio(listaDeVendas);
 
                 if (coluna == 1) {
                     coluna = 0;
@@ -88,16 +110,6 @@ public class TelaRelatorioControlador {
 
     }
 
-    @FXML
-    void btnRelatorioVoltar(ActionEvent event) throws IOException {
-        // volta para a tela de adm
-        irParaTelaInicialAdm(event);
-    }
-
-    @FXML
-    void clicarNaVenda(MouseEvent event) {
-        // vai para tela parecida com carrinho, mostrando os livros daquela venda, com botão para voltar para a tela anterior
-    }
 
     public void irParaTelaInicialAdm (ActionEvent event) throws IOException{
         root = FXMLLoader.load(getClass().getResource("tela_adm.fxml"));
@@ -107,6 +119,10 @@ public class TelaRelatorioControlador {
         stage.show();
         stage.setTitle("Catálogo");
         stage.setResizable(false);
+    }
+    public void receberLista(List<Venda> lista) {
+        this.listaRecebida = lista;
+        atualizarRelatorio(lista);
     }
 
 }

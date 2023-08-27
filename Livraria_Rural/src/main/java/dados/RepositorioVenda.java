@@ -131,7 +131,7 @@ public class RepositorioVenda implements IRepositorioVenda {
         List<Venda> vendasPorPeriodo=new ArrayList<>();
         if(inicio!=null && fim!=null){
             for(Venda v:repositorioVenda){
-                if(v.getData().isAfter(inicio) && v.getData().isBefore(fim)){
+                if((v.getData().isAfter(inicio) && v.getData().isBefore(fim)) || v.getData().isEqual(inicio) || v.getData().isEqual(fim)){
                     vendasPorPeriodo.add(v);
                 }
             }

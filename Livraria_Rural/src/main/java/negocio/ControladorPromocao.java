@@ -8,6 +8,7 @@ import dados.RepositorioPromocao;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 public class ControladorPromocao {
 
@@ -134,6 +135,9 @@ public class ControladorPromocao {
     }
     public Promocao buscarPorNome(String nomePromocao){
             return repo.buscarPromocaoPorNome(nomePromocao);
+    }
 
+    public List<Promocao> getRepositorioPromocao() {
+        return repo.getRepositorioPromocao();
     }
 }

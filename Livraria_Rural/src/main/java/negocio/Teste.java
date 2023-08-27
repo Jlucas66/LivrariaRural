@@ -4,6 +4,7 @@ import beans.*;
 import org.controlsfx.control.PropertySheet;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatterBuilder;
 import java.util.ArrayList;
 
 public class Teste {
@@ -11,20 +12,30 @@ public class Teste {
                 ControladorPessoa controladorPessoa = ControladorPessoa.getInstance();
                 ControladorLivro controladorLivro = ControladorLivro.getInstance();
                 ControladorVenda controladorVenda = ControladorVenda.getInstance();
+                ControladorPromocao controladorPromocao = ControladorPromocao.getInstance();
 
                 controladorPessoa.carregarPessoasDeArquivo("Livraria_Rural/pessoas.ser");
                 controladorLivro.carregarLivrosDeArquivo("Livraria_Rural/livros.ser");
                 controladorVenda.carregarVendasDeArquivo("Livraria_Rural/vendas.ser");
+                controladorPromocao.carregarPromocaoDeArquivo("Livraria_Rural/promocao.ser");
 
                 System.out.println("tamanho de pessoas.ser = " + controladorPessoa.getRepositorioPessoa().size());
                 System.out.println("tamanho de vendas.ser = " + controladorVenda.getRepositorioVenda().size());
+                System.out.println("tamanho de promocao.ser = " + controladorPromocao.getRepositorioPromocao().size());
+                System.out.println("tamanho de livros.ser = " + controladorLivro.getRepositorioLivro().size());
+
+                for (Promocao p : controladorPromocao.getRepositorioPromocao()) {
+                        System.out.println(p.getNomePromocao());
+                        System.out.printf("%1$td/%1$tm/%1$ty\n", p.getInicio());
+                        System.out.printf("%1$td/%1$tm/%1$ty\n", p.getFim());
+
+                }
 
                 System.out.println();
 
                 System.out.println("testando os metodos de listar livros");
                 System.out.println();
 
-                System.out.println(controladorLivro.listaLivroPorTitulo("ava").size());
 
 
 //                //criar 3 vendas para testar
@@ -83,12 +94,12 @@ public class Teste {
                 // salvar no arquivo ser
                 //controladorPessoa.salvarPessoasEmArquivo("Livraria_Rural/pessoas.ser");
 
-                LocalDate d1Inicio=LocalDate.of(2023,8,1);
-                LocalDate d1Fim=LocalDate.of(2023,8,30);
+                //LocalDate d1Inicio=LocalDate.of(2023,8,1);
+                //LocalDate d1Fim=LocalDate.of(2023,8,30);
                 //Promocao pDiaDosPais=new Promocao(d1Inicio,d1Fim,5,"Dia dos Pais");
 
-                ControladorPromocao controladorPromocao= ControladorPromocao.getInstance();
-                controladorPromocao.cadastraNovaPromocao(d1Inicio,d1Fim,5,"Dia dos Pais");
+                //ControladorPromocao controladorPromocao= ControladorPromocao.getInstance();
+               // controladorPromocao.cadastraNovaPromocao(d1Inicio,d1Fim,5,"Dia dos Pais");
 
 
                 //controladorPromocao.salvarPprEmArquivo("Livraria_Rural/promocao.ser");
