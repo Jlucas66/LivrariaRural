@@ -15,19 +15,21 @@
       <TextField fx:id="autorCadastroLivro" layoutX="125.0" layoutY="266.0" promptText="Digite o autor" />
       <TextField fx:id="generoCadastroLivro" layoutX="125.0" layoutY="328.0" promptText="Digite o gênero" />
       <TextField fx:id="editoraCadastroLivro" layoutX="125.0" layoutY="393.0" promptText="Digite a editora" />
+      <TextField fx:id="edicaoCadastroLivro" layoutX="125.0" layoutY="455.0" promptText="Digite a edição" />
+      <TextArea fx:id="tituloCadastroLivro" layoutX="364.0" layoutY="200.0" prefHeight="70.0" prefWidth="237.0" wrapText="true" />
+      <TextArea fx:id="sinopseCadastroLivro" layoutX="364.0" layoutY="328.0" prefHeight="154.0" prefWidth="237.0" wrapText="true" />
       <TextField fx:id="precoCadastroLivro" layoutX="715.0" layoutY="204.0" prefHeight="25.0" prefWidth="102.0" promptText="Insira o preço" />
       <TextField fx:id="quantidadeNoEstoqueCadastroLivro" layoutX="715.0" layoutY="250.0" prefHeight="25.0" prefWidth="102.0" promptText="Insira a quantidade">
          <font>
             <Font size="10.0" />
          </font></TextField>
-      <TextField fx:id="edicaoCadastroLivro" layoutX="125.0" layoutY="455.0" promptText="Digite a edição" />
+      <Button fx:id="botaoCadastrar" layoutX="706.0" layoutY="495.0" mnemonicParsing="false" onAction="#btnCadastroLivroCadastrar" text="Cadastrar" />
+      <Button fx:id="botaoCancelar" layoutX="793.0" layoutY="495.0" mnemonicParsing="false" onAction="#btnCadastroLivroCancelar" text="Cancelar" />
       <Label layoutX="55.0" layoutY="143.0" text="Cadastrar livro:">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Button fx:id="botaoCadastrar" layoutX="706.0" layoutY="495.0" mnemonicParsing="false" onAction="#btnCadastroLivroCadastrar" text="Cadastrar" />
-      <Button fx:id="botaoCancelar" layoutX="793.0" layoutY="495.0" mnemonicParsing="false" onAction="#btnCadastroLivroCancelar" text="Cancelar" />
       <Label layoutX="101.0" layoutY="207.0" text="ID">
          <font>
             <Font size="13.0" />
@@ -46,7 +48,5 @@
             <Image url="@logo_livraria.png" />
          </image>
       </ImageView>
-      <TextArea fx:id="tituloCadastroLivro" layoutX="364.0" layoutY="200.0" prefHeight="70.0" prefWidth="237.0" />
-      <TextArea fx:id="sinopseCadastroLivro" layoutX="364.0" layoutY="328.0" prefHeight="154.0" prefWidth="237.0" />
    </children>
 </Pane>

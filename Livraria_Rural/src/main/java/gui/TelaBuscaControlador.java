@@ -27,32 +27,25 @@ public class TelaBuscaControlador{
     private String buscaRecebida;
     private String generoRecebido;
 
-
     @FXML
     private Label resultadoBusca;
-
     @FXML
     private VBox cardLayout;
-
     @FXML
     private GridPane bookContainer;
-
     @FXML
     private Button botaoVoltar;
-
-    @FXML
-    private Label nomeBusca;
-
-
+        @FXML
+    public void btnVoltar(ActionEvent event) throws IOException{
+        irParaTelaInicialCliente(event);
+    }
 
     public void receberBusca(String buscaRecebida, String generoRecebido) {
         this.buscaRecebida = buscaRecebida;
         this.generoRecebido = generoRecebido;
         inicializarTela();
     }
-
     public void inicializarTela() {
-        nomeBusca.setText(String.format(buscaRecebida));
 
         int coluna = 0;
         int linha = 1;
@@ -80,20 +73,11 @@ public class TelaBuscaControlador{
             e.printStackTrace();
         }
     }
-
     private List<Livro> livros(){
-
         // metodo retorna lista de livros
         ControladorLivro controladorLivro = ControladorLivro.getInstance();
         List<Livro> lista = controladorLivro.listaLivroPorTituloOuAutor(buscaRecebida, generoRecebido);
         return lista;
-
-    }
-
-    @FXML
-    public void btnVoltar(ActionEvent event) throws IOException{
-        irParaTelaInicialCliente(event);
-
     }
 
     public void irParaTelaInicialCliente (ActionEvent event) throws IOException{

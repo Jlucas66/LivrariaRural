@@ -60,7 +60,7 @@ public class TelaInicialClienteControlador {
 
 
         for (int i = 0; i < 4; i++) {
-            capas.get(i).setImage(new Image(getClass().getResourceAsStream(String.format("Imagens/capas_livros/%d.jpg", livros.get(i+1).getId()))));
+            capas.get(i).setImage(new Image(getClass().getResourceAsStream(String.format("Imagens/capas_livros/%d.jpg", livros.get(i).getId()))));
         }
 
 
@@ -160,30 +160,16 @@ public class TelaInicialClienteControlador {
     public void irParaTelaLivro (ActionEvent event, Livro livro) throws IOException{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("tela_livro.fxml"));
         root = loader.load();
-
-        // dizer qual o controlador da proxima tela
-        TelaLivroControlador telaLivroControlador = loader.getController();
-        // usar o metodo da tela que vai receber o objeto
-        telaLivroControlador.receberLivro(livro);
-
-        // passando capa do livro - PROVISÓRIO - modificar
-        if (livro.getId() == 1) {
-            telaLivroControlador.receberCapa(capaDoLivro1.getImage());
-        } else if (livro.getId() == 2) {
-            telaLivroControlador.receberCapa(capaDoLivro2.getImage());
-        } else if (livro.getId() == 3) {
-            telaLivroControlador.receberCapa(capaDoLivro3.getImage());
-        } else if (livro.getId() == 4) {
-            telaLivroControlador.receberCapa(capaDoLivro4.getImage());
-        }
-
-
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root, 900, 560);
         stage.setScene(scene);
         stage.show();
         stage.setTitle("Livro: Mais detalhes");
         stage.setResizable(false);
+
+        // Passar livro para proxima tela
+        TelaLivroControlador telaLivroControlador = loader.getController();
+        telaLivroControlador.receberLivro(livro);
 
     }
     public void irParaTelaBusca (ActionEvent event) throws IOException{
@@ -199,7 +185,6 @@ public class TelaInicialClienteControlador {
         // mandar string do textfield pra tela de busca
         TelaBuscaControlador telaBuscaControlador = loader.getController();
         telaBuscaControlador.receberBusca(buscarInicialCliente.getText(), generos.getSelectionModel().getSelectedItem());
-
     }
     public void irParaTelaCarrinho (ActionEvent event) throws IOException{
         root = FXMLLoader.load(getClass().getResource("tela_carrinho.fxml"));

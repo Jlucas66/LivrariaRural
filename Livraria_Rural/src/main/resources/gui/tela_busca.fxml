@@ -34,14 +34,6 @@
                               <Insets left="30.0" />
                           </padding>
                       </Label>
-                  <Label fx:id="nomeBusca" prefHeight="28.0" prefWidth="234.0" text="Busca">
-                     <font>
-                        <Font size="19.0" />
-                     </font>
-                     <padding>
-                        <Insets left="30.0" />
-                     </padding>
-                  </Label>
                </children>
             </HBox>
             <ScrollPane prefHeight="380.0" prefWidth="880.0">

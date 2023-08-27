@@ -58,7 +58,7 @@ public class TelaCadastroAdmControlador {
             cPessoa.salvarPessoasEmArquivo("Livraria_Rural/pessoas.ser");
 
             // mudar de tela
-            irParaTelaLogon(event);
+            irParaTelaAdm(event);
 
         } else {
 
@@ -83,8 +83,8 @@ public class TelaCadastroAdmControlador {
 
     @FXML
     public void btnCadastroADMVoltar(ActionEvent event) throws IOException{
-        // voltar para a tela de logon
-        irParaTelaLogon(event);
+        // voltar para a tela de adm
+        irParaTelaAdm(event);
 
     }
 
@@ -95,6 +95,17 @@ public class TelaCadastroAdmControlador {
         stage.setScene(scene);
         stage.show();
         stage.setTitle("Logon");
+        stage.setResizable(false);
+    }
+    public void irParaTelaAdm (ActionEvent event) throws IOException{
+        //root = FXMLLoader.load(getClass().getResource("tela_inicial_cliente.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("tela_adm.fxml"));
+        root = loader.load();
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root, 600, 400);
+        stage.setScene(scene);
+        stage.show();
+        stage.setTitle("Administrador");
         stage.setResizable(false);
     }
 }

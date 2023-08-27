@@ -141,8 +141,8 @@
             <Button fx:id="botaoMaisDetalhes4" layoutX="56.0" layoutY="226.0" mnemonicParsing="false" onAction="#btnInicialClienteMaisDetalhes4" text="Mais detalhes" />
          </children></Pane>
       <Button fx:id="botaoSairDaConta" layoutX="797.0" layoutY="521.0" mnemonicParsing="false" onAction="#btnInicialClienteSairDaConta" text="Sair da conta" />
-      <ChoiceBox fx:id="generos" layoutX="437.0" layoutY="85.0" prefHeight="25.0" prefWidth="206.0" />
-      <Label alignment="CENTER" layoutX="299.0" layoutY="89.0" text="Filtre a busca por gênero :" textAlignment="CENTER">
+      <ChoiceBox fx:id="generos" layoutX="437.0" layoutY="83.0" prefHeight="25.0" prefWidth="206.0" />
+      <Label alignment="CENTER" layoutX="299.0" layoutY="87.0" text="Filtre a busca por gênero :" textAlignment="CENTER">
          <font>
             <Font size="11.0" />
          </font>

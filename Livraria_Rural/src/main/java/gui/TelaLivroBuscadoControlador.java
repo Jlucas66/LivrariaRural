@@ -13,6 +13,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import negocio.ControladorItemVenda;
+import negocio.ControladorLivro;
 import negocio.ControladorPromocao;
 import negocio.ControladorVenda;
 
@@ -30,121 +31,76 @@ public class TelaLivroBuscadoControlador {
 
 
     public void initialize() {
+        // setar itens no choicebox
+        ControladorLivro controladorLivro = ControladorLivro.getInstance();
+        for (Livro livro : controladorLivro.getRepositorioLivro()) {
+            generos.getItems().add(livro.getGenero());
+        }
 
     }
-
-    // quando recebe o livro da outra página, já preenche os labels
     public void receberLivro(Livro livro) {
         this.livroRecebido = livro;
         preencherLabels();
     }
-    public void receberCapa(Image capa) {
-        this.capa = capa;
-        capaDoLivroLivro.setImage(capa);
-    }
-//    public void receberLista(List<Livro> lista) {
-//        this.listaRecebida = lista;
-//    }
     public void receberBusca(String buscaRecebida, String generoRecebido) {
         this.buscaRecebida = buscaRecebida;
         this.generoRecebido = generoRecebido;
     }
 
-    // Metodo separado pra preencher os labels, pra ficar mais organizado
-    private void preencherLabels() {
-        if (livroRecebido != null) {
-            tituloDoLivroLivro.setText(livroRecebido.getTitulo());
-            precoDoLivroLivro.setText(String.format("R$ %.2f", livroRecebido.getPreco()));
-
-            notaDasAvaliacoesLivro.setText(String.format("Média de avaliações: %.1f", livroRecebido.calcularMediaDeAvaliacoes()));
-
-            noEstoqueLivro.setText(String.format("Em estoque: %d", livroRecebido.getQuantidadeNoEstoque()));
-            descricaoDoLivroLivro.setText(String.format("Autor: %s\nSinopse: %s\nEdição: %s\nEditora: %s",
-                    livroRecebido.getAutor(), livroRecebido.getSinopse(), livroRecebido.getEdicao(), livroRecebido.getEditora()));
-        }
-    }
-
 
     @FXML
     private TextField buscarLivro;
-
+    @FXML
+    private ChoiceBox<String> generos;
     @FXML
     private TextField quantidadeLivrosLivro;
-
     @FXML
     private ImageView capaDoLivroLivro;
-    @FXML
-    private ImageView lupa;
-    @FXML
-    private ImageView historico;
-    @FXML
-    private ImageView carrinho;
-    @FXML
-    private ImageView logo;
 
+    @FXML
+    private Label autorLivro;
+    @FXML
+    private Label edicaoLivro;
+    @FXML
+    private Label editoraLivro;
     @FXML
     private Label tituloDoLivroLivro;
-
     @FXML
     private Label notaDasAvaliacoesLivro;
-
     @FXML
     private Label precoDoLivroLivro;
-
     @FXML
     private Label noEstoqueLivro;
-
     @FXML
     private TextArea descricaoDoLivroLivro;
 
-    @FXML
-    private Button botaoLupa;
-
-    @FXML
-    private Button botaoHistorico;
-
-    @FXML
-    private Button botaoCarrinho;
-
-    @FXML
-    private Button botaoAdicionarAoCarrinho;
-
-    @FXML
-    private Button botaoAvaliarLivro;
-
-    @FXML
-    private Button botaoVoltar;
-
-
-
-
     // On Action
-
-
-
-
-
-
     @FXML
-    public void btnLivroLupa(ActionEvent event) throws IOException{
+    public void btnLivroAvaliarLivro (ActionEvent event) throws IOException{
+        // vai pra tela de avaliação
 
     }
-
+    @FXML
+    public void btnLivroLupa(ActionEvent event) throws IOException{
+        // vai pra tela de busca
+        irParaTelaBusca(event);
+    }
     @FXML
     public void btnLivroHistorico(ActionEvent event) throws IOException{
-
+        // vai pra tela de historico
+        irParaTelaHistorico(event);
     }
     @FXML
     public void btnLivroCarrinho(ActionEvent event) throws IOException{
         irParaTelaCarrinho(event);
     }
     @FXML
+    public void btnLivroVoltar(ActionEvent event) throws IOException{
+        irParaTelaBusca(event);
+    }
+    @FXML
     public void btnLivroAdicionarAoCarrinho(ActionEvent event) throws IOException{
 
-        // esse botão vai levar para a tela do carrinho - para evitar da pessoa apertar várias vezes o botão de add, e repetir a entrada dos dados
-
-
-        // transforma o que foi digitado em inteiro
         int qtd=-1;
 
         try{
@@ -158,7 +114,6 @@ public class TelaLivroBuscadoControlador {
             alert.showAndWait();
             System.out.println("Alerta de quantidade maior do que a disponível no estoque, ou então digitou algo diferente de numero inteiro");
         }
-
 
         if(qtd>-1){
             System.out.println(qtd);
@@ -179,13 +134,8 @@ public class TelaLivroBuscadoControlador {
                 controladorVenda.diminuirQtd(itemVenda);
 
                 // mudar para pag do carrinho de compras
-                root = FXMLLoader.load(getClass().getResource("tela_carrinho.fxml"));
-                stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-                scene = new Scene(root, 900, 560);
-                stage.setScene(scene);
-                stage.show();
-                stage.setTitle("Carrinho");
-                stage.setResizable(false);
+                irParaTelaCarrinho(event);
+
             } else {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Entrada");
@@ -196,28 +146,24 @@ public class TelaLivroBuscadoControlador {
                 System.out.println("Alerta de quantidade maior do que a disponível no estoque, ou então digitou algo diferente de numero inteiro");
             }
         }
-
-
-
     }
 
-    @FXML
-    public void btnLivroAvaliarLivro (ActionEvent event) throws IOException{
-
+    private void preencherLabels() {
+        if (livroRecebido != null) {
+            tituloDoLivroLivro.setText(livroRecebido.getTitulo());
+            precoDoLivroLivro.setText(String.format("R$ %.2f", livroRecebido.getPreco()));
+            notaDasAvaliacoesLivro.setText(String.format("⭐⭐⭐⭐⭐  %.1f/5", livroRecebido.calcularMediaDeAvaliacoes()));
+            noEstoqueLivro.setText(String.format("Em estoque: %d", livroRecebido.getQuantidadeNoEstoque()));
+            descricaoDoLivroLivro.setText(livroRecebido.getSinopse());
+            edicaoLivro.setText(String.format("Edição: %s", livroRecebido.getEdicao()));
+            editoraLivro.setText(String.format("Editora: %s", livroRecebido.getEditora()));
+            autorLivro.setText(livroRecebido.getAutor());
+            try {
+                capaDoLivroLivro.setImage(new Image(getClass().getResourceAsStream(String.format("Imagens/capas_livros/%d.jpg", livroRecebido.getId()))));
+            } catch (Exception e) {
+                capaDoLivroLivro.setImage(new Image(getClass().getResourceAsStream(String.format("Imagens/capas_livros/sem_capa.jpg"))));
+            }        }
     }
-    @FXML
-    public void pegarQuantidade (ActionEvent event) throws IOException {
-
-    }
-
-
-    //
-
-    @FXML
-    public void btnLivroVoltar(ActionEvent event) throws IOException{
-irParaTelaBusca(event);
-    }
-
     public void irParaTelaInicialCliente (ActionEvent event) throws IOException{
         root = FXMLLoader.load(getClass().getResource("tela_inicial_cliente.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -230,6 +176,15 @@ irParaTelaBusca(event);
     public void irParaTelaCarrinho (ActionEvent event) throws IOException{
         root = FXMLLoader.load(getClass().getResource("tela_carrinho.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root, 900, 560);
+        stage.setScene(scene);
+        stage.show();
+        stage.setTitle("Carrinho");
+        stage.setResizable(false);
+    }
+    public void irParaTelaHistorico (ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("tela_historico.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root, 900, 560);
         stage.setScene(scene);
         stage.show();
@@ -251,10 +206,6 @@ irParaTelaBusca(event);
         telaBuscaControlador.receberBusca(buscaRecebida, generoRecebido);
     }
 
-
-    public void qtdLivrosLivro(ActionEvent actionEvent) {
-
-    }
 
 
 }

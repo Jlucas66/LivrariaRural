@@ -46,7 +46,7 @@
             <Image url="@logo_livraria.png" />
          </image>
       </ImageView>
-      <TextArea fx:id="tituloCadastroLivro" layoutX="364.0" layoutY="200.0" prefHeight="70.0" prefWidth="237.0" />
-      <TextArea fx:id="sinopseCadastroLivro" layoutX="364.0" layoutY="328.0" prefHeight="154.0" prefWidth="237.0" />
+      <TextArea fx:id="tituloCadastroLivro" layoutX="364.0" layoutY="200.0" prefHeight="70.0" prefWidth="237.0" wrapText="true" />
+      <TextArea fx:id="sinopseCadastroLivro" layoutX="364.0" layoutY="328.0" prefHeight="154.0" prefWidth="237.0" wrapText="true" />
    </children>
 </Pane>
