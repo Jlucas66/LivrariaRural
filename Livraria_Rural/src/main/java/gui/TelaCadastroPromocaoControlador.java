@@ -48,35 +48,48 @@ public class TelaCadastroPromocaoControlador {
     @FXML
     public void btnCadastroPromocaoCadastrar(ActionEvent event) throws IOException{
         double valorDesconto=-1;
+        boolean erroConveNum=false;
         try{
             valorDesconto=Double.parseDouble(valorDoDescontoCadastroPromocao.getText());
         }
         catch(NumberFormatException e){
+            erroConveNum=true;
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Cadastrar Promoção");
             alert.setHeaderText("Erro ao cadastrar promoção");
-            alert.setContentText("Não é possível cadastrar promoção com valor 0 ou os campos estão vazios !");
+            alert.setContentText("Valor não inteiro digitado em valor ou os campos estão vazios !");
 
             alert.showAndWait();
         }
+        //para não aparecer a mensagem 2 vezes
+        if(!erroConveNum){
+            if(valorDesconto>0){
+                ControladorPromocao cPromocao=ControladorPromocao.getInstance();
+                if(cPromocao.cadastraNovaPromocao(dataDeInicioCadastroPromocao.getValue(),dataDeFimCadastroPromocao.getValue(),
+                        valorDesconto,tipoDaPromocaoCadastroPromocao.getText())){
+                    cPromocao.salvarPromocaoEmArquivo("Livraria_Rural/promocao.ser");
 
-        if(valorDesconto>-1){
-            ControladorPromocao cPromocao=ControladorPromocao.getInstance();
-            if(cPromocao.cadastraNovaPromocao(dataDeInicioCadastroPromocao.getValue(),dataDeFimCadastroPromocao.getValue(),
-                    valorDesconto,tipoDaPromocaoCadastroPromocao.getText())){
-                cPromocao.salvarPromocaoEmArquivo("Livraria_Rural/promocao.ser");
+                    irParaTelaInicialAdm(event);
+                }
+                else{
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Cadastrar Promoção");
+                    alert.setHeaderText("Erro ao tentar cadastrar promoção");
+                    alert.setContentText("Promoção com mesmo nome ou data já existente ou os campos não preenchidos!");
 
-                irParaTelaInicialAdm(event);
+                    alert.showAndWait();
+                }
             }
             else{
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Cadastrar Promoção");
-                alert.setHeaderText("Erro ao tentar cadastrar promoção");
-                alert.setContentText("Promoção com mesmo nome ou data já existente ou os campos não preenchidos!");
+                alert.setHeaderText("Erro ao cadastrar promoção");
+                alert.setContentText("Não é possível cadastrar promoção com valor 0 !");
 
                 alert.showAndWait();
             }
         }
+
 
 
     }
