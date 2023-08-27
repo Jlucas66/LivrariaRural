@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17.0.6" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.TelaAvaliacaoControlador">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.TelaAvaliacaoControlador">
    <children>
       <ImageView fx:id="logo" fitHeight="115.0" fitWidth="282.0" layoutX="309.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -26,15 +26,15 @@
             <Font size="25.0" />
          </font>
       </Label>
-      <Label fx:id="tituloDoLivro" layoutX="323.0" layoutY="221.0" text="Título do livro">
+      <Label fx:id="tituloDoLivro" layoutX="318.0" layoutY="200.0" maxHeight="75.0" maxWidth="264.0" prefHeight="75.0" prefWidth="264.0" text="Titulo do livro" wrapText="true">
          <font>
-            <Font size="30.0" />
+            <Font size="23.0" />
          </font>
       </Label>
       <TextArea fx:id="criticaDoLivro" layoutX="613.0" layoutY="235.0" maxHeight="291.0" maxWidth="216.0" prefHeight="291.0" prefWidth="216.0" promptText="Digite seu review" wrapText="true" />
-      <Label fx:id="autorDoLivro" layoutX="323.0" layoutY="274.0" text="Autor do livro">
+      <Label fx:id="autorDoLivro" layoutX="323.0" layoutY="274.0" maxHeight="28.0" maxWidth="210.0" prefHeight="28.0" prefWidth="210.0" text="Autor: Osvaldo oliveiro grande" wrapText="true">
          <font>
-            <Font size="19.0" />
+            <Font size="15.0" />
          </font>
       </Label>
       <Spinner fx:id="notaDoLivro" layoutX="323.0" layoutY="378.0" prefHeight="25.0" prefWidth="173.0" />

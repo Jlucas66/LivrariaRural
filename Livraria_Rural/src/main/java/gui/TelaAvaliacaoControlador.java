@@ -16,6 +16,8 @@ import javafx.stage.Stage;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.SpinnerValueFactory.IntegerSpinnerValueFactory;
+import negocio.ControladorLivro;
+
 import java.io.IOException;
 
 public class TelaAvaliacaoControlador {
@@ -51,8 +53,13 @@ public class TelaAvaliacaoControlador {
     @FXML
     private Spinner<Integer> notaDoLivro;
 
-    SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 5, 1);
+    public void initialize(){
+        SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 5, 1);
+        notaDoLivro.setValueFactory(valueFactory);//guardando o valor do spinner
+        ControladorLivro cLivro=ControladorLivro.getInstance();
+        cLivro.carregarLivrosDeArquivo("Livraria_Rural/livros.ser");
 
+    }
 
     public void receberLivroEPoessoa(Livro livro, Pessoa pessoa) {
         this.livroRecebido = livro;
@@ -74,10 +81,50 @@ public class TelaAvaliacaoControlador {
     }
     @FXML
     public void btnAvaliacaoPublicar(ActionEvent event) throws IOException{
-        notaDoLivro.setValueFactory(valueFactory);//guardando o valor do spinner
-        if(notaDoLivro.getValue()>=1 && criticaDoLivro.getText()!=null){
+        boolean avaliou=false;
+        String critica=null;
+        try{
+            critica=criticaDoLivro.getText();
+        }catch(NullPointerException e){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Avaliação");
+            alert.setHeaderText("Erro ao cadastrar a avaliação");
+            alert.setContentText(" O campo de crítica do livro está vazio !");
+
+            alert.showAndWait();
+        }
+
+
+        if(critica!=null && !critica.isEmpty()){
+            ControladorLivro cLivro=ControladorLivro.getInstance();
             Avaliacao avaliacao=new Avaliacao(pessoaRecebida,livroRecebido, notaDoLivro.getValue(), criticaDoLivro.getText());
+            for(Livro l:cLivro.getRepositorioLivro()){
+                if(l.getTitulo().equalsIgnoreCase(livroRecebido.getTitulo())){
+                    l.getAvaliacoes().add(avaliacao);
+                    break;
+                }
+            }
             livroRecebido.getAvaliacoes().add(avaliacao);
+            //livroRecebido.getAvaliacoes().add(avaliacao);
+            avaliou=true;
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Avaliação");
+            alert.setHeaderText(null);
+            alert.setContentText("Avaliação cadastrada!");
+
+            alert.showAndWait();
+            cLivro.salvarLivrosEmArquivo("Livraria_Rural/livros.ser");
+
+            irParaTelaLivro(event);
+
+        }
+        else{
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Avaliação");
+            alert.setHeaderText("Erro ao cadastrar a avaliação");
+            alert.setContentText(" O campo de crítica do livro está vazio !");
+
+            alert.showAndWait();
         }
     }
 
