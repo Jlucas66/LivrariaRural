@@ -152,7 +152,7 @@ public class TelaLivroBuscadoControlador {
         if (livroRecebido != null) {
             tituloDoLivroLivro.setText(livroRecebido.getTitulo());
             precoDoLivroLivro.setText(String.format("R$ %.2f", livroRecebido.getPreco()));
-            notaDasAvaliacoesLivro.setText(String.format("⭐⭐⭐⭐⭐  %.1f/5", livroRecebido.calcularMediaDeAvaliacoes()));
+            notaDasAvaliacoesLivro.setText(String.format("⭐⭐⭐⭐⭐  %.1f / 5", livroRecebido.calcularMediaDeAvaliacoes()));
             noEstoqueLivro.setText(String.format("Em estoque: %d", livroRecebido.getQuantidadeNoEstoque()));
             descricaoDoLivroLivro.setText(livroRecebido.getSinopse());
             edicaoLivro.setText(String.format("Edição: %s", livroRecebido.getEdicao()));

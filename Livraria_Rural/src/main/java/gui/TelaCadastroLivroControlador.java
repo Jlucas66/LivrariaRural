@@ -90,7 +90,7 @@ public class TelaCadastroLivroControlador {
                         &&editoraCadastroLivro.getText()!=null&& edicaoCadastroLivro.getText()!=null ){
                     //criando livro
                     Livro  livro=new Livro(id,tituloCadastroLivro.getText(), autorCadastroLivro.getText(),
-                            generoCadastroLivro.getText(), sinopseCadastroLivro.getText(), edicaoCadastroLivro.getText(),
+                            generoCadastroLivro.getText(), sinopseCadastroLivro.getText(), editoraCadastroLivro.getText(),
                             edicaoCadastroLivro.getText(), preco,qtd);
                     if(cLivro.cadastrarLivro(livro)){
 
