@@ -55,7 +55,7 @@ public class TelaCadastroPromocaoControlador {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Cadastrar Promoção");
             alert.setHeaderText("Erro ao cadastrar promoção");
-            alert.setContentText("Não é possível cadastrar promoção com valor 0 ou os campos estão vazios !");
+            alert.setContentText("Valor não inteiro digitado em valor ou os campos estão vazios !");
 
             alert.showAndWait();
         }
@@ -76,6 +76,14 @@ public class TelaCadastroPromocaoControlador {
 
                 alert.showAndWait();
             }
+        }
+        else{
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Cadastrar Promoção");
+            alert.setHeaderText("Erro ao cadastrar promoção");
+            alert.setContentText("Não é possível cadastrar promoção com valor 0 !");
+
+            alert.showAndWait();
         }
 
 
