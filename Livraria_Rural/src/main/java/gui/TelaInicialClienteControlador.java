@@ -1,7 +1,6 @@
 package gui;
 
 import beans.Livro;
-import beans.Pessoa;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -168,6 +167,7 @@ public class TelaInicialClienteControlador {
 
 
 
+
     // On
 
     @FXML
@@ -211,8 +211,10 @@ public class TelaInicialClienteControlador {
 
     }
     @FXML
-    public void btnInicialClienteLupa(ActionEvent event, String buscaDigitada) throws IOException{
+    public void btnInicialClienteLupa(ActionEvent event) throws IOException{
         // vai para tela_busca com lista baseado na String digitada pelo usuario
+
+        irParaTelaBusca(event);
 
     }
     @FXML
@@ -275,21 +277,19 @@ public class TelaInicialClienteControlador {
         stage.setResizable(false);
 
     }
-    public void irParaTelaBusca (ActionEvent event, List<Livro> lista) throws IOException{
+    public void irParaTelaBusca (ActionEvent event) throws IOException{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("tela_busca.fxml"));
         root = loader.load();
-
-        // dizer qual o controlador da proxima tela (não funcionou com getInstance)
-        TelaBuscaControlador telaBuscaControlador = loader.getController();
-        // usar o metodo da tela que vai receber o objeto
-        telaBuscaControlador.receberLista(lista);
-
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root, 900, 560);
         stage.setScene(scene);
         stage.show();
         stage.setTitle("Resultado da busca");
         stage.setResizable(false);
+
+        // mandar string do textfield pra tela de busca
+        TelaBuscaControlador telaBuscaControlador = loader.getController();
+        telaBuscaControlador.receberBusca(buscarInicialCliente.getText());
 
     }
     public void irParaTelaCarrinho (ActionEvent event) throws IOException{
@@ -324,7 +324,4 @@ public class TelaInicialClienteControlador {
 
     }
 
-    public void btnInicialClienteLupa(ActionEvent actionEvent) {
-
-    }
 }

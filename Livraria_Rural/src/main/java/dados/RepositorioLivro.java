@@ -151,6 +151,19 @@ public class RepositorioLivro implements IRepositorioLivro {
     }
 
 
+    public List<Livro> listaLivroPorTituloOuAutor(String busca){
+        List<Livro> livrosPorBusca  =new ArrayList<>();
+        busca = busca.toLowerCase(Locale.ROOT);
+
+        for(Livro livro:repositorioLivro){
+            if(livro.getTitulo().toLowerCase(Locale.ROOT).contains(busca)
+            || livro.getAutor().toLowerCase(Locale.ROOT).contains(busca)){//esse Locale.ROOT é para forçar colocar em
+                //letra minuscula
+                livrosPorBusca.add(livro);
+            }
+        }
+        return livrosPorBusca;
+    }
     public List<Livro> listaLivroPorTitulo(String titulo){
         List<Livro> livrosPorTitulo  =new ArrayList<>();
         titulo=titulo.toLowerCase(Locale.ROOT);

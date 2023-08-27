@@ -8,6 +8,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -23,14 +24,26 @@
     <center>
         <VBox prefHeight="415.0" prefWidth="900.0" BorderPane.alignment="CENTER">
             <children>
-                <Label fx:id="resultadoBusca" prefHeight="28.0" prefWidth="234.0" text="🔎 Resultados da busca:">
-                    <font>
+            <HBox prefHeight="30.0" prefWidth="900.0">
+               <children>
+                      <Label fx:id="resultadoBusca" prefHeight="28.0" prefWidth="234.0" text="🔎 Resultados da busca:">
+                          <font>
+                              <Font size="19.0" />
+                          </font>
+                          <padding>
+                              <Insets left="30.0" />
+                          </padding>
+                      </Label>
+                  <Label fx:id="nomeBusca" prefHeight="28.0" prefWidth="234.0" text="Busca">
+                     <font>
                         <Font size="19.0" />
-                    </font>
-                    <padding>
+                     </font>
+                     <padding>
                         <Insets left="30.0" />
-                    </padding>
-                </Label>
+                     </padding>
+                  </Label>
+               </children>
+            </HBox>
             <ScrollPane prefHeight="380.0" prefWidth="880.0">
                <VBox.margin>
                   <Insets left="10.0" right="10.0" />

@@ -19,9 +19,12 @@ public class Teste {
                 System.out.println("tamanho de pessoas.ser = " + controladorPessoa.getRepositorioPessoa().size());
                 System.out.println("tamanho de vendas.ser = " + controladorVenda.getRepositorioVenda().size());
 
-
-
                 System.out.println();
+
+                System.out.println("testando os metodos de listar livros");
+                System.out.println();
+
+                System.out.println(controladorLivro.listaLivroPorTitulo("ava").size());
 
 
 //                //criar 3 vendas para testar

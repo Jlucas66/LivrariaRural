@@ -17,7 +17,6 @@ import negocio.ControladorPromocao;
 import negocio.ControladorVenda;
 
 import java.io.IOException;
-import java.util.List;
 
 public class TelaLivroBuscadoControlador {
     private Stage stage;
@@ -25,16 +24,11 @@ public class TelaLivroBuscadoControlador {
     private Parent root;
     private Livro livroRecebido;        // atributo que virá da tela do cliente
     private Image capa;             // capa que vira da outra pág (depois ver se entra como atributo do livro)
-    private List<Livro> listaRecebida;
+    private String buscaRecebida;
 
 
 
     public void initialize() {
-        //preencherLabels();
-        //logo.setImage(new Image(getClass().getResourceAsStream("logo_livraria.png")));
-        //carrinho.setImage(new Image(getClass().getResourceAsStream("Imagens/carrinho.png")));
-        //historico.setImage(new Image(getClass().getResourceAsStream("Imagens/historico.png")));
-        //lupa.setImage(new Image(getClass().getResourceAsStream("Imagens/lupinha.png")));
 
     }
 
@@ -47,8 +41,11 @@ public class TelaLivroBuscadoControlador {
         this.capa = capa;
         capaDoLivroLivro.setImage(capa);
     }
-    public void receberLista(List<Livro> lista) {
-        this.listaRecebida = lista;
+//    public void receberLista(List<Livro> lista) {
+//        this.listaRecebida = lista;
+//    }
+    public void receberBusca(String buscaRecebida) {
+        this.buscaRecebida = buscaRecebida;
     }
 
     // Metodo separado pra preencher os labels, pra ficar mais organizado
@@ -216,7 +213,7 @@ public class TelaLivroBuscadoControlador {
 
     @FXML
     public void btnLivroVoltar(ActionEvent event) throws IOException{
-irParaTelaBusca(event, this.listaRecebida);
+irParaTelaBusca(event);
     }
 
     public void irParaTelaInicialCliente (ActionEvent event) throws IOException{
@@ -237,21 +234,19 @@ irParaTelaBusca(event, this.listaRecebida);
         stage.setTitle("Carrinho");
         stage.setResizable(false);
     }
-    public void irParaTelaBusca (ActionEvent event, List<Livro> lista) throws IOException{
+    public void irParaTelaBusca (ActionEvent event) throws IOException{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("tela_busca.fxml"));
         root = loader.load();
-
-        // dizer qual o controlador da proxima tela (não funcionou com getInstance)
-        TelaBuscaControlador telaBuscaControlador = loader.getController();
-        // usar o metodo da tela que vai receber o objeto
-        telaBuscaControlador.receberLista(lista);
-
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root, 900, 560);
         stage.setScene(scene);
         stage.show();
         stage.setTitle("Resultado da busca");
         stage.setResizable(false);
+
+        // mandar string do textfield pra tela de busca
+        TelaBuscaControlador telaBuscaControlador = loader.getController();
+        telaBuscaControlador.receberBusca(buscaRecebida);
     }
 
 

@@ -6,6 +6,7 @@ import dados.IRepositorioLivro;
 import dados.RepositorioLivro;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ControladorLivro {
 
@@ -96,6 +97,27 @@ public class ControladorLivro {
 
 
     // delegate dos listar
+
+
+    public List<Livro> listaLivroPorTituloOuAutor(String busca) {
+        return repo.listaLivroPorTituloOuAutor(busca);
+    }
+
+    public List<Livro> listaLivroPorTitulo(String titulo) {
+        return repo.listaLivroPorTitulo(titulo);
+    }
+
+    public List<Livro> listarLivrosPorAutor(String autor) {
+        return repo.listarLivrosPorAutor(autor);
+    }
+
+    public List<Livro> listarLivrosComMediaMaiorQue(int nota) {
+        return repo.listarLivrosComMediaMaiorQue(nota);
+    }
+
+    public List<Livro> listarLivroPorGenero(String categoria) {
+        return repo.listarLivroPorGenero(categoria);
+    }
 
     public void carregarLivrosDoArquivo(String arquivo) {
         repo.carregarLivrosDoArquivo(arquivo);

@@ -24,6 +24,7 @@ public class CardController {
     private Scene scene;
     private Parent root;
     private Livro book;
+    private String buscaRecebida;
 
     @FXML
     private VBox box;
@@ -67,6 +68,7 @@ public class CardController {
         TelaLivroBuscadoControlador telaLivroBuscadoControlador = loader.getController();
         // usar o metodo da tela que vai receber o objeto
         telaLivroBuscadoControlador.receberLivro(livro);
+        telaLivroBuscadoControlador.receberBusca(buscaRecebida);
 
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root, 900, 560);
@@ -75,6 +77,14 @@ public class CardController {
         stage.setTitle("Livro: Mais detalhes");
         stage.setResizable(false);
 
+    }
+
+    public String getBuscaRecebida() {
+        return buscaRecebida;
+    }
+
+    public void setBuscaRecebida(String buscaRecebida) {
+        this.buscaRecebida = buscaRecebida;
     }
 }
 

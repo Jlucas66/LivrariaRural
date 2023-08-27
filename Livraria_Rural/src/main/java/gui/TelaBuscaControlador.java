@@ -5,7 +5,6 @@ import beans.Livro;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -13,31 +12,20 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import negocio.ControladorLivro;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.ResourceBundle;
 
 public class TelaBuscaControlador{
 
     private Stage stage;
     private Scene scene;
     private Parent root;
-    private List<Livro> listaRecebida;
-    private String descricaoDaBusca;
+    private String buscaRecebida;
 
-    public void receberLista(List<Livro> lista) {
-        this.listaRecebida = lista;
-    }
-    public void receberDescricaoDaBusca(String descricaoDaBusca) {
-        this.descricaoDaBusca = descricaoDaBusca;
-    }
 
     @FXML
     private Label resultadoBusca;
@@ -51,24 +39,29 @@ public class TelaBuscaControlador{
     @FXML
     private Button botaoVoltar;
 
+    @FXML
+    private Label nomeBusca;
 
-    private List<Livro> livrosBuscados;
 
-    //@Override
-    public void initialize() {
-        resultadoBusca.setText(String.format("Mostrando resultados da busca por: %s", descricaoDaBusca));
 
-        //livros = new ArrayList<>(livros());
+    public void receberBusca(String buscaRecebida) {
+        this.buscaRecebida = buscaRecebida;
+        inicializarTela();
+    }
+    public void inicializarTela() {
+        nomeBusca.setText(String.format(buscaRecebida));
+
         int coluna = 0;
         int linha = 1;
 
         try {
-            for(Livro livro : this.livros()){
+            for(Livro livro : livros()){
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource("card.fxml"));
                 VBox cardBox = fxmlLoader.load();
                 CardController cardController = fxmlLoader.getController();
                 cardController.setData(livro);
+                cardController.setBuscaRecebida(buscaRecebida);
                 //cardLayout.getChildren().add(cardBox);
 
                 if (coluna == 4) {
@@ -85,14 +78,12 @@ public class TelaBuscaControlador{
         }
     }
 
-
-
     private List<Livro> livros(){
 
         // metodo retorna lista de livros
-
         ControladorLivro controladorLivro = ControladorLivro.getInstance();
-        return controladorLivro.getRepositorioLivro();
+        List<Livro> lista = controladorLivro.listaLivroPorTituloOuAutor(buscaRecebida);
+        return lista;
 
     }
 
