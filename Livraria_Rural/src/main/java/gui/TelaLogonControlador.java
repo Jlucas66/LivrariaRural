@@ -50,22 +50,22 @@ public class TelaLogonControlador {
 
     @FXML
     public void btnLogonEntrar(ActionEvent event) throws IOException{
-        ControladorPessoa cPessoa = ControladorPessoa.getInstance();
-        ControladorVenda cVenda = ControladorVenda.getInstance();
+        ControladorPessoa controladorPessoa = ControladorPessoa.getInstance();
+        ControladorVenda controladorVenda = ControladorVenda.getInstance();
 
         // Verificar se email e senha são iguais ao registrado no repositorio
         // E depois verificar se não é adm
 
 
-        if (cPessoa.buscarPessoaPorEmail(emailLogon.getText()) != null
-                && cPessoa.buscarPessoaPorEmail(emailLogon.getText()).getSenha().equals(senhaLogon.getText())) {
-            Pessoa pessoaLogada = cPessoa.buscarPessoaPorEmail(emailLogon.getText());
+        if (controladorPessoa.buscarPessoaPorEmail(emailLogon.getText()) != null
+                && controladorPessoa.buscarPessoaPorEmail(emailLogon.getText()).getSenha().equals(senhaLogon.getText())) {
+            Pessoa pessoaLogada = controladorPessoa.buscarPessoaPorEmail(emailLogon.getText());
 
             if (!pessoaLogada.isAdministrador()) {
                 irParaTelaInicialCliente(event);
 
                 // aqui também vai criar uma venda, a pessoa que acessou o sistema, e a lista de itens vai estar vazia.
-                if (cVenda.inserirVenda(new Venda(pessoaLogada))) {
+                if (controladorVenda.inserirVenda(new Venda(pessoaLogada))) {
                     System.out.println("Venda iniciada..:");
                     //System.out.println(cVenda.buscarUltimaVendaDoRepo().getPessoa().getNome());
                 }

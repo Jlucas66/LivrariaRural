@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class Venda implements Serializable {
 
     // Atributos
-    private static long indice = 0;
+    //public static long indice = 0;
     private long id;
     private Pessoa pessoa;
     private ArrayList<ItemVenda> itensDaVenda;
@@ -18,8 +18,8 @@ public class Venda implements Serializable {
 
     // Construtor
     public Venda(Pessoa pessoa) {
-        indice++;
-        this.setId(indice);
+        //indice++;
+        //this.setId(id);
         this.setPessoa(pessoa);
         this.itensDaVenda = new ArrayList<>();
         this.data = LocalDate.now();

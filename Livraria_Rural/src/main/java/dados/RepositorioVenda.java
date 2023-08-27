@@ -25,8 +25,17 @@ public class RepositorioVenda implements IRepositorioVenda {
         // inserirVenda
     public boolean inserirVenda(Venda venda) {
         boolean inseriu = false;
+
         if (venda != null) {
             boolean existeVendaIgual = false;
+            // se o repositorio tiver tamanho zero, id = 1
+            if (repositorioVenda.size() == 0) {
+                venda.setId(1);
+            } else {
+                venda.setId(this.buscarUltimaVendaDoRepo().getId() + 1);
+            }
+
+            // acho que não precisa comparar venda igual.
             for (Venda v : repositorioVenda) {         // equals de Venda compara id
                 if (v.equals(venda)) {
                     existeVendaIgual = true;

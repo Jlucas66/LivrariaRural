@@ -17,9 +17,10 @@ public class Teste {
                 controladorVenda.carregarVendasDeArquivo("Livraria_Rural/vendas.ser");
 
                 System.out.println("tamanho de pessoas.ser = " + controladorPessoa.getRepositorioPessoa().size());
-                System.out.println(controladorPessoa.buscarPessoaPorEmail("martha@email.com").getNome());
+                System.out.println("tamanho de vendas.ser = " + controladorVenda.getRepositorioVenda().size());
 
-                System.out.println(controladorVenda.getRepositorioVenda().size());
+
+
                 System.out.println();
 
 

@@ -97,10 +97,11 @@ public class ControladorPromocao {
         boolean inseriu=false;
         boolean existeData=false;
         Promocao promocao;
+
         if(nomePromocaoNova!=null && !nomePromocaoNova.isEmpty()&& inicio!=null && fim!=null && porcentagemDesconto>0 ){
-                promocao = new Promocao(inicio,fim,porcentagemDesconto,nomePromocaoNova);
-                repo.cadastrarPromocao(promocao);
-                inseriu=true;
+            promocao = new Promocao(inicio,fim,porcentagemDesconto,nomePromocaoNova);
+            repo.cadastrarPromocao(promocao);
+            inseriu=true;
         }
         return inseriu;
     }
