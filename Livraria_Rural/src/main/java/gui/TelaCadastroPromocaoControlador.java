@@ -61,7 +61,7 @@ public class TelaCadastroPromocaoControlador {
 
             alert.showAndWait();
         }
-
+        //para não aparecer a mensagem 2 vezes
         if(!erroConveNum){
             if(valorDesconto>0){
                 ControladorPromocao cPromocao=ControladorPromocao.getInstance();
