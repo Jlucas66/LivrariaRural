@@ -36,7 +36,7 @@ public interface IRepositorioLivro {
     void salvarLivrosEmArquivo(String nomeArquivo);
     void carregarLivrosDeArquivo(String nomeArquivo);
 
-    List<Livro> listaLivroPorTituloOuAutor(String busca);
+    List<Livro> listaLivroPorBusca(String busca, String genero);
     List<Livro> listaLivroPorTitulo(String titulo);
     List<Livro> listarLivrosPorAutor(String autor);
     List<Livro> listarLivrosComMediaMaiorQue(int nota);

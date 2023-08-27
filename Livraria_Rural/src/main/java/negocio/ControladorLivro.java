@@ -99,8 +99,8 @@ public class ControladorLivro {
     // delegate dos listar
 
 
-    public List<Livro> listaLivroPorTituloOuAutor(String busca) {
-        return repo.listaLivroPorTituloOuAutor(busca);
+    public List<Livro> listaLivroPorTituloOuAutor(String busca, String genero) {
+        return repo.listaLivroPorBusca(busca, genero);
     }
 
     public List<Livro> listaLivroPorTitulo(String titulo) {

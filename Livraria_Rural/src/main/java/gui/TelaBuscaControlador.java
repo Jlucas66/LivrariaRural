@@ -25,6 +25,7 @@ public class TelaBuscaControlador{
     private Scene scene;
     private Parent root;
     private String buscaRecebida;
+    private String generoRecebido;
 
 
     @FXML
@@ -44,10 +45,12 @@ public class TelaBuscaControlador{
 
 
 
-    public void receberBusca(String buscaRecebida) {
+    public void receberBusca(String buscaRecebida, String generoRecebido) {
         this.buscaRecebida = buscaRecebida;
+        this.generoRecebido = generoRecebido;
         inicializarTela();
     }
+
     public void inicializarTela() {
         nomeBusca.setText(String.format(buscaRecebida));
 
@@ -62,7 +65,7 @@ public class TelaBuscaControlador{
                 CardController cardController = fxmlLoader.getController();
                 cardController.setData(livro);
                 cardController.setBuscaRecebida(buscaRecebida);
-                //cardLayout.getChildren().add(cardBox);
+                cardController.setGeneroRecebido(generoRecebido);
 
                 if (coluna == 4) {
                     coluna = 0;
@@ -82,7 +85,7 @@ public class TelaBuscaControlador{
 
         // metodo retorna lista de livros
         ControladorLivro controladorLivro = ControladorLivro.getInstance();
-        List<Livro> lista = controladorLivro.listaLivroPorTituloOuAutor(buscaRecebida);
+        List<Livro> lista = controladorLivro.listaLivroPorTituloOuAutor(buscaRecebida, generoRecebido);
         return lista;
 
     }

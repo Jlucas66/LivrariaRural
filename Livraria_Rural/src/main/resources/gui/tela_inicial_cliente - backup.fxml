@@ -48,7 +48,7 @@
       </Button>
       <HBox layoutX="28.0" layoutY="121.0" prefHeight="33.0" prefWidth="844.0">
          <children>
-            <Label fx:id="ola" prefHeight="41.0" prefWidth="426.0" text="Olá, Fulano!" textAlignment="CENTER">
+            <Label alignment="CENTER" text="Filtrar livros por gênero:" textAlignment="CENTER">
                <HBox.margin>
                   <Insets />
                </HBox.margin>
@@ -56,6 +56,36 @@
                   <Font size="16.0" />
                </font>
             </Label>
+            <Button fx:id="botaoTerror" mnemonicParsing="false" onAction="#btnInicialClienteTerror" prefHeight="26.0" prefWidth="100.0" text="Terror">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="botaoRomance" mnemonicParsing="false" onAction="#btnInicialClienteRomance" prefHeight="26.0" prefWidth="100.0" text="Romance">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="botaoSuspense" mnemonicParsing="false" onAction="#btnInicialClienteSuspense" prefHeight="26.0" prefWidth="100.0" text="Suspense">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="botaoFantasia" mnemonicParsing="false" onAction="#btnInicialClienteFantasia" prefHeight="26.0" prefWidth="100.0" text="Fantasia">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="botaoFiccaoCientifica" mnemonicParsing="false" onAction="#btnInicialClienteFiccaoCientifica" prefHeight="26.0" prefWidth="100.0" text="Ficção científica">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="botaoBiografia" mnemonicParsing="false" onAction="#btnInicialClienteBiografia" prefHeight="26.0" prefWidth="100.0" text="Biografia">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </Button>
          </children>
       </HBox>
       <Pane layoutX="22.0" layoutY="242.0" prefHeight="265.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF;">
@@ -141,11 +171,6 @@
             <Button fx:id="botaoMaisDetalhes4" layoutX="56.0" layoutY="226.0" mnemonicParsing="false" onAction="#btnInicialClienteMaisDetalhes4" text="Mais detalhes" />
          </children></Pane>
       <Button fx:id="botaoSairDaConta" layoutX="797.0" layoutY="521.0" mnemonicParsing="false" onAction="#btnInicialClienteSairDaConta" text="Sair da conta" />
-      <ChoiceBox fx:id="generos" layoutX="437.0" layoutY="85.0" prefHeight="25.0" prefWidth="206.0" />
-      <Label alignment="CENTER" layoutX="299.0" layoutY="89.0" text="Filtre a busca por gênero :" textAlignment="CENTER">
-         <font>
-            <Font size="11.0" />
-         </font>
-      </Label>
+      <ChoiceBox fx:id="generos" layoutX="419.0" layoutY="186.0" prefWidth="150.0" />
    </children>
 </Pane>

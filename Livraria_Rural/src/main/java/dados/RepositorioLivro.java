@@ -151,15 +151,25 @@ public class RepositorioLivro implements IRepositorioLivro {
     }
 
 
-    public List<Livro> listaLivroPorTituloOuAutor(String busca){
+    public List<Livro> listaLivroPorBusca(String busca, String genero){
         List<Livro> livrosPorBusca  =new ArrayList<>();
         busca = busca.toLowerCase(Locale.ROOT);
 
-        for(Livro livro:repositorioLivro){
-            if(livro.getTitulo().toLowerCase(Locale.ROOT).contains(busca)
-            || livro.getAutor().toLowerCase(Locale.ROOT).contains(busca)){//esse Locale.ROOT é para forçar colocar em
-                //letra minuscula
-                livrosPorBusca.add(livro);
+        if (genero != null && !genero.isEmpty()) {
+            for(Livro livro:repositorioLivro){
+                if(livro.getGenero().equals(genero) && (livro.getTitulo().toLowerCase(Locale.ROOT).contains(busca)
+                || livro.getAutor().toLowerCase(Locale.ROOT).contains(busca))){//esse Locale.ROOT é para forçar colocar em
+                    //letra minuscula
+                    livrosPorBusca.add(livro);
+                }
+            }
+        } else {
+            for (Livro livro : repositorioLivro) {
+                if (livro.getTitulo().toLowerCase(Locale.ROOT).contains(busca)
+                        || livro.getAutor().toLowerCase(Locale.ROOT).contains(busca)) {//esse Locale.ROOT é para forçar colocar em
+                    //letra minuscula
+                    livrosPorBusca.add(livro);
+                }
             }
         }
         return livrosPorBusca;

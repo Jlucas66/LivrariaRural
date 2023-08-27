@@ -25,6 +25,7 @@ public class TelaLivroBuscadoControlador {
     private Livro livroRecebido;        // atributo que virá da tela do cliente
     private Image capa;             // capa que vira da outra pág (depois ver se entra como atributo do livro)
     private String buscaRecebida;
+    private String generoRecebido;
 
 
 
@@ -44,8 +45,9 @@ public class TelaLivroBuscadoControlador {
 //    public void receberLista(List<Livro> lista) {
 //        this.listaRecebida = lista;
 //    }
-    public void receberBusca(String buscaRecebida) {
+    public void receberBusca(String buscaRecebida, String generoRecebido) {
         this.buscaRecebida = buscaRecebida;
+        this.generoRecebido = generoRecebido;
     }
 
     // Metodo separado pra preencher os labels, pra ficar mais organizado
@@ -244,9 +246,9 @@ irParaTelaBusca(event);
         stage.setTitle("Resultado da busca");
         stage.setResizable(false);
 
-        // mandar string do textfield pra tela de busca
+        // mandar string do textfield e genero do choice box pra tela de busca
         TelaBuscaControlador telaBuscaControlador = loader.getController();
-        telaBuscaControlador.receberBusca(buscaRecebida);
+        telaBuscaControlador.receberBusca(buscaRecebida, generoRecebido);
     }
 
 
