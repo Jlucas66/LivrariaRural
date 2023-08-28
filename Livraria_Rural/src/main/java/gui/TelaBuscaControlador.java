@@ -9,6 +9,7 @@ import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
@@ -67,6 +68,15 @@ public class TelaBuscaControlador {
 
                 bookContainer.add(cardBox, coluna++, linha);
                 GridPane.setMargin(cardBox, new Insets(5));
+            }
+
+            if(livros().isEmpty()){
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Busca");
+                alert.setHeaderText("Busca por livro");
+                alert.setContentText("Não foi encontrado nenhum livro ou autor com esse nome !");
+
+                alert.showAndWait();
             }
 
         } catch (IOException e){

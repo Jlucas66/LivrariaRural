@@ -68,9 +68,9 @@ public class Teste {
                 Livro livro24 = new Livro(24, "O Nome do Vento", "Patrick Rothfuss", "Fantasia", "A história do lendário Kvothe, um homem de muitas façanhas, contada por ele mesmo.", "Arqueiro", "1ª edição", 27.50, 27);
                 Livro livro25 = new Livro(25, "A Guerra dos Tronos", "George R.R. Martin", "Fantasia", "Intrigas, poder e magia se entrelaçam enquanto famílias nobres disputam o trono de Westeros.", "Suma", "2ª edição", 31.75, 4);
                 Livro livro26 = new Livro(26, "O Hobbit", "J.R.R. Tolkien", "Fantasia", "Um hobbit relutante parte em uma jornada épica para ajudar um grupo de anões a recuperar seu reino e tesouro perdidos.", "HarperCollins", "1ª edição", 24.99, 18);
-                Livro livro27 = new Livro(27, "Percy Jackson e o Ladrão de Raios", "Rick Riordan", "Fantasia", "Um adolescente descobre que é um semideus e embarca em uma missão para evitar uma guerra entre os deuses gregos.", "Intrínseca", "1ª edição", 18.50, 36);
+                Livro livro27 = new Livro(27, "Percy Jackson e o cálice dos deuses", "Rick Riordan", "Fantasia", "Um adolescente descobre que é um semideus e embarca em uma missão para evitar uma guerra entre os deuses gregos.", "Intrínseca", "1ª edição", 18.50, 36);
                 Livro livro28 = new Livro(28, "O Vento pela Fechadura", "Stephen King", "Fantasia", "Dentro do mundo da série A Torre Negra, Roland Deschain enfrenta um desafio mágico enquanto conta uma história a seus companheiros.", "Suma", "2ª edição", 20.25, 19);
-                Livro livro29 = new Livro(29, "O Ladrão de Raios", "Cornelia Funke", "Fantasia", "Um garoto e sua irmã viajam para dentro de um livro mágico onde enfrentam vilões e desafios perigosos.", "Intrínseca", "1ª edição", 23.99, 3);
+                Livro livro29 = new Livro(29, "Percy Jackson e o Ladrão de Raios", "Rick Riordan", "Fantasia", "Um garoto e sua irmã viajam para dentro de um livro mágico onde enfrentam vilões e desafios perigosos.", "Intrínseca", "1ª edição", 23.99, 3);
                 Livro livro30 = new Livro(30, "A Bússola de Ouro", "Philip Pullman", "Fantasia", "Uma jovem chamada Lyra embarca em uma jornada para o norte em busca de seu amigo sequestrado e descobre segredos mágicos e aterrorizantes.", "Suma", "2ª edição", 22.75, 12);
 
                 //Suspense
