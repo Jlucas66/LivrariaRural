@@ -48,9 +48,15 @@ public class TelaInicialClienteControlador {
         this.livros = livrosAleatorios;
 
         // setar itens no choicebox
+        List<String> generosDoRepositorio = new ArrayList<>();
         for (Livro livro : controladorLivro.getRepositorioLivro()) {
-            generos.getItems().add(livro.getGenero());
+            // lista com os generos
+            if (!generosDoRepositorio.contains(livro.getGenero())){
+                generosDoRepositorio.add(livro.getGenero());
+            }
         }
+        generos.getItems().addAll(generosDoRepositorio);
+
 
         try {
             ola.setText(String.format("Olá, %s!", controladorVenda.buscarUltimaVendaDoRepo().getPessoa().getNome()));

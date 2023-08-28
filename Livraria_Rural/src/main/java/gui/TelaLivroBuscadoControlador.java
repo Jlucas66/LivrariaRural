@@ -19,6 +19,8 @@ import negocio.ControladorPromocao;
 import negocio.ControladorVenda;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class TelaLivroBuscadoControlador {
     private Stage stage;
@@ -31,9 +33,14 @@ public class TelaLivroBuscadoControlador {
     public void initialize() {
         // setar itens no choicebox
         ControladorLivro controladorLivro = ControladorLivro.getInstance();
+        List<String> generosDoRepositorio = new ArrayList<>();
         for (Livro livro : controladorLivro.getRepositorioLivro()) {
-            generos.getItems().add(livro.getGenero());
+            // lista com os generos
+            if (!generosDoRepositorio.contains(livro.getGenero())){
+                generosDoRepositorio.add(livro.getGenero());
+            }
         }
+        generos.getItems().addAll(generosDoRepositorio);
         SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 50);
         valueFactory.setValue(0);
         quantidadeLivrosLivro.setValueFactory(valueFactory);
