@@ -4,6 +4,8 @@ import beans.ItemVenda;
 import beans.Pessoa;
 import beans.Venda;
 
+import java.io.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,8 +25,17 @@ public class RepositorioVenda implements IRepositorioVenda {
         // inserirVenda
     public boolean inserirVenda(Venda venda) {
         boolean inseriu = false;
+
         if (venda != null) {
             boolean existeVendaIgual = false;
+            // se o repositorio tiver tamanho zero, id = 1
+            if (repositorioVenda.size() == 0) {
+                venda.setId(1);
+            } else {
+                venda.setId(this.buscarUltimaVendaDoRepo().getId() + 1);
+            }
+
+            // acho que não precisa comparar venda igual.
             for (Venda v : repositorioVenda) {         // equals de Venda compara id
                 if (v.equals(venda)) {
                     existeVendaIgual = true;
@@ -116,11 +127,11 @@ public class RepositorioVenda implements IRepositorioVenda {
 
     }
 
-    public List<Venda> listarVendasPorPeriodo(LocalDateTime inicio,LocalDateTime fim){
+    public List<Venda> listarVendasPorPeriodo(LocalDate inicio, LocalDate fim){
         List<Venda> vendasPorPeriodo=new ArrayList<>();
         if(inicio!=null && fim!=null){
             for(Venda v:repositorioVenda){
-                if(v.getData().isAfter(inicio) && v.getData().isBefore(fim)){
+                if((v.getData().isAfter(inicio) && v.getData().isBefore(fim)) || v.getData().isEqual(inicio) || v.getData().isEqual(fim)){
                     vendasPorPeriodo.add(v);
                 }
             }
@@ -142,6 +153,17 @@ public class RepositorioVenda implements IRepositorioVenda {
     }
 
 
+    public Venda buscarUltimaVendaDePessoa(Pessoa pessoa){
+        List<Venda> vendasDePessoa=new ArrayList<>();
+        int ultimo;
+        for(Venda venda:repositorioVenda){
+            if(venda.getPessoa().getNome().equalsIgnoreCase(pessoa.getNome())){
+                vendasDePessoa.add(venda);
+            }
+        }
+        ultimo=vendasDePessoa.size();
+        return vendasDePessoa.get(ultimo-1);
+    }
 
 
 
@@ -149,6 +171,25 @@ public class RepositorioVenda implements IRepositorioVenda {
     // listarVendasPorCliente
     // listarVendasPorClientePorPeriodo
     // listarVendasQueContemLivro
+
+
+    public void salvarVendasEmArquivo(String nomeArquivo) {
+        try (ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream(nomeArquivo))) {
+            outputStream.writeObject(repositorioVenda);
+            System.out.println("Vendas salvas com sucesso!");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void carregarVendasDeArquivo(String nomeArquivo) {
+        try (ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream(nomeArquivo))) {
+            repositorioVenda = (ArrayList<Venda>) inputStream.readObject();
+            System.out.println("Vendas carregadas com sucesso!");
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
 
 
     // Getters

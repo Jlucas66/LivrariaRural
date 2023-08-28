@@ -1,20 +1,26 @@
 package beans;
 
+import java.io.Serializable;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
-public class Promocao {
+public class Promocao implements Serializable {
 
     // Atributos
-    private TipoPromocao tipoPromocao;
+    private LocalDate inicio;
+    private LocalDate fim;
     private double percentualDesconto;
-    private Venda venda;
-
+    private String nomePromocao;
 
     // Construtor
-    public Promocao(Venda venda) {
-        this.tipoPromocao = TipoPromocao.NENHUMA;
-        this.percentualDesconto = 0;
-        this.venda = venda;
+    public Promocao(LocalDate inicio,LocalDate fim,double percentualDesconto,String nomePromocao) {
+        this.percentualDesconto = percentualDesconto;
+        this.nomePromocao = nomePromocao;
+        this.inicio = inicio;
+        this.fim = fim;
     }
 
     // Metodos
@@ -25,23 +31,40 @@ public class Promocao {
     // toString
 
     // Getters
+
+    public LocalDate getInicio() {
+        return inicio;
+    }
+
+    public LocalDate getFim() {
+        return fim;
+    }
+
+    public String getNomePromocao() {
+        return nomePromocao;
+    }
+
     public double getPercentualDesconto() {
         return percentualDesconto;
     }
-    public Venda getVenda() {
-        return venda;
-    }
 
     // Setters com ou sem validação
+
+    public void setInicio(LocalDate inicio) {
+        this.inicio = inicio;
+    }
+
+    public void setFim(LocalDate fim) {
+        this.fim = fim;
+    }
+
+    public void setNomePromocao(String nomePromocao) {
+        this.nomePromocao = nomePromocao;
+    }
+
     public void setPercentualDesconto(double percentualDesconto) {     // seria private?
         this.percentualDesconto = percentualDesconto;
     }
-    public void setVenda(Venda venda) {
-        if (venda != null) {
-            this.venda = venda;
-        }
-    }
-    public void setTipoPromocao(TipoPromocao tipoPromocao) {
-        this.tipoPromocao = tipoPromocao;
-    }
+
+
 }

@@ -32,6 +32,9 @@ public interface IRepositorioPessoa {
 
     void carregarPessoasDoArquivo(String nomeArquivo);
     void salvarPessoaNoArquivo(Pessoa pessoa, String nomeArquivo) throws IOException;
+    void carregarPessoasDeArquivo(String nomeArquivo);
+    void salvarPessoasEmArquivo(String nomeArquivo);
+
     ArrayList<Pessoa> getRepositorioPessoa();
 
 

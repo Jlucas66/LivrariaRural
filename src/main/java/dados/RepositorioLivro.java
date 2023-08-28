@@ -1,11 +1,12 @@
 package dados;
 
 import beans.Livro;
+import beans.Pessoa;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
 
 public class RepositorioLivro implements IRepositorioLivro {
 
@@ -130,6 +131,96 @@ public class RepositorioLivro implements IRepositorioLivro {
             e.printStackTrace();
         }
     }
+
+    public void salvarLivrosEmArquivo(String nomeArquivo) {
+        try (ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream(nomeArquivo))) {
+            outputStream.writeObject(repositorioLivro);
+            System.out.println("Livros salvos com sucesso!");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void carregarLivrosDeArquivo(String nomeArquivo) {
+        try (ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream(nomeArquivo))) {
+            repositorioLivro = (ArrayList<Livro>) inputStream.readObject();
+            System.out.println("Livros carregados com sucesso!");
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    public List<Livro> listaLivroPorBusca(String busca, String genero){
+        List<Livro> livrosPorBusca  =new ArrayList<>();
+        busca = busca.toLowerCase(Locale.ROOT);
+
+        if (genero != null && !genero.isEmpty()) {
+            for(Livro livro:repositorioLivro){
+                if(livro.getGenero().equals(genero) && (livro.getTitulo().toLowerCase(Locale.ROOT).contains(busca)
+                || livro.getAutor().toLowerCase(Locale.ROOT).contains(busca))){//esse Locale.ROOT é para forçar colocar em
+                    //letra minuscula
+                    livrosPorBusca.add(livro);
+                }
+            }
+        } else {
+            for (Livro livro : repositorioLivro) {
+                if (livro.getTitulo().toLowerCase(Locale.ROOT).contains(busca)
+                        || livro.getAutor().toLowerCase(Locale.ROOT).contains(busca)) {//esse Locale.ROOT é para forçar colocar em
+                    //letra minuscula
+                    livrosPorBusca.add(livro);
+                }
+            }
+        }
+        return livrosPorBusca;
+    }
+    public List<Livro> listaLivroPorTitulo(String titulo){
+        List<Livro> livrosPorTitulo  =new ArrayList<>();
+        titulo=titulo.toLowerCase(Locale.ROOT);
+
+        for(Livro livro:repositorioLivro){
+            if(livro.getTitulo().toLowerCase(Locale.ROOT).contains(titulo)){//esse Locale.ROOT é para forçar colocar em
+                //letra minuscula
+                livrosPorTitulo.add(livro);
+            }
+        }
+        return livrosPorTitulo;
+    }
+
+    public List<Livro> listarLivrosPorAutor(String autor){
+        List<Livro> livrosPorAutor  =new ArrayList<>();
+
+        autor=autor.toLowerCase(Locale.ROOT);
+        for(Livro livro:repositorioLivro){
+            if(livro.getAutor().toLowerCase(Locale.ROOT).contains(autor)){//esse Locale.ROOT é para forçar colocar em
+                //letra minuscula
+                livrosPorAutor.add(livro);
+            }
+        }
+        return livrosPorAutor;
+    }
+
+    public List<Livro> listarLivrosComMediaMaiorQue(int nota){
+        List<Livro> livrosComMediaMaiorQue = new ArrayList<>();
+        for(Livro livro:repositorioLivro){
+            if(livro.calcularMediaDeAvaliacoes()>=nota){
+                livrosComMediaMaiorQue.add(livro);
+            }
+        }
+        return livrosComMediaMaiorQue;
+    }
+
+    public List<Livro> listarLivroPorGenero(String categoria){
+        List <Livro> livrosPorGenero=new ArrayList<>();
+        for(Livro livro:repositorioLivro){
+            if(livro.getGenero().equalsIgnoreCase(categoria)){
+                livrosPorGenero.add(livro);
+            }
+        }
+        return livrosPorGenero;
+    }
+
+
 
     // Getters
     public ArrayList<Livro> getRepositorioLivro() {

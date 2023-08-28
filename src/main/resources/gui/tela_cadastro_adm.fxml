@@ -5,31 +5,39 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.6" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.TelaCadastroAdmControlador">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.TelaCadastroAdmControlador">
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
             <ImageView fx:id="logo" fitHeight="126.0" fitWidth="302.0" layoutX="153.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
                <image>
+                  <Image url="@logo_livraria.png" />
                </image>
             </ImageView>
             <TextField fx:id="nomeCadastroADM" layoutX="227.0" layoutY="158.0" prefWidth="190.0" promptText="Digite seu nome" />
             <TextField fx:id="emailCadastroADM" layoutX="227.0" layoutY="194.0" prefWidth="190.0" promptText="Digite seu email" />
-            <TextField fx:id="telefoneCadastroADM" layoutX="227.0" layoutY="266.0" prefWidth="190.0" promptText="Digite seu telefone" />
+            <PasswordField fx:id="senhaCadastroADM" layoutX="227.0" layoutY="230.0" prefWidth="190.0" promptText="Crie sua senha" />
+            <TextField fx:id="enderecoCadastroADM" layoutX="227.0" layoutY="266.0" prefWidth="190.0" promptText="Digite seu endereço" />
+            <DatePicker fx:id="dataDeNascimentoCadastroADM" layoutX="227.0" layoutY="305.0" prefHeight="25.6" prefWidth="190.4" promptText="selecione..." />
             <Button fx:id="cadastrarCadastroADM" layoutX="238.0" layoutY="352.0" mnemonicParsing="false" onAction="#btnCadastroADMCadastrar" text="Cadastrar" />
             <Button fx:id="voltarCadastroADM" layoutX="342.0" layoutY="352.0" mnemonicParsing="false" onAction="#btnCadastroADMVoltar" prefWidth="66.4" text="Voltar" />
-            <PasswordField fx:id="senhaCadastroADM" layoutX="227.0" layoutY="230.0" prefWidth="190.0" promptText="Crie sua senha" />
             <Label layoutX="184.0" layoutY="162.0" text="Nome" />
             <Label layoutX="186.0" layoutY="198.0" text="Email" />
             <Label layoutX="184.0" layoutY="234.0" text="Senha" />
-            <Label layoutX="169.0" layoutY="270.0" text="Telefone" />
+            <Label layoutX="169.0" layoutY="270.0" text="Endereço" />
             <Label layoutX="173.0" layoutY="302.0" text="Data de" />
             <Label layoutX="163.0" layoutY="319.0" text="nascimento" />
-            <DatePicker fx:id="dataDeNascimentoCadastroADM" layoutX="227.0" layoutY="305.0" prefHeight="25.6" prefWidth="190.4" promptText="AAAA/MM/DD" />
+            <Label layoutX="33.0" layoutY="143.0" prefHeight="55.0" prefWidth="140.0" text="Novo Administrador:" textAlignment="RIGHT" textFill="#b50808" wrapText="true">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </center>

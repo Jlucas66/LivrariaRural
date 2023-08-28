@@ -1,6 +1,8 @@
 package beans;
 
-public class ItemVenda {
+import java.io.Serializable;
+
+public class ItemVenda implements Serializable {
 
     // Atributos
     private Livro livro;

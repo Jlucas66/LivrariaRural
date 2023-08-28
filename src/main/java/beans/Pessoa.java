@@ -1,9 +1,10 @@
 package beans;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
 
-public class Pessoa {
+public class Pessoa implements Serializable {
 
     // Atributos
     private String nome;
@@ -16,7 +17,7 @@ public class Pessoa {
 
     // Construtor
 
-    public Pessoa(String nome, String email, String senha, String endereco,
+    public Pessoa(String nome, String email, String senha, String enderco,
                   LocalDate dataNascimento, boolean adm) {
         this.setNome(nome);
         this.setEmail(email);

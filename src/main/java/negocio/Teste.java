@@ -1,116 +1,109 @@
 package negocio;
 
-import beans.ItemVenda;
-import beans.Livro;
-import beans.Pessoa;
-import beans.Venda;
+import beans.*;
+import org.controlsfx.control.PropertySheet;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatterBuilder;
+import java.util.ArrayList;
 
 public class Teste {
         public static void main(String[] args) {
                 ControladorPessoa controladorPessoa = ControladorPessoa.getInstance();
                 ControladorLivro controladorLivro = ControladorLivro.getInstance();
                 ControladorVenda controladorVenda = ControladorVenda.getInstance();
+                ControladorPromocao controladorPromocao = ControladorPromocao.getInstance();
 
-                // testando se a pessoa entrou no repositório a partir da tela
+                controladorPessoa.carregarPessoasDeArquivo("Livraria_Rural/pessoas.ser");
+                controladorLivro.carregarLivrosDeArquivo("Livraria_Rural/livros.ser");
+                controladorVenda.carregarVendasDeArquivo("Livraria_Rural/vendas.ser");
+                controladorPromocao.carregarPromocaoDeArquivo("Livraria_Rural/promocao.ser");
 
+                System.out.println("tamanho de pessoas.ser = " + controladorPessoa.getRepositorioPessoa().size());
+                System.out.println("tamanho de vendas.ser = " + controladorVenda.getRepositorioVenda().size());
+                System.out.println("tamanho de promocao.ser = " + controladorPromocao.getRepositorioPromocao().size());
+                System.out.println("tamanho de livros.ser = " + controladorLivro.getRepositorioLivro().size());
 
+                for (Promocao p : controladorPromocao.getRepositorioPromocao()) {
+                        System.out.println(p.getNomePromocao());
+                        System.out.printf("%1$td/%1$tm/%1$ty\n", p.getInicio());
+                        System.out.printf("%1$td/%1$tm/%1$ty\n", p.getFim());
 
-
-
-
-
-                /*
-                controladorPessoa.criarECadastrarPessoa("vazio", "email", "senha", "telefone", LocalDate.of(1989,3,25));
-
-
-                for (Pessoa p : controladorPessoa.getRepositorioPessoa()) {
-                        System.out.println(p.getNome());
                 }
 
                 System.out.println();
 
-                controladorPessoa.criarECadastrarAdministrador("martha", "email3", "senha", "telefone", LocalDate.of(1989,3,25));
-                controladorPessoa.criarECadastrarPessoa("martha2", "email2", "senha", "telefone", LocalDate.of(1989,3,25));
-                controladorPessoa.criarECadastrarPessoa("joao1", "email5", "senha", "telefone", LocalDate.of(1989,3,25));
-                controladorPessoa.criarECadastrarPessoa("joao2", "email5", "senha", "telefone", LocalDate.of(1989,3,25));
-
-                Pessoa p1 = new Pessoa("joao1", "email5", "senha", "telefone", LocalDate.of(1989,3,25), false);
-                Pessoa p2 = new Pessoa("joao2", "email5", "senha", "telefone", LocalDate.of(1989,3,25), false);
-
-                //controladorPessoa.atualizarPessoaComMesmoEmail(new Pessoa("jj", "email5", "senha", "telefone", LocalDate.of(1989,3,25), false));
-
-                for (Pessoa p : controladorPessoa.getRepositorioPessoa()) {
-                        System.out.println(p.getNome());
-                }
-
-                controladorPessoa.removerPessoaPorEmail("email3");
-                controladorPessoa.removerPessoaPorEmail("email5");
-
-                System.out.println();
-                for (Pessoa p : controladorPessoa.getRepositorioPessoa()) {
-                        System.out.println(p.getNome());
-                }
-
-                System.out.println(controladorPessoa.buscarPessoaPorEmail("emailnaoexiste")); //retorna nulo
-
-                // LIVROS
-
-                // criar livros
-                Livro l1 = new Livro(1, "Titulo1", "autor1", "genero1", "sinope1", "editora1", "1", 20.90, 5);
-                Livro l2 = new Livro(2, "Titulo2", "autor1", "genero1", "sinope1", "editora1", "1", 20.90, 5);
-                Livro l3 = new Livro(3, "Titulo3", "autor1", "genero1", "sinope1", "editora1", "1", 20.90, 5);
-                Livro l4 = new Livro(4, "Titulo4", "autor1", "genero1", "sinope1", "editora1", "1", 20.90, 5);
-                Livro l5 = new Livro(1, "Titulo5", "autor1", "genero1", "sinope1", "editora1", "1", 20.90, 5);
-
-                // cadastrar livros
-                controladorLivro.cadastrarLivro(l1);
-                controladorLivro.cadastrarLivro(l2);
-                controladorLivro.cadastrarLivro(l3);
-                controladorLivro.cadastrarLivro(l4);
-                controladorLivro.cadastrarLivro(l5); // não cadastrou pq o id é igual
-
-
-                for (Livro i : controladorLivro.getRepositorioLivro()) {
-                        System.out.println(i.getQuantidadeNoEstoque());
-                }
+                System.out.println("testando os metodos de listar livros");
                 System.out.println();
 
-                // diminuir qtd no estoque a partir do item venda
-                ItemVenda it = new ItemVenda(l1, 2);
-                controladorLivro.diminuirQtdDoLivro(it);
-                for (Livro i : controladorLivro.getRepositorioLivro()) {
-                        System.out.println(i.getQuantidadeNoEstoque());
-                }
 
-                // VENDAS
-                System.out.println();
-                Venda v1 = new Venda(1, p1);
-                Venda v2 = new Venda(2, null);
-                Venda v3 = new Venda(3, p2);
-                Venda v4 = new Venda(4, p1);
-                Venda v5 = new Venda(1, p2);
 
-                controladorVenda.inserirVenda(v1);
-                controladorVenda.inserirVenda(v2);
-                controladorVenda.inserirVenda(v3);
-                controladorVenda.inserirVenda(v4);
-                controladorVenda.inserirVenda(v5);
+//                //criar 3 vendas para testar
+//                System.out.println(controladorVenda.inserirVenda(new Venda(controladorPessoa.buscarPessoaPorEmail("martha@email.com"))));
+//                System.out.println(controladorVenda.inserirVenda(new Venda(controladorPessoa.buscarPessoaPorEmail("alex@email.com"))));
+//                System.out.println(controladorVenda.inserirVenda(new Venda(controladorPessoa.buscarPessoaPorEmail("caio@email.com"))));
+//
+//                // itens de venda
+//                ItemVenda itemvenda1 = new ItemVenda(controladorLivro.buscarLivroPorId(1), 1);
+//                ItemVenda itemvenda2 = new ItemVenda(controladorLivro.buscarLivroPorId(2), 1);
+//                ItemVenda itemvenda3 = new ItemVenda(controladorLivro.buscarLivroPorId(3), 1);
+//                ItemVenda itemvenda4 = new ItemVenda(controladorLivro.buscarLivroPorId(4), 1);
+//                ItemVenda itemvenda5 = new ItemVenda(controladorLivro.buscarLivroPorId(5), 1);
+//                ItemVenda itemvenda6 = new ItemVenda(controladorLivro.buscarLivroPorId(6), 1);
+//                ArrayList<ItemVenda> itens1 = new ArrayList<>();
+//                ArrayList<ItemVenda> itens2 = new ArrayList<>();
+//                itens1.add(itemvenda1);
+//                itens1.add(itemvenda2);
+//                itens1.add(itemvenda3);
+//                itens2.add(itemvenda4);
+//                itens2.add(itemvenda5);
+//                itens2.add(itemvenda6);
+//                System.out.println(controladorVenda.getRepositorioVenda().size());
+//                for (Venda v : controladorVenda.getRepositorioVenda()) {
+//                        System.out.println("imprimindo venda");
+//                        System.out.println(v.getPessoa().getNome());
+//                }
+//
+//                // colocar itens venda dentro das vendas
+//                controladorVenda.getRepositorioVenda().get(0).setItensDaVenda(itens1);
+//                controladorVenda.getRepositorioVenda().get(1).setItensDaVenda(itens2);
+//                controladorVenda.getRepositorioVenda().get(2).setItensDaVenda(itens1);
+//
+//                // salvar essas vendas no repositório
+//                controladorVenda.salvarVendasEmArquivo("Livraria_Rural/vendas.ser");
 
-                for(Venda v: controladorVenda.getRepositorioVenda()) {
-                        System.out.println(v.getId());
-                }
+                // criar usuários não administradores
+//                controladorPessoa.criarECadastrarPessoa("Martha", "martha@email.com", "1234", "Rua 1", LocalDate.of(1989,3,25));
+//                controladorPessoa.criarECadastrarPessoa("João", "joao@email.com", "1234", "Rua 2", LocalDate.of(1995,9,15));
+//                controladorPessoa.criarECadastrarPessoa("Alex", "alex@email.com", "1234", "Rua 3", LocalDate.of(2004,12,15));
+//                controladorPessoa.criarECadastrarPessoa("Caio", "caio@email.com", "1234", "Rua 4", LocalDate.of(2004,5,15));
+//                controladorPessoa.criarECadastrarPessoa("Elys", "elys@email.com", "1234", "Rua 5", LocalDate.of(1983,1,28));
+//                controladorPessoa.criarECadastrarPessoa("Teresa", "teresa@email.com", "1234", "Rua 6", LocalDate.of(1955,8,1));
 
-//                System.out.println(v1.getId());
-//                System.out.println(v1.getPessoa().getNome());
-//                System.out.println(v1.getItensDaVenda().size());
-//                System.out.println(v1.getData());
-//                System.out.println(v1.getPromocao());
-//                System.out.println(v1.getStatus());
+                // criar usuários administradores
+                //controladorPessoa.criarECadastrarAdministrador("Administrador", "adm@email.com", "1234", "Rua qualquer", LocalDate.of(1982,3,5));
 
-                 */
+                //carregar objetos do arquivo ser
+                //controladorPessoa.carregarPessoasDeArquivo("Livraria_Rural/pessoas.ser");
+                //controladorPessoa.removerPessoaPorEmail("adm2@email.com");
+                // verificar conteúdo do repo pessoa
+//                for (Pessoa p : controladorPessoa.getRepositorioPessoa()) {
+//                        System.out.println(p.getNome());
+//                }
 
+                // salvar no arquivo ser
+                //controladorPessoa.salvarPessoasEmArquivo("Livraria_Rural/pessoas.ser");
+
+                //LocalDate d1Inicio=LocalDate.of(2023,8,1);
+                //LocalDate d1Fim=LocalDate.of(2023,8,30);
+                //Promocao pDiaDosPais=new Promocao(d1Inicio,d1Fim,5,"Dia dos Pais");
+
+                //ControladorPromocao controladorPromocao= ControladorPromocao.getInstance();
+               // controladorPromocao.cadastraNovaPromocao(d1Inicio,d1Fim,5,"Dia dos Pais");
+
+
+                //controladorPromocao.salvarPprEmArquivo("Livraria_Rural/promocao.ser");
+                //controladorPromocao.carregarPessoasDeArquivo("Livraria_Rural/promocao.ser");
 
 
 

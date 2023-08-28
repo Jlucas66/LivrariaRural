@@ -1,48 +1,56 @@
 package gui;
 
 import beans.ItemVenda;
+import beans.Livro;
 import beans.StatusVenda;
 import beans.Venda;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.TilePane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import negocio.ControladorVenda;
 
 import java.io.IOException;
+import java.util.List;
 
 public class TelaCarrinhoControlador {
 
     private Stage stage;
     private Scene scene;
     private Parent root;
-
-    @FXML
-    private TextArea detalhesDoCarrinho;
+    private List<Livro> livrosDaVenda;
 
     @FXML
     private Label resumoDoPedido;
-
     @FXML
     private Label quantidadeDeItens;
-
     @FXML
     private Label valorTotal;
-
+    @FXML
+    private Label nomeDaPromocao;
+    @FXML
+    private Label valorDoDesconto;
+    @FXML
+    private Label valorEconomizado;
     @FXML
     private Button botaoContinuarComprando;
-    
     @FXML
     private Button botaoFinalizarCompra;
-
     @FXML
-    private ImageView logo;
+    private GridPane livroVendaContainer;
+    //private VBox containerVBox;
 
     public void initialize() {
     // set das informações
@@ -50,13 +58,11 @@ public class TelaCarrinhoControlador {
         Venda venda = controladorVenda.buscarUltimaVendaDoRepo();
         quantidadeDeItens.setText(String.format("Total de itens: %d", venda.qtdLivrosDaVenda()));
         valorTotal.setText(String.format("Total: R$ %.2f", venda.calcularTotal()));
-        detalhesDoCarrinho.setText(controladorVenda.imprimirItensVenda(venda));
 
-        // set das imagens
-        logo.setImage(new Image(getClass().getResourceAsStream("logo_livraria.png")));
-
+        atualizarCarrinho();
 
     }
+
 
     public void btnCarrinhoContinuarComprando(ActionEvent event) throws IOException{
         irParaTelaInicialCliente(event);
@@ -68,6 +74,9 @@ public class TelaCarrinhoControlador {
         if (!venda.getItensDaVenda().isEmpty()) {
             irParaTelaCompra(event);
             venda.setStatus(StatusVenda.PEDIDO_EFETUADO);
+
+            // salvar venda no arquivo.ser
+            controladorVenda.salvarVendasEmArquivo("Livraria_Rural/vendas.ser");
         } else {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Carrinho vazio");
@@ -98,7 +107,7 @@ public class TelaCarrinhoControlador {
         stage.setTitle("Compra finalizada");
         stage.setResizable(false);
     }
-
+/*
     public void btnCarrinhoZerarCarrinho(ActionEvent actionEvent) {
         ControladorVenda controladorVenda = ControladorVenda.getInstance();
         Venda venda = controladorVenda.buscarUltimaVendaDoRepo();
@@ -112,10 +121,12 @@ public class TelaCarrinhoControlador {
         //atualizar labels e lista
         quantidadeDeItens.setText(String.format("Total de itens: %d", venda.qtdLivrosDaVenda()));
         valorTotal.setText(String.format("Total: R$ %.2f", venda.calcularTotal()));
-        detalhesDoCarrinho.setText(controladorVenda.imprimirItensVenda(venda));
+        //detalhesDoCarrinho.setText(controladorVenda.imprimirItensVenda(venda));
+        atualizarCarrinho();
 
     }
-
+*/
+    /*
     public void btnCarrinhoRemoverUltimoLivro(ActionEvent actionEvent) {
         // remover ultima entrada do carrinho - quando apagar, adicionar a quantidade de volta no estoque
         ControladorVenda controladorVenda = ControladorVenda.getInstance();
@@ -133,8 +144,43 @@ public class TelaCarrinhoControlador {
             //atualizar labels e lista
             quantidadeDeItens.setText(String.format("Total de itens: %d", venda.qtdLivrosDaVenda()));
             valorTotal.setText(String.format("Total: R$ %.2f", venda.calcularTotal()));
-            detalhesDoCarrinho.setText(controladorVenda.imprimirItensVenda(venda));
+            //detalhesDoCarrinho.setText(controladorVenda.imprimirItensVenda(venda));
+
+            //atualizarCarrinho();
         }
+
+
+    }
+*/
+    public void atualizarCarrinho() {
+        ControladorVenda controladorVenda = ControladorVenda.getInstance();
+        Venda venda = controladorVenda.buscarUltimaVendaDoRepo();
+
+        // carregar o HBox com os quadros de venda
+        int coluna = 0;
+        int linha = 1;
+
+        try {
+            for(ItemVenda i : venda.getItensDaVenda()){
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("cardLivroVenda.fxml"));
+                HBox cardBox = fxmlLoader.load();
+                CardLivroVendaController cardLivroVendaController = fxmlLoader.getController();
+                cardLivroVendaController.setData(i);
+
+                if (coluna == 2) {
+                    coluna = 0;
+                    linha++;
+                }
+
+                livroVendaContainer.add(cardBox, coluna++, linha);
+                GridPane.setMargin(cardBox, new Insets(5));
+            }
+
+        } catch (IOException e){
+            e.printStackTrace();
+        }
+
 
 
     }

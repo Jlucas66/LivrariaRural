@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17.0.6" xmlns:fx="http://javafx.com/fxml/1"fx:controller="gui.TelaBuscarLivroIDControlador">
+   <children>
+      <ImageView fitHeight="132.0" fitWidth="325.0" layoutX="287.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@logo_livraria.png" />
+         </image>
+      </ImageView>
+      <TextArea fx:id="mostrarLivroID" layoutX="402.0" layoutY="205.0" maxHeight="291.0" maxWidth="786.0" prefHeight="291.0" prefWidth="441.0" promptText="O livro aparecerá aqui..." wrapText="true">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </TextArea>
+      <Button fx:id="botaoVoltar" layoutX="815.0" layoutY="509.0" mnemonicParsing="false" onAction="#btnListaDeLivrosVoltar" text="Voltar">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <TextField fx:id="buscarLivroPorID" layoutX="101.0" layoutY="336.0" prefHeight="30.0" prefWidth="229.0" promptText="Digite o ID" />
+      <Label layoutX="51.0" layoutY="286.0" text="Insira o ID do livro que desejas editar">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="51.0" layoutY="184.0" text="Editar livros:">
+         <font>
+            <Font size="29.0" />
+         </font>
+      </Label>
+      <Button fx:id="botaoBuscar" layoutX="190.0" layoutY="381.0" mnemonicParsing="false" onAction="#btnBuscarLivroIDBuscar" text="Buscar" />
+   </children>
+</Pane>

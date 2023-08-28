@@ -2,10 +2,11 @@ package beans;
 
 import beans.Avaliacao;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class Livro {
+public class Livro implements Serializable {
 
     // Atributos
     private long id;
@@ -18,6 +19,7 @@ public class Livro {
     private double preco;
     private int quantidadeNoEstoque;
     private ArrayList<Avaliacao> avaliacoes;
+    //private String capa;
 
     // Construtor
     public Livro(long id, String titulo, String autor, String genero, String sinopse,
@@ -32,6 +34,7 @@ public class Livro {
         this.setPreco(preco);
         this.setQuantidadeNoEstoque(quantidadeNoEstoque);
         this.avaliacoes = new ArrayList<>();
+        //this.capa = String.format("@Imagens/capas_livros/%d.jpg", this.getId());
     }
 
     // Metodos

@@ -8,6 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 
+<?import javafx.scene.image.Image?>
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.TelaLogonControlador">
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
@@ -20,7 +21,7 @@
             <Button fx:id="botaoCadastrar" layoutX="317.0" layoutY="316.0" mnemonicParsing="false" onAction="#btnLogonCadastrar" text="Cadastrar" />
             <ImageView fx:id="logo" fitHeight="149.0" fitWidth="351.0" layoutX="119.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
                <image>
-
+                  <Image url="@logo_livraria.png" />
                </image>
             </ImageView>
          </children>

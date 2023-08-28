@@ -1,26 +1,28 @@
 package beans;
 
+import java.io.Serializable;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
-public class Venda {
+public class Venda implements Serializable {
 
     // Atributos
-    private static long indice = 0;
+    //public static long indice = 0;
     private long id;
     private Pessoa pessoa;
     private ArrayList<ItemVenda> itensDaVenda;
-    private LocalDateTime data;
+    private LocalDate data;
     private Promocao promocao;
     private StatusVenda status;
 
     // Construtor
     public Venda(Pessoa pessoa) {
-        indice++;
-        this.setId(indice);
+        //indice++;
+        //this.setId(id);
         this.setPessoa(pessoa);
         this.itensDaVenda = new ArrayList<>();
-        this.data = LocalDateTime.now();
+        this.data = LocalDate.now();
         this.promocao = null;
         this.status = StatusVenda.EM_ABERTO;
 
@@ -71,7 +73,7 @@ public class Venda {
     public ArrayList<ItemVenda> getItensDaVenda() {
         return itensDaVenda;
     }
-    public LocalDateTime getData() {
+    public LocalDate getData() {
         return data;
     }
     public StatusVenda getStatus() {
@@ -81,9 +83,9 @@ public class Venda {
         return promocao;
     }
 
-    public static long getIndice() {
-        return indice;
-    }
+//    public static long getIndice() {
+//        return indice;
+//    }
 
     // Setters com ou sem validação
     public void setId(long id) {
@@ -91,7 +93,7 @@ public class Venda {
             this.id = id;
         }
     }
-    public void setData(LocalDateTime data) {       // nem precisa, se for data now.
+    public void setData(LocalDate data) {       // nem precisa, se for data now.
         this.data = data;
     }
     public void setItensDaVenda(ArrayList<ItemVenda> itensDaVenda) {

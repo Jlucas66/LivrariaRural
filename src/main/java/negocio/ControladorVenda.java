@@ -1,11 +1,13 @@
 package negocio;
 
 import beans.ItemVenda;
+import beans.Livro;
 import beans.Pessoa;
 import beans.Venda;
 import dados.IRepositorioVenda;
 import dados.RepositorioVenda;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -45,15 +47,36 @@ public class ControladorVenda {
     public boolean colocarItensNaVenda(Venda venda, ItemVenda itemVendido) {
         boolean colocadoComSucesso = false;
         if (itemVendido != null) {
-            venda.getItensDaVenda().add(itemVendido);
+
+            // se ja existir o livro em algum item venda, atualizar a qtd desse item venda
+            boolean livroJaEstaNoCarrinho = false;
+            for (ItemVenda i : venda.getItensDaVenda()) {
+                if (i.getLivro().equals(itemVendido.getLivro())) {
+                    livroJaEstaNoCarrinho = true;
+                    i.setQuantidade(i.getQuantidade() + itemVendido.getQuantidade());
+                    break;
+                }
+            }
+            if (!livroJaEstaNoCarrinho) {
+                venda.getItensDaVenda().add(itemVendido);
+            }
             colocadoComSucesso = true;
         }
         return colocadoComSucesso;
     }
 
-    // aplicar desconto - esse foi no controlador promocao
+    // remover itens da venda - recebe livro e remove do arraylist de itensvenda, se existir
+    public boolean removerItensDaVenda(Venda venda, Livro livro) {
+        boolean removidoComSucesso = false;
+        for (int i = 0; i < venda.getItensDaVenda().size(); i++) {
+            if (venda.getItensDaVenda().get(i).getLivro().equals(livro)) {
+                venda.getItensDaVenda().remove(i);
+            }
+        }
 
-    // atualizar status - vai manter?
+        return removidoComSucesso;
+    }
+
 
     public void diminuirQtd(ItemVenda itemVendido) {
         if (itemVendido != null && itemVendido.getLivro() != null) {
@@ -73,6 +96,11 @@ public class ControladorVenda {
             ultimoItem.getLivro().setQuantidadeNoEstoque(ultimoItem.getLivro().getQuantidadeNoEstoque() + ultimoItem.getQuantidade());
         }
     }
+    public void aumentarQtdDeLivro(ItemVenda itemRemovido) {
+
+        itemRemovido.getLivro().setQuantidadeNoEstoque(itemRemovido.getLivro().getQuantidadeNoEstoque() + itemRemovido.getQuantidade());
+    }
+
 
     // atualizar venda (caso precise alterar alguma coisa)
     public boolean atualizarVenda(Venda novaVenda) {
@@ -90,7 +118,7 @@ public class ControladorVenda {
         return repo.removerVendaPorId(id);
     }
 
-    public boolean removerUltiaVendaDoRepo() {
+    public boolean removerUltimaVendaDoRepo() {
         return repo.removerUltimaVendaDoRepo();
     }
 
@@ -106,7 +134,7 @@ public class ControladorVenda {
     public List<Venda> listarVendasPorPessoa(Pessoa pessoa) {
         return repo.listarVendasPorPessoa(pessoa);
     }
-    public List<Venda> listarVendasPorPeriodo(LocalDateTime inicio, LocalDateTime fim) {
+    public List<Venda> listarVendasPorPeriodo(LocalDate inicio, LocalDate fim) {
         return repo.listarVendasPorPeriodo(inicio, fim);
     }
 
@@ -116,6 +144,14 @@ public class ControladorVenda {
 
     public Venda buscarUltimaVendaDoRepo() {
         return repo.buscarUltimaVendaDoRepo();
+    }
+
+    public void salvarVendasEmArquivo(String nomeArquivo) {
+        repo.salvarVendasEmArquivo(nomeArquivo);
+    }
+
+    public void carregarVendasDeArquivo(String nomeArquivo) {
+        repo.carregarVendasDeArquivo(nomeArquivo);
     }
 
     // Getters

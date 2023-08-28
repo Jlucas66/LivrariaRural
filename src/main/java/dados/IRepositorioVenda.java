@@ -3,6 +3,10 @@ package dados;
 import beans.Pessoa;
 import beans.Venda;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +27,7 @@ public interface IRepositorioVenda {
     Venda buscarUltimaVendaDoRepo();
 
     List<Venda> listarVendasPorPessoa(Pessoa pessoa);
-    List<Venda> listarVendasPorPeriodo(LocalDateTime inicio, LocalDateTime fim);
+    List<Venda> listarVendasPorPeriodo(LocalDate inicio, LocalDate fim);
     String imprimirItensVenda(Venda venda);
 
     // atualizar
@@ -34,6 +38,8 @@ public interface IRepositorioVenda {
     void atualizarStatusDaVenda(Venda venda, StatusVenda novoStatus);
     */
 
+    void salvarVendasEmArquivo(String nomeArquivo);
+    void carregarVendasDeArquivo(String nomeArquivo);
 
 
     ArrayList<Venda> getRepositorioVenda();

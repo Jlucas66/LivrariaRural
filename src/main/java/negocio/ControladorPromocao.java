@@ -1,16 +1,24 @@
 package negocio;
 
 import beans.Promocao;
-import beans.TipoPromocao;
 import beans.Venda;
+import dados.IRepositorioPromocoes;
+import dados.RepositorioPromocao;
+
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.List;
 
 public class ControladorPromocao {
 
     // Atributos
     private static ControladorPromocao instance;
-
+    private IRepositorioPromocoes repo;
     // Construtor
-    private ControladorPromocao() {}
+    private ControladorPromocao() {
+        this.repo =new RepositorioPromocao();
+    }
     public static ControladorPromocao getInstance() {
         if (instance == null) {
             instance = new ControladorPromocao();
@@ -28,8 +36,23 @@ public class ControladorPromocao {
      */
     public boolean aplicarPromocaoNaVenda(Venda venda) {
         boolean aplicouPromocao = false;
+
+        // verificar se a data da venda está entre alguma das datas das promoções do repositório
+        LocalDate dataVenda = venda.getData();
+
+        for (Promocao promo : repo.getRepositorioPromocao()) {
+            if (dataVenda.isAfter(promo.getInicio()) && dataVenda.isBefore(promo.getFim())
+                    || dataVenda.isEqual(promo.getInicio()) || dataVenda.isEqual(promo.getFim())) {
+                // a promoção se aplica para essa venda
+                // mas antes tem que checar se já tem uma promoção aplicada. Se sim, vai valer a que tiver maior desconto
+                if (venda.getPromocao() == null || venda.getPromocao().getPercentualDesconto() < promo.getPercentualDesconto()) {
+                    venda.setPromocao(promo);
+                }
+            }
+        }
+
         // criar promoção
-        if (venda != null) {
+        /*if (venda != null) {
             Promocao promocao = new Promocao(venda); // nenhuma promoção e desconto = 0
 
             // calcular percentual de desconto e atualizar o tipo da promocao
@@ -67,11 +90,54 @@ public class ControladorPromocao {
             // colocar a promoção dentro da venda
             venda.setPromocao(promocao);
             aplicouPromocao = true;
-        }
+        }*/
         return aplicouPromocao;
     }
 
+    public boolean cadastraNovaPromocao(LocalDate inicio, LocalDate fim, double porcentagemDesconto,String nomePromocaoNova){
+        boolean inseriu=false;
+        boolean existeData=false;
+        Promocao promocao;
 
+        if(nomePromocaoNova!=null && !nomePromocaoNova.isEmpty()&& inicio!=null && fim!=null && porcentagemDesconto>0 ){
+            promocao = new Promocao(inicio,fim,porcentagemDesconto,nomePromocaoNova);
+            repo.cadastrarPromocao(promocao);
+            inseriu=true;
+        }
+        return inseriu;
+    }
 
+    public boolean removerPromocaoPorNome(String nomePromocao){     // só precisa de um delegate. Não precisa mais validar
+        boolean removido = false;
+        if(nomePromocao!=null && !nomePromocao.isEmpty()){
+            removido =true;
+            repo.removerPromocaoPorNome(nomePromocao);
+        }
+        return removido;
+    }
 
+    public boolean atualizarPromocao(String nomePromocao,double percentualPromocao,LocalDate inicio,LocalDate fim){
+        boolean atualizou=false;
+        if(nomePromocao!=null && !nomePromocao.isEmpty()&& inicio!=null && fim!=null){
+            Promocao promocao=new Promocao(inicio,fim,percentualPromocao,nomePromocao);
+            repo.atualizarPromocao(promocao);
+            atualizou=true;
+        }
+        return atualizou;
+
+    }
+
+    public void carregarPromocaoDeArquivo(String nomeArquivo){
+        repo.carregarPromocaoDeArquivo(nomeArquivo);
+    }
+    public void salvarPromocaoEmArquivo(String nomeArquivo){
+        repo.salvarPromocaoEmArquivo(nomeArquivo);
+    }
+    public Promocao buscarPorNome(String nomePromocao){
+            return repo.buscarPromocaoPorNome(nomePromocao);
+    }
+
+    public List<Promocao> getRepositorioPromocao() {
+        return repo.getRepositorioPromocao();
+    }
 }

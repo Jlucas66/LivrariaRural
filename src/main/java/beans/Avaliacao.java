@@ -1,6 +1,8 @@
 package beans;
 
-public class Avaliacao {
+import java.io.Serializable;
+
+public class Avaliacao implements Serializable {
 
     // Atributos
     private Pessoa pessoa;

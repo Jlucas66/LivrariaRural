@@ -6,6 +6,7 @@ import dados.IRepositorioLivro;
 import dados.RepositorioLivro;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ControladorLivro {
 
@@ -31,6 +32,9 @@ public class ControladorLivro {
         if (itemVendido != null && itemVendido.getLivro() != null) {
             repo.buscarLivroPorId(itemVendido.getLivro().getId()).setQuantidadeNoEstoque(itemVendido.getLivro().getQuantidadeNoEstoque() - itemVendido.getQuantidade());
         }
+    }
+    public void aumentarQtdDoLivro(ItemVenda itemRemovidoDaVenda) {
+        repo.buscarLivroPorId(itemRemovidoDaVenda.getLivro().getId()).setQuantidadeNoEstoque(itemRemovidoDaVenda.getLivro().getQuantidadeNoEstoque() + itemRemovidoDaVenda.getQuantidade());
     }
 
     // alterarPrecoDoLivro - alteração só do preço de um livro existente
@@ -94,8 +98,35 @@ public class ControladorLivro {
 
     // delegate dos listar
 
+
+    public List<Livro> listaLivroPorTituloOuAutor(String busca, String genero) {
+        return repo.listaLivroPorBusca(busca, genero);
+    }
+
+    public List<Livro> listaLivroPorTitulo(String titulo) {
+        return repo.listaLivroPorTitulo(titulo);
+    }
+
+    public List<Livro> listarLivrosPorAutor(String autor) {
+        return repo.listarLivrosPorAutor(autor);
+    }
+
+    public List<Livro> listarLivrosComMediaMaiorQue(int nota) {
+        return repo.listarLivrosComMediaMaiorQue(nota);
+    }
+
+    public List<Livro> listarLivroPorGenero(String categoria) {
+        return repo.listarLivroPorGenero(categoria);
+    }
+
     public void carregarLivrosDoArquivo(String arquivo) {
         repo.carregarLivrosDoArquivo(arquivo);
+    }
+    public void salvarLivrosEmArquivo(String nomeArquivo) {
+        repo.salvarLivrosEmArquivo(nomeArquivo);
+    }
+    public void carregarLivrosDeArquivo(String nomeArquivo) {
+        repo.carregarLivrosDeArquivo(nomeArquivo);
     }
 
 

@@ -13,12 +13,12 @@
    <children>
       <ImageView fx:id="logo" fitHeight="115.0" fitWidth="282.0" layoutX="309.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../OneDrive/Área de Trabalho/logo_livraria.png" />
+            <Image url="@logo_livraria.png" />
          </image>
       </ImageView>
       <ImageView fx:id="capaDoLivro" fitHeight="321.0" fitWidth="251.0" layoutX="36.0" layoutY="205.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../OneDrive/Área de Trabalho/exemplo_capa2.jpg" />
+
          </image>
       </ImageView>
       <Label layoutX="36.0" layoutY="150.0" text="⭐Você está avaliando o livro:">
@@ -37,7 +37,7 @@
             <Font size="19.0" />
          </font>
       </Label>
-      <Spinner fx:id="notaDoLivro" layoutX="323.0" layoutY="378.0" prefHeight="25.0" prefWidth="173.0" />
+      <Spinner fx:id="notaDoLivro" editable="true" layoutX="323.0" layoutY="378.0" prefHeight="25.0" prefWidth="173.0" />
       <Label layoutX="323.0" layoutY="349.0" text="Dê uma nota ao livro:">
          <font>
             <Font size="15.0" />

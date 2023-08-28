@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="265.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.CardController">
+   <children>
+      <ImageView fx:id="capaDoLivro" fitHeight="152.0" fitWidth="115.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Imagens/capas_livros/1.jpg" />
+         </image>
+         <VBox.margin>
+            <Insets left="10.0" />
+         </VBox.margin>
+      </ImageView>
+      <Label fx:id="autorLivro" alignment="CENTER" contentDisplay="TOP" maxHeight="34.0" maxWidth="177.0" prefHeight="5.0" prefWidth="177.0" text="Autor" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font size="11.0" />
+         </font>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <VBox.margin>
+            <Insets top="2.0" />
+         </VBox.margin></Label>
+      <Label fx:id="precoLivro" alignment="CENTER" graphicTextGap="0.0" prefHeight="9.0" prefWidth="129.0" text="R$ preco do livro" wrapText="true">
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <Hyperlink fx:id="tituloLivro" alignment="TOP_CENTER" contentDisplay="TOP" onAction="#linkLivro" prefHeight="59.0" prefWidth="187.0" text="Titulo do livro" wrapText="true">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+      </Hyperlink>
+   </children>
+</VBox>

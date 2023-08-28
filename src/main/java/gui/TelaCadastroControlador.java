@@ -26,7 +26,7 @@ public class TelaCadastroControlador {
     private Parent root;
 
     public void initialize() {
-        logo.setImage(new Image(getClass().getResourceAsStream("logo_livraria.png")));
+        //logo.setImage(new Image(getClass().getResourceAsStream("logo_livraria.png")));
 
     }
 
@@ -56,21 +56,26 @@ public class TelaCadastroControlador {
         ControladorPessoa cPessoa = ControladorPessoa.getInstance();
 
         if (cPessoa.criarECadastrarPessoa(nomeCadastro.getText(), emailCadastro.getText(), senhaCadastro.getText(), enderecoCadastro.getText(), dataDeNascimentoCadastro.getValue())) {
-            cPessoa.salvarPessoaNoArquivo(cPessoa.buscarPessoaPorEmail(emailCadastro.getText()), "pessoas.csv");
+
+            // alerta de cadastrado com sucesso
+
+
+            // atualizar repositório
+            cPessoa.salvarPessoasEmArquivo("Livraria_Rural/pessoas.ser");
+
+            // mudar de tela
             irParaTelaLogon(event);
 
         } else {
 
-            // aqui vem o alerta de que algum campo está vazio ou o email já existe
+            // alerta de que algum campo está vazio ou o email já existe
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Cadastrar");
             alert.setHeaderText("Erro ao tentar cadastrar");
             alert.setContentText("Email já existente ou campos não preenchidos!");
 
             alert.showAndWait();
-            System.out.println("Pessoa não existe, ou a senha está errada .");
 
-            System.out.println("algo está faltando ou o email já está cadastrado");
         }
 
         //imprimindo no sistema só pra ver se deu certo - pode apagar depois.

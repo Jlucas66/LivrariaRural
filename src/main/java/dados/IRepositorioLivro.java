@@ -3,6 +3,7 @@ package dados;
 import beans.Livro;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public interface IRepositorioLivro {
 
@@ -32,5 +33,16 @@ public interface IRepositorioLivro {
     */
 
     void carregarLivrosDoArquivo(String arquivo);
+    void salvarLivrosEmArquivo(String nomeArquivo);
+    void carregarLivrosDeArquivo(String nomeArquivo);
+
+    List<Livro> listaLivroPorBusca(String busca, String genero);
+    List<Livro> listaLivroPorTitulo(String titulo);
+    List<Livro> listarLivrosPorAutor(String autor);
+    List<Livro> listarLivrosComMediaMaiorQue(int nota);
+    List<Livro> listarLivroPorGenero(String categoria);
+
+
+
     ArrayList<Livro> getRepositorioLivro();
 }

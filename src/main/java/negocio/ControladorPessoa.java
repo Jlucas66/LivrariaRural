@@ -18,6 +18,7 @@ public class ControladorPessoa {
     private ControladorPessoa() {
         this.repo = new RepositorioPessoa();
     }
+
     public static ControladorPessoa getInstance() {
         if (instance == null) {
             instance = new ControladorPessoa();
@@ -127,6 +128,14 @@ public class ControladorPessoa {
     }
     public void salvarPessoaNoArquivo(Pessoa pessoa, String nomeArquivo) throws IOException {
         repo.salvarPessoaNoArquivo(pessoa, nomeArquivo);
+    }
+
+    public void carregarPessoasDeArquivo(String nomeArquivo) {
+        repo.carregarPessoasDeArquivo(nomeArquivo);
+    }
+
+    public void salvarPessoasEmArquivo(String nomeArquivo) {
+        repo.salvarPessoasEmArquivo(nomeArquivo);
     }
 
     public ArrayList<Pessoa> getRepositorioPessoa() {
