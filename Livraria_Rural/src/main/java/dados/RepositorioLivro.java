@@ -65,6 +65,9 @@ public class RepositorioLivro implements IRepositorioLivro {
         return removeu;
     }
 
+    
+    
+
         // buscarLivro
     public Livro buscarLivroPorId(long id) {        // falta tratar para id inexistente
         Livro livroBuscado = null;
@@ -107,6 +110,7 @@ public class RepositorioLivro implements IRepositorioLivro {
         }
         return atualizou;
     }
+
 
 
     // listarLivroPorTitulo

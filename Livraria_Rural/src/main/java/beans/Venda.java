@@ -115,4 +115,9 @@ public class Venda implements Serializable {
     public void setPromocao(Promocao promocao) {
         this.promocao = promocao;
     }
+
+    @Override
+    public long compareTo(id pid){
+        return (this.id - pid);
+    }
 }
