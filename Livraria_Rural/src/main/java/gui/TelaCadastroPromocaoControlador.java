@@ -68,7 +68,7 @@ public class TelaCadastroPromocaoControlador {
                 if(cPromocao.cadastraNovaPromocao(dataDeInicioCadastroPromocao.getValue(),dataDeFimCadastroPromocao.getValue(),
                         valorDesconto,tipoDaPromocaoCadastroPromocao.getText())){
                     cPromocao.salvarPromocaoEmArquivo("Livraria_Rural/promocao.ser");
-
+                    //novo
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setTitle("Promoção");
                     alert.setHeaderText(null);
