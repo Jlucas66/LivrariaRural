@@ -56,14 +56,8 @@ public class TelaInicialClienteControlador {
             }
         }
         generos.getItems().addAll(generosDoRepositorio);
-
-
-        try {
-            ola.setText(String.format("Olá, %s!", controladorVenda.buscarUltimaVendaDoRepo().getPessoa().getNome()));
-        } catch (Exception e) {
-            ola.setText("Seja bem vindo(a)!");
-        }
-
+        ola.setText("Seja bem vindo(a)!");
+        
         // setar os livros
         tituloDoLivro1.setText(livros.get(0).getTitulo());
         tituloDoLivro2.setText(livros.get(1).getTitulo());
