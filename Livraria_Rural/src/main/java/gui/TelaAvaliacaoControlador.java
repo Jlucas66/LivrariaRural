@@ -16,6 +16,7 @@ import javafx.stage.Stage;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.SpinnerValueFactory.IntegerSpinnerValueFactory;
+import negocio.ControladorAvaliacao;
 import negocio.ControladorLivro;
 
 import java.io.IOException;
@@ -97,16 +98,12 @@ public class TelaAvaliacaoControlador {
 
         if(critica!=null && !critica.isEmpty()){
             ControladorLivro cLivro=ControladorLivro.getInstance();
-            Avaliacao avaliacao=new Avaliacao(pessoaRecebida,livroRecebido, notaDoLivro.getValue(), criticaDoLivro.getText());
-            for(Livro l:cLivro.getRepositorioLivro()){
-                if(l.getTitulo().equalsIgnoreCase(livroRecebido.getTitulo())){
-                    l.getAvaliacoes().add(avaliacao);
-                    break;
-                }
-            }
+            ControladorAvaliacao cAvalicao=ControladorAvaliacao.getInstance();
+            cAvalicao.avaliarLivro(livroRecebido,pessoaRecebida, notaDoLivro.getValue(), critica);
+
+            Avaliacao avaliacao=new Avaliacao(pessoaRecebida,livroRecebido, notaDoLivro.getValue(),critica);
             livroRecebido.getAvaliacoes().add(avaliacao);
-            //livroRecebido.getAvaliacoes().add(avaliacao);
-            avaliou=true;       //não precisa
+
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Avaliação");
             alert.setHeaderText(null);
