@@ -172,6 +172,7 @@ public class RepositorioLivro implements IRepositorioLivro {
                 }
             }
         }
+        System.out.println(livrosPorBusca.size());
         return livrosPorBusca;
     }
     public List<Livro> listaLivroPorTitulo(String titulo){

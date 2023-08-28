@@ -114,7 +114,7 @@ public class TelaRelatorioControlador {
     public void irParaTelaInicialAdm (ActionEvent event) throws IOException{
         root = FXMLLoader.load(getClass().getResource("tela_adm.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root, 600, 400);
+        scene = new Scene(root, 900, 560);
         stage.setScene(scene);
         stage.show();
         stage.setTitle("Catálogo");

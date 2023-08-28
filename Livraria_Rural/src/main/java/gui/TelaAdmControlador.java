@@ -20,33 +20,42 @@ public class TelaAdmControlador {
     private Parent root;
 
     //Fx: ID
-
     @FXML
     private ImageView logo;
-
     @FXML
     private Label bemVindoADM;
-
     @FXML
     private Button botaoCadastrarLivros;
-
+    @FXML
+    private Button botaoListaDeLivros;
+    @FXML
+    private Button botaoEditarLivros;
+    @FXML
+    private Button botaoListaDePromocoes;
     @FXML
     private Button botaoCadastrarAdministradores;
-
     @FXML
     private Button botaoCadastrarNovasPromocoes;
-
     @FXML
     private Button botaoRelatorioDeCompras;
-
-    @FXML
-    private Button botaoListaDeClientes;
-
     @FXML
     private Button botaoSair;
 
     //On Action
-
+    @FXML
+    public void btnADMListaDeLivros (ActionEvent event) throws IOException{
+        // vai para tela de lista de livros
+        irParaTelaListaLivros(event);
+    }
+    @FXML
+    public void btnADMEditarLivros(ActionEvent event) throws IOException{
+        // vai para tela de editar livros
+    }
+    @FXML
+    public void btnADMListaDePromocoes(ActionEvent event) throws IOException{
+        // vai para tela de lista de promoções
+        irParaTelaListaPromocoes(event);
+    }
     @FXML
     public void btnADMCadastrarLivros (ActionEvent event) throws IOException {
         // vai para tela de cadastro de livro
@@ -120,6 +129,24 @@ public class TelaAdmControlador {
         stage.setScene(scene);
         stage.show();
         stage.setTitle("Cadastro de Promocao");
+        stage.setResizable(false);
+    }
+    public void irParaTelaListaPromocoes (ActionEvent event) throws IOException{
+        root = FXMLLoader.load(getClass().getResource("tela_lista_promocoes.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root, 900, 560);
+        stage.setScene(scene);
+        stage.show();
+        stage.setTitle("Promocoes cadastradas");
+        stage.setResizable(false);
+    }
+    public void irParaTelaListaLivros (ActionEvent event) throws IOException{
+        root = FXMLLoader.load(getClass().getResource("tela_lista_livros.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root, 900, 560);
+        stage.setScene(scene);
+        stage.show();
+        stage.setTitle("Livros cadastrados");
         stage.setResizable(false);
     }
 }

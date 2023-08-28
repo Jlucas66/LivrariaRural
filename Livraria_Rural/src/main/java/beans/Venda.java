@@ -43,6 +43,7 @@ public class Venda implements Serializable {
         return resultado;
     }
 
+
     // listar quantidade de livros da venda - pra usar na promocao
     public int qtdLivrosDaVenda() {
         int quantidade = 0;

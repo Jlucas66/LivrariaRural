@@ -34,7 +34,9 @@ public class TelaLivroBuscadoControlador {
         for (Livro livro : controladorLivro.getRepositorioLivro()) {
             generos.getItems().add(livro.getGenero());
         }
-        generos.setValue("Selecione genero");
+        SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 50);
+        valueFactory.setValue(0);
+        quantidadeLivrosLivro.setValueFactory(valueFactory);
 
     }
     public void receberLivro(Livro livro) {
@@ -53,7 +55,7 @@ public class TelaLivroBuscadoControlador {
     @FXML
     private ChoiceBox<String> generos;
     @FXML
-    private TextField quantidadeLivrosLivro;
+    private Spinner<Integer> quantidadeLivrosLivro;
     @FXML
     private ImageView capaDoLivroLivro;
 
@@ -104,7 +106,8 @@ public class TelaLivroBuscadoControlador {
         int qtd=-1;
 
         try{
-            qtd = Integer.parseInt(quantidadeLivrosLivro.getText());
+            //qtd = Integer.parseInt(quantidadeLivrosLivro.getText());
+            qtd = quantidadeLivrosLivro.getValue();
         }catch(NumberFormatException e){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Entrada");

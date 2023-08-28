@@ -19,10 +19,13 @@ public class Teste {
                 controladorVenda.carregarVendasDeArquivo("Livraria_Rural/vendas.ser");
                 controladorPromocao.carregarPromocaoDeArquivo("Livraria_Rural/promocao.ser");
 
+
+
                 System.out.println("tamanho de pessoas.ser = " + controladorPessoa.getRepositorioPessoa().size());
                 System.out.println("tamanho de vendas.ser = " + controladorVenda.getRepositorioVenda().size());
                 System.out.println("tamanho de promocao.ser = " + controladorPromocao.getRepositorioPromocao().size());
                 System.out.println("tamanho de livros.ser = " + controladorLivro.getRepositorioLivro().size());
+
 
                 for (Promocao p : controladorPromocao.getRepositorioPromocao()) {
                         System.out.println(p.getNomePromocao());
