@@ -33,7 +33,12 @@ public class Teste {
 
                 System.out.println();
 
-                System.out.println("testando os metodos de listar livros");
+                System.out.println("testando avaliações");
+                for (Livro i : controladorLivro.getRepositorioLivro()) {
+                        System.out.println(i.getId() + " - " + i.getAvaliacoes().size());
+                }
+                System.out.println(controladorLivro.buscarLivroPorId(4).getAvaliacoes().get(0).getPessoa().getNome());
+
                 System.out.println();
 
                 //criando os livros

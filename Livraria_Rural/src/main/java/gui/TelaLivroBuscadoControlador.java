@@ -2,6 +2,7 @@ package gui;
 
 import beans.ItemVenda;
 import beans.Livro;
+import beans.Pessoa;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -24,11 +25,8 @@ public class TelaLivroBuscadoControlador {
     private Scene scene;
     private Parent root;
     private Livro livroRecebido;        // atributo que virá da tela do cliente
-    private Image capa;             // capa que vira da outra pág (depois ver se entra como atributo do livro)
     private String buscaRecebida;
     private String generoRecebido;
-
-
 
     public void initialize() {
         // setar itens no choicebox
@@ -36,12 +34,14 @@ public class TelaLivroBuscadoControlador {
         for (Livro livro : controladorLivro.getRepositorioLivro()) {
             generos.getItems().add(livro.getGenero());
         }
+        generos.setValue("Selecione genero");
 
     }
     public void receberLivro(Livro livro) {
         this.livroRecebido = livro;
         preencherLabels();
     }
+
     public void receberBusca(String buscaRecebida, String generoRecebido) {
         this.buscaRecebida = buscaRecebida;
         this.generoRecebido = generoRecebido;
@@ -78,7 +78,7 @@ public class TelaLivroBuscadoControlador {
     @FXML
     public void btnLivroAvaliarLivro (ActionEvent event) throws IOException{
         // vai pra tela de avaliação
-
+        irParaTelaAvaliacao(event);
     }
     @FXML
     public void btnLivroLupa(ActionEvent event) throws IOException{
@@ -204,6 +204,20 @@ public class TelaLivroBuscadoControlador {
         // mandar string do textfield e genero do choice box pra tela de busca
         TelaBuscaControlador telaBuscaControlador = loader.getController();
         telaBuscaControlador.receberBusca(buscaRecebida, generoRecebido);
+    }
+    public void irParaTelaAvaliacao (ActionEvent event) throws IOException{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("tela_avaliacao.fxml"));
+        root = loader.load();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root, 900, 560);
+        stage.setScene(scene);
+        stage.show();
+        stage.setTitle("Livro: Mais detalhes");
+        stage.setResizable(false);
+
+        ControladorVenda controladorVenda = ControladorVenda.getInstance();
+        TelaAvaliacaoControlador telaAvaliacaoControlador= loader.getController();
+        telaAvaliacaoControlador.receberLivroEPoessoa(livroRecebido,controladorVenda.buscarUltimaVendaDoRepo().getPessoa());
     }
 
 

@@ -31,7 +31,7 @@ public class ControladorAvaliacao {
      */
     public boolean avaliarLivro(Livro livro, Pessoa pessoa, int nota, String comentario) {
         boolean avaliou = false;
-        if (livro != null && pessoa != null && nota >= 1 && nota <= 5) {
+        if (livro != null && pessoa != null && nota >= 1 && nota <= 5&& !comentario.isEmpty()) {
 
             for (Avaliacao avaliacaoJaCadastrada : livro.getAvaliacoes()) {
                 if (avaliacaoJaCadastrada.getPessoa().equals(pessoa) && avaliacaoJaCadastrada.getLivro().equals(livro)) {

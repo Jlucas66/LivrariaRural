@@ -38,6 +38,7 @@ public class TelaInicialClienteControlador {
         for (Livro livro : controladorLivro.getRepositorioLivro()) {
             generos.getItems().add(livro.getGenero());
         }
+        generos.setValue("Selecione genero");
         ola.setText(String.format("Olá, %s!", controladorVenda.buscarUltimaVendaDoRepo().getPessoa().getNome()));
 
 

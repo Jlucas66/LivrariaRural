@@ -57,6 +57,13 @@ public class TelaCadastroAdmControlador {
             // atualizar repositório
             cPessoa.salvarPessoasEmArquivo("Livraria_Rural/pessoas.ser");
 
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Cadastro Administrador");
+            alert.setHeaderText(null);
+            alert.setContentText("Administrador cadastrado com sucesso!");
+
+            alert.showAndWait();
+
             // mudar de tela
             irParaTelaAdm(event);
 

@@ -33,6 +33,7 @@ public class TelaLivroControlador {
         for (Livro livro : controladorLivro.getRepositorioLivro()) {
             generos.getItems().add(livro.getGenero());
         }
+        generos.setValue("Selecione genero");
         preencherLabels();
     }
     public void receberLivro(Livro livro) {
