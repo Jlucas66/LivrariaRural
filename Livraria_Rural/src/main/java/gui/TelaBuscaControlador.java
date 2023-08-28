@@ -19,7 +19,7 @@ import negocio.ControladorLivro;
 import java.io.IOException;
 import java.util.List;
 
-public class TelaBuscaControlador{
+public class TelaBuscaControlador {
 
     private Stage stage;
     private Scene scene;
@@ -76,7 +76,7 @@ public class TelaBuscaControlador{
     private List<Livro> livros(){
         // metodo retorna lista de livros
         ControladorLivro controladorLivro = ControladorLivro.getInstance();
-        List<Livro> lista = controladorLivro.listaLivroPorTituloOuAutor(buscaRecebida, generoRecebido);
+        List<Livro> lista = controladorLivro.listaLivroPorBusca(buscaRecebida, generoRecebido);
         return lista;
     }
 

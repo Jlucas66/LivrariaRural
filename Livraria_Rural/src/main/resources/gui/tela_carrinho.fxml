@@ -35,24 +35,32 @@
             </ScrollPane>
          </children>
       </Pane>
-      <Label fx:id="resumoDoPedido" layoutX="687.0" layoutY="210.0" text="Resumo do pedido:">
+      <Label fx:id="resumoDoPedido" layoutX="687.0" layoutY="176.0" text="Resumo do pedido:">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <Label fx:id="valorTotal" layoutX="688.0" layoutY="318.0" text="Valor total: R$ ">
+      <Label fx:id="valorTotal" layoutX="687.0" layoutY="361.0" text="Valor total: R$ ">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="quantidadeDeItens" layoutX="688.0" layoutY="267.0" text="Quantidade de itens:">
+      <Label fx:id="quantidadeDeItens" layoutX="687.0" layoutY="217.0" text="Quantidade de itens:">
          <font>
-            <Font size="18.0" />
+            <Font size="14.0" />
          </font>
       </Label>
-      <Button fx:id="botaoContinuarComprando" layoutX="703.0" layoutY="354.0" mnemonicParsing="false" onAction="#btnCarrinhoContinuarComprando" prefHeight="36.0" prefWidth="157.0" text="Continuar comprando" />
-      <Button fx:id="botaoFinalizarCompra" layoutX="703.0" layoutY="404.0" mnemonicParsing="false" onAction="#btnCarrinhoFinalizarCompra" prefHeight="36.0" prefWidth="157.0" text="Finalizar compra" />
-      <Button fx:id="botaoZerarCarrinho" layoutX="704.0" layoutY="454.0" mnemonicParsing="false" onAction="#btnCarrinhoZerarCarrinho" prefHeight="36.0" prefWidth="157.0" text="Zerar carrinho" />
-      <Button fx:id="botaoRemoverUltimoLivro" layoutX="704.0" layoutY="504.0" mnemonicParsing="false" onAction="#btnCarrinhoRemoverUltimoLivro" prefHeight="42.0" prefWidth="157.0" text="Remover último livro adicionado" textAlignment="CENTER" wrapText="true" />
+      <Button fx:id="botaoContinuarComprando" layoutX="703.0" layoutY="447.0" mnemonicParsing="false" onAction="#btnCarrinhoContinuarComprando" prefHeight="36.0" prefWidth="157.0" text="Continuar comprando" />
+      <Button fx:id="botaoFinalizarCompra" layoutX="703.0" layoutY="500.0" mnemonicParsing="false" onAction="#btnCarrinhoFinalizarCompra" prefHeight="36.0" prefWidth="157.0" text="Finalizar compra" />
+      <Label fx:id="nomeDaPromocao" alignment="BOTTOM_LEFT" layoutX="689.0" layoutY="277.0" maxHeight="45.0" maxWidth="190.0" prefHeight="45.0" prefWidth="190.0" text="ddddd" wrapText="true">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <Label fx:id="valorDoDesconto" layoutX="689.0" layoutY="325.0" maxHeight="17.0" maxWidth="165.0" prefHeight="17.0" prefWidth="165.0" text="dddd" wrapText="true">
+         <font>
+            <Font size="11.0" />
+         </font></Label>
+      <Label fx:id="valorSemDesconto" layoutX="689.0" layoutY="240.0" maxHeight="17.0" maxWidth="165.0" prefHeight="17.0" prefWidth="165.0" text="Valor total sem desconto" />
+      <Label fx:id="valorEconomizado" layoutX="687.0" layoutY="393.0" maxHeight="17.0" maxWidth="165.0" prefHeight="17.0" prefWidth="165.0" text="Valor economizado:" />
    </children>
 </Pane>

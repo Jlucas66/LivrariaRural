@@ -32,6 +32,22 @@ public class TelaCarrinhoControlador {
     private Parent root;
     private List<Livro> livrosDaVenda;
 
+    public void initialize() {
+        // set das informações
+        ControladorVenda controladorVenda = ControladorVenda.getInstance();
+        Venda venda = controladorVenda.buscarUltimaVendaDoRepo();
+        quantidadeDeItens.setText(String.format("Total de itens: %d", venda.qtdLivrosDaVenda()));
+        valorTotal.setText(String.format("Total: R$ %.2f", venda.calcularTotal()));
+        if (venda.getPromocao() != null) {
+            nomeDaPromocao.setText(venda.getPromocao().getNomePromocao());
+            valorDoDesconto.setText(String.format("Desconto de %.0f%%", venda.getPromocao().getPercentualDesconto()));
+            double valorVendaSemDesconto = (100*venda.calcularTotal())/(100 - venda.getPromocao().getPercentualDesconto());
+            valorSemDesconto.setText(String.format("Valor sem desconto: R$ %.2f", valorVendaSemDesconto));
+            valorEconomizado.setText(String.format("Voce Economizou R$ %.2f", valorVendaSemDesconto-venda.calcularTotal()));
+        }
+        atualizarCarrinho();
+    }
+
     @FXML
     private Label resumoDoPedido;
     @FXML
@@ -39,32 +55,25 @@ public class TelaCarrinhoControlador {
     @FXML
     private Label valorTotal;
     @FXML
+    private Label nomeDaPromocao;
+    @FXML
+    private Label valorSemDesconto;
+    @FXML
+    private Label valorDoDesconto;
+    @FXML
+    private Label valorEconomizado;
+    @FXML
     private Button botaoContinuarComprando;
-    @FXML
-    private Button botaoZerarCarrinho;
-    @FXML
-    private Button botaoRemoverUltimoLivro;
     @FXML
     private Button botaoFinalizarCompra;
     @FXML
     private GridPane livroVendaContainer;
-    //private VBox containerVBox;
 
-    public void initialize() {
-    // set das informações
-        ControladorVenda controladorVenda = ControladorVenda.getInstance();
-        Venda venda = controladorVenda.buscarUltimaVendaDoRepo();
-        quantidadeDeItens.setText(String.format("Total de itens: %d", venda.qtdLivrosDaVenda()));
-        valorTotal.setText(String.format("Total: R$ %.2f", venda.calcularTotal()));
-
-        atualizarCarrinho();
-
-    }
-
-
+    @FXML
     public void btnCarrinhoContinuarComprando(ActionEvent event) throws IOException{
         irParaTelaInicialCliente(event);
     }
+    @FXML
     public void btnCarrinhoFinalizarCompra(ActionEvent event) throws IOException{
         ControladorVenda controladorVenda = ControladorVenda.getInstance();
         Venda venda = controladorVenda.buscarUltimaVendaDoRepo();
@@ -84,68 +93,6 @@ public class TelaCarrinhoControlador {
             alert.showAndWait();
             System.out.println("Alerta de carrinho vazio!");
         }
-
-    }
-
-    public void irParaTelaInicialCliente (ActionEvent event) throws IOException{
-        root = FXMLLoader.load(getClass().getResource("tela_inicial_cliente.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root, 900, 560);
-        stage.setScene(scene);
-        stage.show();
-        stage.setTitle("Catálogo");
-        stage.setResizable(false);
-    }
-    public void irParaTelaCompra (ActionEvent event) throws IOException{
-        root = FXMLLoader.load(getClass().getResource("tela_compra.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root, 600, 400);
-        stage.setScene(scene);
-        stage.show();
-        stage.setTitle("Compra finalizada");
-        stage.setResizable(false);
-    }
-
-    public void btnCarrinhoZerarCarrinho(ActionEvent actionEvent) {
-        ControladorVenda controladorVenda = ControladorVenda.getInstance();
-        Venda venda = controladorVenda.buscarUltimaVendaDoRepo();
-
-        //readicioar as quantidades no estoque
-        controladorVenda.aumentarQtdsDeVariosLivros(venda);
-
-        //apaga a lista
-        venda.getItensDaVenda().clear();
-
-        //atualizar labels e lista
-        quantidadeDeItens.setText(String.format("Total de itens: %d", venda.qtdLivrosDaVenda()));
-        valorTotal.setText(String.format("Total: R$ %.2f", venda.calcularTotal()));
-        //detalhesDoCarrinho.setText(controladorVenda.imprimirItensVenda(venda));
-        atualizarCarrinho();
-
-    }
-
-    public void btnCarrinhoRemoverUltimoLivro(ActionEvent actionEvent) {
-        // remover ultima entrada do carrinho - quando apagar, adicionar a quantidade de volta no estoque
-        ControladorVenda controladorVenda = ControladorVenda.getInstance();
-        Venda venda = controladorVenda.buscarUltimaVendaDoRepo();
-
-        // se a lista de itens não estiver vazia
-
-        if (!venda.getItensDaVenda().isEmpty()) {
-            // readicionar a quantidade do ultimo livro da lista do carrinho
-            controladorVenda.aumentarQtdDoUltimoLivro(venda);
-
-            //apaga o ultimo item do carrinho
-            venda.getItensDaVenda().remove(venda.getItensDaVenda().size()-1);
-
-            //atualizar labels e lista
-            quantidadeDeItens.setText(String.format("Total de itens: %d", venda.qtdLivrosDaVenda()));
-            valorTotal.setText(String.format("Total: R$ %.2f", venda.calcularTotal()));
-            //detalhesDoCarrinho.setText(controladorVenda.imprimirItensVenda(venda));
-
-            //atualizarCarrinho();
-        }
-
 
     }
 
@@ -177,8 +124,26 @@ public class TelaCarrinhoControlador {
         } catch (IOException e){
             e.printStackTrace();
         }
-
-
-
     }
+    public void irParaTelaInicialCliente (ActionEvent event) throws IOException{
+        root = FXMLLoader.load(getClass().getResource("tela_inicial_cliente.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root, 900, 560);
+        stage.setScene(scene);
+        stage.show();
+        stage.setTitle("Catálogo");
+        stage.setResizable(false);
+    }
+    public void irParaTelaCompra (ActionEvent event) throws IOException{
+        root = FXMLLoader.load(getClass().getResource("tela_compra.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root, 600, 400);
+        stage.setScene(scene);
+        stage.show();
+        stage.setTitle("Compra finalizada");
+        stage.setResizable(false);
+    }
+
+
+
 }

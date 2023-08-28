@@ -65,6 +65,9 @@ public class RepositorioLivro implements IRepositorioLivro {
         return removeu;
     }
 
+    
+    
+
         // buscarLivro
     public Livro buscarLivroPorId(long id) {        // falta tratar para id inexistente
         Livro livroBuscado = null;
@@ -107,6 +110,7 @@ public class RepositorioLivro implements IRepositorioLivro {
         }
         return atualizou;
     }
+
 
 
     // listarLivroPorTitulo
@@ -172,6 +176,7 @@ public class RepositorioLivro implements IRepositorioLivro {
                 }
             }
         }
+        System.out.println(livrosPorBusca.size());
         return livrosPorBusca;
     }
     public List<Livro> listaLivroPorTitulo(String titulo){

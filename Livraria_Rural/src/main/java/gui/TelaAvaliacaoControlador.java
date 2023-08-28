@@ -99,7 +99,7 @@ public class TelaAvaliacaoControlador {
         if(critica!=null && !critica.isEmpty()){
             ControladorLivro cLivro=ControladorLivro.getInstance();
             ControladorAvaliacao cAvalicao=ControladorAvaliacao.getInstance();
-            cAvalicao.avaliarLivro(livroRecebido,pessoaRecebida, notaDoLivro.getValue(), critica);
+            //cAvalicao.avaliarLivro(livroRecebido,pessoaRecebida, notaDoLivro.getValue(), critica);
 
             Avaliacao avaliacao=new Avaliacao(pessoaRecebida,livroRecebido, notaDoLivro.getValue(),critica);
             livroRecebido.getAvaliacoes().add(avaliacao);
@@ -111,6 +111,8 @@ public class TelaAvaliacaoControlador {
 
             alert.showAndWait();
             cLivro.salvarLivrosEmArquivo("Livraria_Rural/livros.ser");
+
+            System.out.println(livroRecebido.getAvaliacoes().size());
 
             irParaTelaLivro(event);
 

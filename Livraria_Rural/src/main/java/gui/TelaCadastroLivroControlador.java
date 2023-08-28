@@ -125,11 +125,6 @@ public class TelaCadastroLivroControlador {
             }
 
         }
-        // se tudo no livro estiver ok (campos preenchidos, e quantidade sendo um número inteiro maior ou igual a zero)
-
-        // cadastrar livro
-
-        // salvar arquivo livros.ser
 
     }
 
@@ -144,7 +139,7 @@ public class TelaCadastroLivroControlador {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("tela_adm.fxml"));
         root = loader.load();
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root, 600, 400);
+        scene = new Scene(root, 900, 560);
         stage.setScene(scene);
         stage.show();
         stage.setTitle("Administrador");
