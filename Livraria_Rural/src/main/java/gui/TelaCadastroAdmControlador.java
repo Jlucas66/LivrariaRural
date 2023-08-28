@@ -57,6 +57,7 @@ public class TelaCadastroAdmControlador {
             // atualizar repositório
             cPessoa.salvarPessoasEmArquivo("Livraria_Rural/pessoas.ser");
 
+            //novo
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Cadastro Administrador");
             alert.setHeaderText(null);
