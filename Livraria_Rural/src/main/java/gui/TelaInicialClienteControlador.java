@@ -57,7 +57,7 @@ public class TelaInicialClienteControlador {
         }
         generos.getItems().addAll(generosDoRepositorio);
         ola.setText("Seja bem vindo(a)!");
-        
+
         // setar os livros
         tituloDoLivro1.setText(livros.get(0).getTitulo());
         tituloDoLivro2.setText(livros.get(1).getTitulo());

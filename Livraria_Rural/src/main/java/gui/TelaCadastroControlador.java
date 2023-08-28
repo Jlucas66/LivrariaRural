@@ -59,7 +59,12 @@ public class TelaCadastroControlador {
 
             // atualizar repositório
             cPessoa.salvarPessoasEmArquivo("Livraria_Rural/pessoas.ser");
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Cadastrar");
+            alert.setHeaderText("Pessoa cadastrada!");
+            alert.setContentText("Operação realizada com sucesso");
 
+            alert.showAndWait();
             // mudar de tela
             irParaTelaLogon(event);
 
