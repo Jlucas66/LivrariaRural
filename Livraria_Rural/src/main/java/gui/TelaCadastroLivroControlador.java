@@ -96,6 +96,13 @@ public class TelaCadastroLivroControlador {
 
                         cLivro.salvarLivrosEmArquivo("Livraria_Rural/livros.ser");
                         irParaTelaAdm(event);
+                        // alerta de sucesso
+                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                        alert.setTitle("Cadastrar Livro");
+                        alert.setHeaderText(String.format("%s", livro.getTitulo()));
+                        alert.setContentText("Cadastrado com sucesso!");
+
+                        alert.showAndWait();
                     }
                     else{
                         Alert alert = new Alert(Alert.AlertType.INFORMATION);

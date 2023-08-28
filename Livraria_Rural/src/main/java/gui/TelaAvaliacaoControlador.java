@@ -56,8 +56,8 @@ public class TelaAvaliacaoControlador {
     public void initialize(){
         SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 5, 1);
         notaDoLivro.setValueFactory(valueFactory);//guardando o valor do spinner
-        ControladorLivro cLivro=ControladorLivro.getInstance();
-        cLivro.carregarLivrosDeArquivo("Livraria_Rural/livros.ser");
+//        ControladorLivro cLivro=ControladorLivro.getInstance();
+//        cLivro.carregarLivrosDeArquivo("Livraria_Rural/livros.ser");
 
     }
 
@@ -81,7 +81,7 @@ public class TelaAvaliacaoControlador {
     }
     @FXML
     public void btnAvaliacaoPublicar(ActionEvent event) throws IOException{
-        boolean avaliou=false;
+        boolean avaliou=false;          // não precisa
         String critica=null;
         try{
             critica=criticaDoLivro.getText();
@@ -106,7 +106,7 @@ public class TelaAvaliacaoControlador {
             }
             livroRecebido.getAvaliacoes().add(avaliacao);
             //livroRecebido.getAvaliacoes().add(avaliacao);
-            avaliou=true;
+            avaliou=true;       //não precisa
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Avaliação");
             alert.setHeaderText(null);
