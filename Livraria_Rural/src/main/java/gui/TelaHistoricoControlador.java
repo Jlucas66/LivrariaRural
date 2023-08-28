@@ -15,6 +15,7 @@ import javafx.stage.Stage;
 import negocio.ControladorVenda;
 
 import java.io.IOException;
+import java.util.Collections;
 import java.util.List;
 
 public class TelaHistoricoControlador {
@@ -54,7 +55,7 @@ public class TelaHistoricoControlador {
         lista.remove(lista.size()-1);
 
         //ordenar a lista pra aparecer as mais recentes primeiro
-
+        Collections.sort(lista);
 
 
         int coluna = 0;

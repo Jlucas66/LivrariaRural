@@ -96,9 +96,6 @@ public class TelaCadastroPromocaoControlador {
                 alert.showAndWait();
             }
         }
-
-
-
     }
 
     @FXML

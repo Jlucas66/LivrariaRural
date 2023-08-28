@@ -11,7 +11,7 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.TelaEditarLivroControlador">
    <children>
-      <TextField fx:id="idCadastroLivro" layoutX="169.0" layoutY="143.0" prefHeight="30.0" prefWidth="61.0" promptText="Digite ID" />
+      <TextField fx:id="idLivro" layoutX="169.0" layoutY="143.0" prefHeight="30.0" prefWidth="61.0" promptText="Digite ID" />
       <TextField fx:id="autorEditarLivro" layoutX="125.0" layoutY="266.0" promptText="Digite o autor" />
       <TextField fx:id="generoEditarLivro" layoutX="125.0" layoutY="328.0" promptText="Digite o gênero" />
       <TextField fx:id="editoraEditarLivro" layoutX="125.0" layoutY="393.0" promptText="Digite a editora" />
@@ -19,12 +19,12 @@
       <TextArea fx:id="tituloEditarLivro" layoutX="364.0" layoutY="200.0" prefHeight="70.0" prefWidth="237.0" wrapText="true" />
       <TextArea fx:id="sinopseEditarLivro" layoutX="364.0" layoutY="328.0" prefHeight="154.0" prefWidth="237.0" wrapText="true" />
       <TextField fx:id="precoEditarLivro" layoutX="715.0" layoutY="204.0" prefHeight="25.0" prefWidth="102.0" promptText="Insira o preço" />
-      <TextField fx:id="quantidadeNoEstoqueEditarLivro" layoutX="715.0" layoutY="250.0" prefHeight="25.0" prefWidth="102.0" promptText="Insira a quantidade">
+      <TextField fx:id="quantidadeNoEstoqueEditarLivro" layoutX="715.0" layoutY="247.0" prefHeight="38.0" prefWidth="102.0">
          <font>
-            <Font size="10.0" />
+            <Font size="14.0" />
          </font></TextField>
       <Button fx:id="botaoSalvarAlteracoes" layoutX="676.0" layoutY="495.0" mnemonicParsing="false" onAction="#btnSalvarAlteracoes" text="Salvar Alterações" />
-      <Button fx:id="botaoCancelar" layoutX="793.0" layoutY="495.0" mnemonicParsing="false" onAction="#btnEditarLivroCancelar" text="Cancelar" />
+      <Button fx:id="botaoVoltar" layoutX="793.0" layoutY="495.0" mnemonicParsing="false" onAction="#btnEditarLivroVoltar" text="Voltar" />
       <Label layoutX="55.0" layoutY="143.0" text="Alterar livro:">
          <font>
             <Font size="20.0" />
@@ -33,7 +33,7 @@
       <Label layoutX="328.0" layoutY="207.0" text="Título" />
       <Label layoutX="86.0" layoutY="270.0" text="Autor" />
       <Label layoutX="81.0" layoutY="332.0" text="Gênero" />
-      <Label layoutX="643.0" layoutY="244.0" prefHeight="38.0" prefWidth="66.0" text="Quantidade no estoque" wrapText="true" />
+      <Label layoutX="643.0" layoutY="246.0" prefHeight="38.0" prefWidth="66.0" text="Quantidade no estoque" wrapText="true" />
       <Label layoutX="315.0" layoutY="330.0" text="Sinopse" />
       <Label layoutX="81.0" layoutY="397.0" text="Editora" />
       <Label layoutX="84.0" layoutY="459.0" text="Edição" />

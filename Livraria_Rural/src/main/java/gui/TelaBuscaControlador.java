@@ -35,7 +35,7 @@ public class TelaBuscaControlador {
     private GridPane bookContainer;
     @FXML
     private Button botaoVoltar;
-        @FXML
+    @FXML
     public void btnVoltar(ActionEvent event) throws IOException{
         irParaTelaInicialCliente(event);
     }

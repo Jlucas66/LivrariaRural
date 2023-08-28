@@ -135,7 +135,6 @@ public class TelaCadastroLivroControlador {
     }
 
     public void irParaTelaAdm (ActionEvent event) throws IOException{
-        //root = FXMLLoader.load(getClass().getResource("tela_inicial_cliente.fxml"));
         FXMLLoader loader = new FXMLLoader(getClass().getResource("tela_adm.fxml"));
         root = loader.load();
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();

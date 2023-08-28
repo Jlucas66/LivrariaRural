@@ -51,10 +51,6 @@ public class TelaVisualizarVendaHistoricoControlador {
     }
 
     public void initialize() {
-        // set das informações
-        //ControladorVenda controladorVenda = ControladorVenda.getInstance();
-        //Venda venda = controladorVenda.buscarUltimaVendaDoRepo();
-        //atualizarVendas();
 
     }
 
@@ -97,9 +93,6 @@ public class TelaVisualizarVendaHistoricoControlador {
         } catch (IOException e){
             e.printStackTrace();
         }
-
-
-
     }
     public void irParaTelaHistorico (ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("tela_historico.fxml"));

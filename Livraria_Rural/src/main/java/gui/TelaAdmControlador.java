@@ -50,6 +50,7 @@ public class TelaAdmControlador {
     @FXML
     public void btnADMEditarLivros(ActionEvent event) throws IOException{
         // vai para tela de editar livros
+        irParaTelaEditarLivro(event);
     }
     @FXML
     public void btnADMListaDePromocoes(ActionEvent event) throws IOException{
@@ -86,10 +87,7 @@ public class TelaAdmControlador {
         stage.setResizable(false);
 
     }
-    @FXML
-    public void btnADMListaDeClientes (ActionEvent event) throws IOException{
 
-    }
     @FXML
     public void btnADMSair (ActionEvent event) throws IOException{
         irParaTelaLogon(event);
@@ -147,6 +145,15 @@ public class TelaAdmControlador {
         stage.setScene(scene);
         stage.show();
         stage.setTitle("Livros cadastrados");
+        stage.setResizable(false);
+    }
+    public void irParaTelaEditarLivro (ActionEvent event) throws IOException{
+        root = FXMLLoader.load(getClass().getResource("tela_editar_livro.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root, 900, 560);
+        stage.setScene(scene);
+        stage.show();
+        stage.setTitle("Edição de livros");
         stage.setResizable(false);
     }
 }

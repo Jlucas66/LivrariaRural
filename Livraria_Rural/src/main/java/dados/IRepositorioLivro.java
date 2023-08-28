@@ -18,7 +18,6 @@ public interface IRepositorioLivro {
 
         // buscar
     Livro buscarLivroPorId(long id);
-    Livro buscaLivroGenero(String genero); 
 
         // atualizar
     boolean atualizarLivroComMesmoId(Livro novoLivro);

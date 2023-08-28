@@ -112,8 +112,6 @@ public class TelaAvaliacaoControlador {
             alert.showAndWait();
             cLivro.salvarLivrosEmArquivo("Livraria_Rural/livros.ser");
 
-            System.out.println(livroRecebido.getAvaliacoes().size());
-
             irParaTelaLivro(event);
 
         }
@@ -133,7 +131,6 @@ public class TelaAvaliacaoControlador {
     }
     @FXML
     public void irParaTelaLivro (ActionEvent event) throws IOException{
-        //root = FXMLLoader.load(getClass().getResource("tela_inicial_cliente.fxml"));
         FXMLLoader loader = new FXMLLoader(getClass().getResource("tela_livro.fxml"));
         root = loader.load();
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

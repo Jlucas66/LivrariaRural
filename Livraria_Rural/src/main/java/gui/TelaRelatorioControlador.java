@@ -16,6 +16,7 @@ import negocio.ControladorVenda;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class TelaRelatorioControlador {
@@ -48,8 +49,6 @@ public class TelaRelatorioControlador {
 
     @FXML
     void btnRelatorioGerarRelatorio(ActionEvent event) {
-        System.out.println(dataDeInicio.getValue());
-        System.out.println(dataDeFim.getValue());
         // gerar a lista
         List<Venda> lista = new ArrayList<>();
 
@@ -63,7 +62,6 @@ public class TelaRelatorioControlador {
             alert.setContentText("Selecione outras datas de inicio e fim");
 
             alert.showAndWait();
-            System.out.println("Alerta de não seleção de datas");
         }
         atualizarRelatorio(lista);
     }
@@ -75,9 +73,7 @@ public class TelaRelatorioControlador {
     }
     public void atualizarRelatorio(List<Venda> listaDeVendas) {
         // preenche a HBox que está dentro do scroll com as cardsVenda
-        ControladorVenda controladorVenda = ControladorVenda.getInstance();
-        //Venda venda = controladorVenda.buscarUltimaVendaDoRepo();
-
+        Collections.sort(listaDeVendas);
 
         int coluna = 0;
         int linha = 1;
@@ -102,12 +98,6 @@ public class TelaRelatorioControlador {
         } catch (IOException e){
             e.printStackTrace();
         }
-
-
-
-
-
-
     }
 
 

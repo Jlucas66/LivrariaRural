@@ -55,10 +55,6 @@ public class TelaVisualizarVendaRelatorioControlador {
     }
 
     public void initialize() {
-        // set das informações
-        //ControladorVenda controladorVenda = ControladorVenda.getInstance();
-        //Venda venda = controladorVenda.buscarUltimaVendaDoRepo();
-        //atualizarVendas();
 
     }
 
@@ -102,9 +98,6 @@ public class TelaVisualizarVendaRelatorioControlador {
         } catch (IOException e){
             e.printStackTrace();
         }
-
-
-
     }
     public void irParaTelaRelatorio (ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("tela_relatorio.fxml"));

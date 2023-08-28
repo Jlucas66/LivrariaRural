@@ -81,7 +81,8 @@ public class RepositorioLivro implements IRepositorioLivro {
         return livroBuscado;
     }
 
-        // atualizarLivro
+
+    // atualizarLivro
     public boolean atualizarLivroComMesmoId(Livro novoLivro) {
         boolean atualizou = false;
         boolean livroExiste = false;

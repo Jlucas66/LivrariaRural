@@ -106,7 +106,6 @@ public class TelaLivroBuscadoControlador {
         int qtd=-1;
 
         try{
-            //qtd = Integer.parseInt(quantidadeLivrosLivro.getText());
             qtd = quantidadeLivrosLivro.getValue();
         }catch(NumberFormatException e){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -115,11 +114,10 @@ public class TelaLivroBuscadoControlador {
             alert.setContentText("Valor digitado não é um número ou espaço em branco!");
 
             alert.showAndWait();
-            System.out.println("Alerta de quantidade maior do que a disponível no estoque, ou então digitou algo diferente de numero inteiro");
         }
 
         if(qtd>-1){
-            System.out.println(qtd);
+//            System.out.println(qtd);
             // criar itemVenda
             ControladorItemVenda controladorItemVenda = ControladorItemVenda.getInstance();
             ItemVenda itemVenda = controladorItemVenda.criarItemVenda(livroRecebido, qtd);
@@ -131,7 +129,6 @@ public class TelaLivroBuscadoControlador {
                 // aplicar promoção
                 ControladorPromocao controladorPromocao = ControladorPromocao.getInstance();
                 controladorPromocao.aplicarPromocaoNaVenda(controladorVenda.buscarUltimaVendaDoRepo());
-                System.out.println("Item adicionado ao carrinho.. verificando promocoes...");
 
                 // diminuir quantidade do livro no estoque
                 controladorVenda.diminuirQtd(itemVenda);
@@ -146,7 +143,6 @@ public class TelaLivroBuscadoControlador {
                 alert.setContentText("Quantidade maior do que a disponível, ou a entrada é zero");
 
                 alert.showAndWait();
-                System.out.println("Alerta de quantidade maior do que a disponível no estoque, ou então digitou algo diferente de numero inteiro");
             }
         }
     }
@@ -191,7 +187,7 @@ public class TelaLivroBuscadoControlador {
         scene = new Scene(root, 900, 560);
         stage.setScene(scene);
         stage.show();
-        stage.setTitle("Carrinho");
+        stage.setTitle("Histórico de compras");
         stage.setResizable(false);
     }
     public void irParaTelaBusca (ActionEvent event) throws IOException{

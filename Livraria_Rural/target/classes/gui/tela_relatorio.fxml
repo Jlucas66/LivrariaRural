@@ -38,22 +38,22 @@
             </GridPane>
          </content>
       </ScrollPane>
-      <Label layoutX="443.0" layoutY="184.0" prefHeight="20.0" prefWidth="44.0" text="Data">
+      <Label layoutX="394.0" layoutY="191.0" prefHeight="20.0" prefWidth="44.0" text="Data">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <Label layoutX="515.0" layoutY="184.0" prefHeight="20.0" prefWidth="28.0" text="[id]">
+      <Label layoutX="450.0" layoutY="191.0" prefHeight="20.0" prefWidth="28.0" text="[id]">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <Label layoutX="577.0" layoutY="184.0" prefHeight="20.0" prefWidth="73.0" text="Cliente">
+      <Label layoutX="500.0" layoutY="191.0" prefHeight="20.0" prefWidth="73.0" text="Cliente">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <Label layoutX="753.0" layoutY="184.0" prefHeight="20.0" prefWidth="44.0" text="Valor">
+      <Label layoutX="744.0" layoutY="191.0" prefHeight="20.0" prefWidth="44.0" text="Valor">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>

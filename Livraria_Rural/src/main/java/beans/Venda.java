@@ -5,7 +5,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
-public class Venda implements Serializable {
+public class Venda implements Serializable, Comparable<Venda> {
 
     // Atributos
     //public static long indice = 0;
@@ -117,7 +117,14 @@ public class Venda implements Serializable {
     }
 
     @Override
-    public long compareTo(id pid){
-        return (this.id - pid);
+    public int compareTo(Venda o) {
+        int resultado = 0;
+        if (this.id > o.getId()) {
+            resultado =  -1;
+        } else if (this.id < o.getId()) {
+            resultado = 1;
+        }
+        return resultado;
     }
+
 }

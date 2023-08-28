@@ -75,7 +75,8 @@ public class ControladorLivro {
                 && novoLivro.getSinopse() != null && !novoLivro.getSinopse().isEmpty()
                 && novoLivro.getEditora() != null && !novoLivro.getEditora().isEmpty()
                 && novoLivro.getEdicao() != null && !novoLivro.getEdicao().isEmpty()
-                && novoLivro.getPreco() >= 0 && novoLivro.getQuantidadeNoEstoque() >=0) {
+                && novoLivro.getPreco() >= 0 && novoLivro.getQuantidadeNoEstoque() >=0
+                && novoLivro.getQuantidadeNoEstoque()>0) {
             // livro tem todos os atributos válidos e pode substituir
             atualizadoComSucesso = repo.atualizarLivroComMesmoId(novoLivro);
         }

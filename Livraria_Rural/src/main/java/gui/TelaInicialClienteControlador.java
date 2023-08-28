@@ -20,27 +20,43 @@ import negocio.ControladorVenda;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class TelaInicialClienteControlador {
 
     private Stage stage;
     private Scene scene;
     private Parent root;
-    private List<Livro> livros;     // atributo que virá de outro canto pra ser usado nessa tela
+    private List<Livro> livros;
 
-    // metodo que será realizado assim que a tela iniciar - preencher labels..
     public void initialize() {
         ControladorLivro controladorLivro = ControladorLivro.getInstance();
         ControladorVenda controladorVenda = ControladorVenda.getInstance();
-        this.livros = controladorLivro.getRepositorioLivro();
+
+        //livros para a tela inicial
+        List<Livro> livrosAleatorios = new ArrayList<>();
+        Random random = new Random();
+        int tamanhoRepositorio = controladorLivro.getRepositorioLivro().size();
+        while (livrosAleatorios.size() < 4) { // Adicione 4 livros aleatórios
+            int indiceAleatorio = random.nextInt(tamanhoRepositorio);
+            Livro livroAleatorio = controladorLivro.getRepositorioLivro().get(indiceAleatorio);
+
+            if (!livrosAleatorios.contains(livroAleatorio)) {
+                livrosAleatorios.add(livroAleatorio);
+            }
+        }
+        this.livros = livrosAleatorios;
 
         // setar itens no choicebox
         for (Livro livro : controladorLivro.getRepositorioLivro()) {
             generos.getItems().add(livro.getGenero());
         }
-        ola.setText(String.format("Olá, %s!", controladorVenda.buscarUltimaVendaDoRepo().getPessoa().getNome()));
 
-
+        try {
+            ola.setText(String.format("Olá, %s!", controladorVenda.buscarUltimaVendaDoRepo().getPessoa().getNome()));
+        } catch (Exception e) {
+            ola.setText("Seja bem vindo(a)!");
+        }
 
         // setar os livros
         tituloDoLivro1.setText(livros.get(0).getTitulo());
@@ -51,22 +67,28 @@ public class TelaInicialClienteControlador {
         precoDoLivro2.setText(String.format("R$ %.2f", livros.get(1).getPreco()));
         precoDoLivro3.setText(String.format("R$ %.2f", livros.get(2).getPreco()));
         precoDoLivro4.setText(String.format("R$ %.2f", livros.get(3).getPreco()));
-        List<ImageView> capas = new ArrayList<>();
-        capas.add(capaDoLivro1);
-        capas.add(capaDoLivro2);
-        capas.add(capaDoLivro3);
-        capas.add(capaDoLivro4);
-
-
-
-        for (int i = 0; i < 4; i++) {
-            capas.get(i).setImage(new Image(getClass().getResourceAsStream(String.format("Imagens/capas_livros/%d.jpg", livros.get(i).getId()))));
+        try {
+            capaDoLivro1.setImage(new Image(getClass().getResourceAsStream(String.format("Imagens/capas_livros/%d.jpg", livros.get(0).getId()))));
+        } catch (Exception e) {
+            capaDoLivro1.setImage(new Image(getClass().getResourceAsStream(String.format("Imagens/capas_livros/sem_capa.jpg"))));
+        }
+        try {
+            capaDoLivro2.setImage(new Image(getClass().getResourceAsStream(String.format("Imagens/capas_livros/%d.jpg", livros.get(1).getId()))));
+        } catch (Exception e) {
+            capaDoLivro2.setImage(new Image(getClass().getResourceAsStream(String.format("Imagens/capas_livros/sem_capa.jpg"))));
+        }
+        try {
+            capaDoLivro3.setImage(new Image(getClass().getResourceAsStream(String.format("Imagens/capas_livros/%d.jpg", livros.get(2).getId()))));
+        } catch (Exception e) {
+            capaDoLivro3.setImage(new Image(getClass().getResourceAsStream(String.format("Imagens/capas_livros/sem_capa.jpg"))));
+        }
+        try {
+            capaDoLivro4.setImage(new Image(getClass().getResourceAsStream(String.format("Imagens/capas_livros/%d.jpg", livros.get(3).getId()))));
+        } catch (Exception e) {
+            capaDoLivro4.setImage(new Image(getClass().getResourceAsStream(String.format("Imagens/capas_livros/sem_capa.jpg"))));
         }
 
-
-
     }
-
 
     //Fx: ID
 
@@ -96,30 +118,12 @@ public class TelaInicialClienteControlador {
     private Label precoDoLivro3;
     @FXML
     private Label precoDoLivro4;
-
-    @FXML
-    private Button botaoLupa;
-    @FXML
-    private Button botaoHistorico;
-    @FXML
-    private Button botaoCarrinho;
-    @FXML
-    private Button botaoMaisDetalhes1;
-    @FXML
-    private Button botaoMaisDetalhes2;
-    @FXML
-    private Button botaoMaisDetalhes3;
-    @FXML
-    private Button botaoMaisDetalhes4;
-    @FXML
-    private Button botaoSairDaConta;
     @FXML
     private ChoiceBox<String> generos;
     @FXML
     private Label ola;
 
     // On
-
 
     @FXML
     public void btnInicialClienteLupa(ActionEvent event) throws IOException{
@@ -136,7 +140,6 @@ public class TelaInicialClienteControlador {
         // vai para tela de carrinho
         irParaTelaCarrinho(event);
     }
-
     @FXML
     public void btnInicialClienteSairDaConta (ActionEvent event) throws  IOException{
 
@@ -148,6 +151,23 @@ public class TelaInicialClienteControlador {
 
         irParaTelaLogon(event);
     }
+    @FXML
+    public void btnInicialClienteMaisDetalhes1(ActionEvent event) throws IOException{
+        irParaTelaLivro(event, livros.get(0));
+    }
+    @FXML
+    public void btnInicialClienteMaisDetalhes2(ActionEvent event) throws IOException {
+        irParaTelaLivro(event, livros.get(1));
+    }
+    @FXML
+    public void btnInicialClienteMaisDetalhes3(ActionEvent event) throws IOException {
+        irParaTelaLivro(event, livros.get(2));
+    }
+    @FXML
+    public void btnInicialClienteMaisDetalhes4(ActionEvent event) throws IOException {
+        irParaTelaLivro(event, livros.get(3));
+    }
+
     public void irParaTelaLogon (ActionEvent event) throws IOException{
         root = FXMLLoader.load(getClass().getResource("tela_logon.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -170,11 +190,9 @@ public class TelaInicialClienteControlador {
         // Passar livro para proxima tela
         TelaLivroControlador telaLivroControlador = loader.getController();
         ControladorVenda controladorVenda = ControladorVenda.getInstance();
-        telaLivroControlador.receberPessoa(controladorVenda.buscarUltimaVendaDoRepo().getPessoa());
-        //passando pesso ah pessoa da tela clinte para a tela do livro
         telaLivroControlador.receberLivro(livro);
-
-
+        //passando pessoa da tela clinte para a tela do livro
+        telaLivroControlador.receberPessoa(controladorVenda.buscarUltimaVendaDoRepo().getPessoa());
     }
     public void irParaTelaBusca (ActionEvent event) throws IOException{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("tela_busca.fxml"));
@@ -210,25 +228,6 @@ public class TelaInicialClienteControlador {
     }
 
 
-    @FXML
-    public void btnInicialClienteMaisDetalhes1(ActionEvent event) throws IOException{
-    // aqui vai pra tela do livro selecionado dentro do array list inicial
-    irParaTelaLivro(event, livros.get(0));
-}
 
-    public void btnInicialClienteMaisDetalhes2(ActionEvent event) throws IOException {
-        irParaTelaLivro(event, livros.get(1));
-
-    }
-
-    public void btnInicialClienteMaisDetalhes3(ActionEvent event) throws IOException {
-        irParaTelaLivro(event, livros.get(2));
-
-    }
-
-    public void btnInicialClienteMaisDetalhes4(ActionEvent event) throws IOException {
-        irParaTelaLivro(event, livros.get(3));
-
-    }
 
 }

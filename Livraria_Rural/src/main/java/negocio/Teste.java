@@ -6,6 +6,8 @@ import org.controlsfx.control.PropertySheet;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatterBuilder;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 public class Teste {
         public static void main(String[] args) {
@@ -26,34 +28,19 @@ public class Teste {
                 System.out.println("tamanho de promocao.ser = " + controladorPromocao.getRepositorioPromocao().size());
                 System.out.println("tamanho de livros.ser = " + controladorLivro.getRepositorioLivro().size());
 
-
-                for (Promocao p : controladorPromocao.getRepositorioPromocao()) {
-                        System.out.println(p.getNomePromocao());
-                        System.out.printf("%1$td/%1$tm/%1$ty\n", p.getInicio());
-                        System.out.printf("%1$td/%1$tm/%1$ty\n", p.getFim());
-
-                }
-
                 System.out.println();
 
-                System.out.println("testando avaliações");
-                for (Livro i : controladorLivro.getRepositorioLivro()) {
-                        System.out.println(i.getId() + " - " + i.getAvaliacoes().size());
-                }
-                System.out.println(controladorLivro.buscarLivroPorId(4).getAvaliacoes().get(0).getPessoa().getNome());
-
-                System.out.println();
 
                 //criando os livros
                 //Terror
-                Livro livro1 = new Livro(long id, String titulo, String autor, String genero, String sinopse, String editora, String edicao, Double preco, Integer quantidadeNoEstoque);
+                //Livro livro1 = new Livro(long id, String titulo, String autor, String genero, String sinopse, String editora, String edicao, Double preco, Integer quantidadeNoEstoque);
 
-                Livro livro1 = new Livro(id:1, titulo:"O Iluminado", autor:"Stephen King", genero:"Terror", sinopse: "Um homem e sua família se mudam para um hotel isolado no inverno, mas eventos sobrenaturais começam a acontecer.",  editora:"Suma", edicao:"2ª edição", preco:29,99, quantidadeNoEstoque: 20);
+                Livro livro1 = new Livro(1, "O Iluminado", "Stephen King", "Terror", "Um homem e sua família se mudam para um hotel isolado no inverno, mas eventos sobrenaturais começam a acontecer.","Suma", "2ª edição", 29.99, 20);
                 Livro livro2 = new Livro(2, "Psicose", "Robert Bloch", "Terror", "Uma mulher comete um erro fatal ao parar em um motel isolado administrado por um zelador perturbado.", "Darkside Books", "2ª edição", 24.99, 18);
                 Livro livro3 = new Livro(3, "O Exorcista", "William Peter Blatty", "Terror", "Um padre é chamado para realizar um exorcismo em uma jovem possuída por uma entidade maligna.", "HarperCollins", "1ª edição", 27.50, 23);
                 Livro livro4 = new Livro(4, "Cemitério Maldito", "Stephen King", "Terror", "Uma família descobre um cemitério que pode trazer os mortos de volta à vida, mas com consequências terríveis.", "Suma", "3ª edição", 22.75, 6);
                 Livro livro5 = new Livro(5, "It: A Coisa", "Stephen King", "Terror", "Um grupo de amigos enfrenta uma entidade maligna que assume a forma de seus piores medos.", "Suma", "1ª edição", 34.50, 17);
-                Livro livro6 = new Livro(id:6, "O Chamado de Cthulhu", "H.P. Lovecraft", "Terror", "Um conto de horror cósmico que envolve a descoberta de uma antiga entidade que ameaça a sanidade humana.", "Darkside Books", "2ª edição", 18.99, 19);
+                Livro livro6 = new Livro(6, "O Chamado de Cthulhu", "H.P. Lovecraft", "Terror", "Um conto de horror cósmico que envolve a descoberta de uma antiga entidade que ameaça a sanidade humana.", "Darkside Books", "2ª edição", 18.99, 19);
                 Livro livro7 = new Livro(7, "O Médico e o Monstro", "Robert Louis Stevenson", "Terror", "Um médico cria uma poção que libera seus impulsos mais sombrios, transformando-o no cruel Mr. Hyde.", "Pandorga Editora", "1ª edição", 20.00, 4);
                 Livro livro8 = new Livro(8, "A Assombração da Casa da Colina", "Shirley Jackson", "Terror", "Um grupo de pessoas passa uma noite em uma mansão assombrada para provar a existência de atividade paranormal.", "Alfaguara", "2ª edição", 26.25, 22);
                 Livro livro9 = new Livro(9, "Carrie, a Estranha", "Stephen King", "Terror", "Uma adolescente com poderes telecinéticos busca vingança contra seus colegas após anos de humilhação.", "Suma", "2ª edição", 23.50, 10);
@@ -112,8 +99,67 @@ public class Teste {
                 Livro livro49 = new Livro(49, "O Amor nos Tempos do Cólera", "Gabriel García Márquez", "Romance", "Dois amantes se encontram após décadas separados, explorando o amor e a paixão em suas vidas posteriores.", "Record", "1ª edição", 30.25, 33);
                 Livro livro50 = new Livro(50, "O Diário de Bridget Jones", "Helen Fielding", "Romance", "Uma mulher solteira lida com a vida amorosa, o trabalho e as pressões sociais em seu diário cômico.", "Paralela", "1ª edição", 22.99, 25);
 
+                controladorLivro.cadastrarLivro(livro1);
+                controladorLivro.cadastrarLivro(livro2);
+                controladorLivro.cadastrarLivro(livro3);
+                controladorLivro.cadastrarLivro(livro4);
+                controladorLivro.cadastrarLivro(livro5);
+                controladorLivro.cadastrarLivro(livro6);
+                controladorLivro.cadastrarLivro(livro7);
+                controladorLivro.cadastrarLivro(livro8);
+                controladorLivro.cadastrarLivro(livro9);
+                controladorLivro.cadastrarLivro(livro10);
 
-//                //criar 3 vendas para testar
+                controladorLivro.cadastrarLivro(livro11);
+                controladorLivro.cadastrarLivro(livro12);
+                controladorLivro.cadastrarLivro(livro13);
+                controladorLivro.cadastrarLivro(livro14);
+                controladorLivro.cadastrarLivro(livro15);
+                controladorLivro.cadastrarLivro(livro16);
+                controladorLivro.cadastrarLivro(livro17);
+                controladorLivro.cadastrarLivro(livro18);
+                controladorLivro.cadastrarLivro(livro19);
+                controladorLivro.cadastrarLivro(livro20);
+
+                controladorLivro.cadastrarLivro(livro21);
+                controladorLivro.cadastrarLivro(livro22);
+                controladorLivro.cadastrarLivro(livro23);
+                controladorLivro.cadastrarLivro(livro24);
+                controladorLivro.cadastrarLivro(livro25);
+                controladorLivro.cadastrarLivro(livro26);
+                controladorLivro.cadastrarLivro(livro27);
+                controladorLivro.cadastrarLivro(livro28);
+                controladorLivro.cadastrarLivro(livro29);
+                controladorLivro.cadastrarLivro(livro30);
+
+                controladorLivro.cadastrarLivro(livro31);
+                controladorLivro.cadastrarLivro(livro32);
+                controladorLivro.cadastrarLivro(livro33);
+                controladorLivro.cadastrarLivro(livro34);
+                controladorLivro.cadastrarLivro(livro35);
+                controladorLivro.cadastrarLivro(livro36);
+                controladorLivro.cadastrarLivro(livro37);
+                controladorLivro.cadastrarLivro(livro38);
+                controladorLivro.cadastrarLivro(livro39);
+                controladorLivro.cadastrarLivro(livro40);
+
+                controladorLivro.cadastrarLivro(livro41);
+                controladorLivro.cadastrarLivro(livro42);
+                controladorLivro.cadastrarLivro(livro43);
+                controladorLivro.cadastrarLivro(livro44);
+                controladorLivro.cadastrarLivro(livro45);
+                controladorLivro.cadastrarLivro(livro46);
+                controladorLivro.cadastrarLivro(livro47);
+                controladorLivro.cadastrarLivro(livro48);
+                controladorLivro.cadastrarLivro(livro49);
+                controladorLivro.cadastrarLivro(livro50);
+
+                controladorLivro.salvarLivrosEmArquivo("Livraria_Rural/livros.ser");
+
+
+
+
+//                //criando vendas no repor 3 vendas para testar
 //                System.out.println(controladorVenda.inserirVenda(new Venda(controladorPessoa.buscarPessoaPorEmail("martha@email.com"))));
 //                System.out.println(controladorVenda.inserirVenda(new Venda(controladorPessoa.buscarPessoaPorEmail("alex@email.com"))));
 //                System.out.println(controladorVenda.inserirVenda(new Venda(controladorPessoa.buscarPessoaPorEmail("caio@email.com"))));

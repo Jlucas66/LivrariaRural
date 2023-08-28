@@ -51,9 +51,6 @@ public class TelaCadastroAdmControlador {
 
         if (cPessoa.criarECadastrarAdministrador(nomeCadastroADM.getText(), emailCadastroADM.getText(), senhaCadastroADM.getText(), enderecoCadastroADM.getText(), dataDeNascimentoCadastroADM.getValue())) {
 
-            // alerta de cadastrado com sucesso
-
-
             // atualizar repositório
             cPessoa.salvarPessoasEmArquivo("Livraria_Rural/pessoas.ser");
 
@@ -78,14 +75,6 @@ public class TelaCadastroAdmControlador {
             alert.showAndWait();
 
         }
-
-        //imprimindo no sistema só pra ver se deu certo - pode apagar depois.
-        for (Pessoa p : cPessoa.getRepositorioPessoa()) {
-            System.out.println(p.getNome());
-            System.out.println(p.getEmail());
-            System.out.println(p.getSenha());
-        }
-
     }
 
     @FXML

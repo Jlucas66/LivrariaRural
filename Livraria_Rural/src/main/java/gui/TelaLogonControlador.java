@@ -30,11 +30,7 @@ public class TelaLogonControlador {
     private Parent root;
 
     public void initialize() {
-        // Carregar a imagem
-        //Image imagem = new Image(getClass().getResourceAsStream("logo_livraria.png"));
 
-        // Definir a imagem no ImageView
-        //logo.setImage(imagem);
     }
 
     @FXML
@@ -53,10 +49,6 @@ public class TelaLogonControlador {
         ControladorPessoa controladorPessoa = ControladorPessoa.getInstance();
         ControladorVenda controladorVenda = ControladorVenda.getInstance();
 
-        // Verificar se email e senha são iguais ao registrado no repositorio
-        // E depois verificar se não é adm
-
-
         if (controladorPessoa.buscarPessoaPorEmail(emailLogon.getText()) != null
                 && controladorPessoa.buscarPessoaPorEmail(emailLogon.getText()).getSenha().equals(senhaLogon.getText())) {
             Pessoa pessoaLogada = controladorPessoa.buscarPessoaPorEmail(emailLogon.getText());
@@ -67,18 +59,12 @@ public class TelaLogonControlador {
                 // aqui também vai criar uma venda, a pessoa que acessou o sistema, e a lista de itens vai estar vazia.
                 if (controladorVenda.inserirVenda(new Venda(pessoaLogada))) {
                     System.out.println("Venda iniciada..:");
-                    //System.out.println(cVenda.buscarUltimaVendaDoRepo().getPessoa().getNome());
                 }
 
             } else {
                 // vai para a tela de adm
                 irParaTelaAdm(event);
-
-
             }
-
-
-
 
         } else {
 
@@ -89,9 +75,6 @@ public class TelaLogonControlador {
             alert.setContentText("Email não existe, ou a senha está errada ou, campo não preenchido!");
 
             alert.showAndWait();
-            System.out.println("pessoa não existe, ou a senha está errada .");
-
-            System.out.println("ALERT: pessoa não existe, ou a senha está errada.");
         }
     }
 
@@ -110,7 +93,6 @@ public class TelaLogonControlador {
         stage.setResizable(false);
     }
     public void irParaTelaInicialCliente (ActionEvent event) throws IOException{
-        //root = FXMLLoader.load(getClass().getResource("tela_inicial_cliente.fxml"));
         FXMLLoader loader = new FXMLLoader(getClass().getResource("tela_inicial_cliente.fxml"));
         root = loader.load();
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -122,7 +104,6 @@ public class TelaLogonControlador {
     }
 
     public void irParaTelaAdm (ActionEvent event) throws IOException{
-        //root = FXMLLoader.load(getClass().getResource("tela_inicial_cliente.fxml"));
         FXMLLoader loader = new FXMLLoader(getClass().getResource("tela_adm.fxml"));
         root = loader.load();
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();

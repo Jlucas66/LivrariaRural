@@ -57,9 +57,6 @@ public class TelaCadastroControlador {
 
         if (cPessoa.criarECadastrarPessoa(nomeCadastro.getText(), emailCadastro.getText(), senhaCadastro.getText(), enderecoCadastro.getText(), dataDeNascimentoCadastro.getValue())) {
 
-            // alerta de cadastrado com sucesso
-
-
             // atualizar repositório
             cPessoa.salvarPessoasEmArquivo("Livraria_Rural/pessoas.ser");
 
@@ -75,20 +72,12 @@ public class TelaCadastroControlador {
             alert.setContentText("Email já existente ou campos não preenchidos!");
 
             alert.showAndWait();
-
-        }
-
-        //imprimindo no sistema só pra ver se deu certo - pode apagar depois.
-        for (Pessoa p : cPessoa.getRepositorioPessoa()) {
-            System.out.println(p.getNome());
-            System.out.println(p.getEmail());
-            System.out.println(p.getSenha());
         }
 
     }
 
     public void btnCadastroVoltar(ActionEvent event) throws IOException{
-irParaTelaLogon(event);
+        irParaTelaLogon(event);
     }
     public void irParaTelaLogon (ActionEvent event) throws IOException{
         root = FXMLLoader.load(getClass().getResource("tela_logon.fxml"));

@@ -91,7 +91,6 @@ public class TelaCarrinhoControlador {
             alert.setContentText("Adicione itens para conseguir finalizar uma compra.");
 
             alert.showAndWait();
-            System.out.println("Alerta de carrinho vazio!");
         }
 
     }

@@ -58,87 +58,87 @@
             </Label>
          </children>
       </HBox>
-      <Pane layoutX="22.0" layoutY="242.0" prefHeight="265.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF;">
+      <Pane layoutX="22.0" layoutY="233.0" prefHeight="274.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF;">
          <children>
-            <ImageView fx:id="capaDoLivro1" fitHeight="167.0" fitWidth="120.0" layoutX="40.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="capaDoLivro1" fitHeight="167.0" fitWidth="120.0" layoutX="40.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                <image>
 
                </image>
             </ImageView>
-            <Label fx:id="tituloDoLivro1" layoutX="12.0" layoutY="162.0" maxHeight="38.0" maxWidth="177.0" prefHeight="38.0" prefWidth="177.0" text="Harry Potter e a pedra filosofal miojo lápis postit azul" textAlignment="CENTER" wrapText="true">
+            <Label fx:id="tituloDoLivro1" layoutX="12.0" layoutY="172.0" maxHeight="38.0" maxWidth="177.0" prefHeight="38.0" prefWidth="177.0" text="Harry Potter e a pedra filosofal miojo lápis postit azul" textAlignment="CENTER" wrapText="true">
                <font>
                   <Font size="13.0" />
                </font>
             </Label>
-            <Label fx:id="precoDoLivro1" layoutX="40.0" layoutY="196.0" text="R$ Preço do livro">
+            <Label fx:id="precoDoLivro1" layoutX="40.0" layoutY="206.0" text="R$ Preço do livro">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Button fx:id="botaoMaisDetalhes1" layoutX="56.0" layoutY="226.0" mnemonicParsing="false" onAction="#btnInicialClienteMaisDetalhes1" text="Mais detalhes" />
+            <Button fx:id="botaoMaisDetalhes1" layoutX="56.0" layoutY="239.0" mnemonicParsing="false" onAction="#btnInicialClienteMaisDetalhes1" prefWidth="89.0" text="Mais detalhes" />
          </children>
       </Pane>
-      <Label layoutX="28.0" layoutY="179.0" text="📚 Recomendamos a você:">
+      <Label layoutX="28.0" layoutY="179.0" text="📚 Alguns livros de nosso catálogo:">
          <font>
             <Font size="26.0" />
          </font>
       </Label>
-      <Pane layoutX="242.0" layoutY="242.0" prefHeight="265.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF;">
+      <Pane layoutX="242.0" layoutY="233.0" prefHeight="274.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF;">
          <children>
-            <ImageView fx:id="capaDoLivro2" fitHeight="167.0" fitWidth="120.0" layoutX="40.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="capaDoLivro2" fitHeight="167.0" fitWidth="120.0" layoutX="40.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                <image>
 
                </image>
             </ImageView>
-            <Label fx:id="tituloDoLivro2" layoutX="12.0" layoutY="162.0" maxHeight="38.0" maxWidth="177.0" prefHeight="38.0" prefWidth="177.0" text="Harry Potter e a pedra filosofal miojo lápis postit azul" textAlignment="CENTER" wrapText="true">
+            <Label fx:id="tituloDoLivro2" layoutX="12.0" layoutY="172.0" maxHeight="38.0" maxWidth="177.0" prefHeight="38.0" prefWidth="177.0" text="Harry Potter e a pedra filosofal miojo lápis postit azul" textAlignment="CENTER" wrapText="true">
                <font>
                   <Font size="13.0" />
                </font>
             </Label>
-            <Label fx:id="precoDoLivro2" layoutX="40.0" layoutY="196.0" text="R$ Preço do livro">
+            <Label fx:id="precoDoLivro2" layoutX="40.0" layoutY="206.0" text="R$ Preço do livro">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Button fx:id="botaoMaisDetalhes2" layoutX="56.0" layoutY="226.0" mnemonicParsing="false" onAction="#btnInicialClienteMaisDetalhes2" text="Mais detalhes" />
+            <Button fx:id="botaoMaisDetalhes2" layoutX="56.0" layoutY="239.0" mnemonicParsing="false" onAction="#btnInicialClienteMaisDetalhes2" text="Mais detalhes" />
          </children></Pane>
-      <Pane layoutX="462.0" layoutY="242.0" prefHeight="265.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF;">
+      <Pane layoutX="462.0" layoutY="233.0" prefHeight="274.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF;">
          <children>
-            <ImageView fx:id="capaDoLivro3" fitHeight="167.0" fitWidth="120.0" layoutX="40.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="capaDoLivro3" fitHeight="167.0" fitWidth="120.0" layoutX="40.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                <image>
 
                </image>
             </ImageView>
-            <Label fx:id="tituloDoLivro3" layoutX="12.0" layoutY="162.0" maxHeight="38.0" maxWidth="177.0" prefHeight="38.0" prefWidth="177.0" text="Harry Potter e a pedra filosofal miojo lápis postit azul&#10;" textAlignment="CENTER" wrapText="true">
+            <Label fx:id="tituloDoLivro3" layoutX="12.0" layoutY="172.0" maxHeight="38.0" maxWidth="177.0" prefHeight="38.0" prefWidth="177.0" text="Harry Potter e a pedra filosofal miojo lápis postit azul&#10;" textAlignment="CENTER" wrapText="true">
                <font>
                   <Font size="13.0" />
                </font>
             </Label>
-            <Label fx:id="precoDoLivro3" layoutX="40.0" layoutY="196.0" text="R$ Preço do livro">
+            <Label fx:id="precoDoLivro3" layoutX="40.0" layoutY="206.0" text="R$ Preço do livro">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Button fx:id="botaoMaisDetalhes3" layoutX="56.0" layoutY="226.0" mnemonicParsing="false" onAction="#btnInicialClienteMaisDetalhes3" text="Mais detalhes" />
+            <Button fx:id="botaoMaisDetalhes3" layoutX="56.0" layoutY="239.0" mnemonicParsing="false" onAction="#btnInicialClienteMaisDetalhes3" text="Mais detalhes" />
          </children></Pane>
-      <Pane layoutX="682.0" layoutY="242.0" prefHeight="265.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF;">
+      <Pane layoutX="682.0" layoutY="233.0" prefHeight="274.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF;">
          <children>
-            <ImageView fx:id="capaDoLivro4" fitHeight="167.0" fitWidth="120.0" layoutX="40.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="capaDoLivro4" fitHeight="167.0" fitWidth="120.0" layoutX="40.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                <image>
 
                </image>
             </ImageView>
-            <Label fx:id="tituloDoLivro4" layoutX="12.0" layoutY="162.0" maxHeight="38.0" maxWidth="177.0" prefHeight="38.0" prefWidth="177.0" text="Harry Potter e a pedra filosofal miojo lápis postit azul&#10;" textAlignment="CENTER" wrapText="true">
+            <Label fx:id="tituloDoLivro4" layoutX="12.0" layoutY="172.0" maxHeight="38.0" maxWidth="177.0" prefHeight="38.0" prefWidth="177.0" text="Harry Potter e a pedra filosofal miojo lápis postit azul&#10;" textAlignment="CENTER" wrapText="true">
                <font>
                   <Font size="13.0" />
                </font>
             </Label>
-            <Label fx:id="precoDoLivro4" layoutX="40.0" layoutY="196.0" text="R$ Preço do livro">
+            <Label fx:id="precoDoLivro4" layoutX="40.0" layoutY="206.0" text="R$ Preço do livro">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Button fx:id="botaoMaisDetalhes4" layoutX="56.0" layoutY="226.0" mnemonicParsing="false" onAction="#btnInicialClienteMaisDetalhes4" text="Mais detalhes" />
+            <Button fx:id="botaoMaisDetalhes4" layoutX="56.0" layoutY="239.0" mnemonicParsing="false" onAction="#btnInicialClienteMaisDetalhes4" text="Mais detalhes" />
          </children></Pane>
       <Button fx:id="botaoSairDaConta" layoutX="797.0" layoutY="521.0" mnemonicParsing="false" onAction="#btnInicialClienteSairDaConta" text="Sair da conta" />
       <ChoiceBox fx:id="generos" layoutX="437.0" layoutY="83.0" prefHeight="25.0" prefWidth="206.0" />
